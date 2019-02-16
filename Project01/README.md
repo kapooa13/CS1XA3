@@ -15,10 +15,10 @@ Just clone/download the repository and the script should run without any additio
 ## Features
 As of now, the only feature that has been implemented, along with the menu based user input, is the TODO log function. More features will be coming soon.
 
-###1. Script Input
+### 1. Script Input
 Uses the "select" statement to create a menu of functions where the user can choose what function to execute
 
-###2. TODO log
+### 2. TODO log
 This function uses grep and recursively searches for "#TODO" in all the files present in CS1XA3 and its directories/sub-directories, and copies all the lines which match the grep pattern to a file called "todo.log" in /CS1XA3
 
 ## Usage
