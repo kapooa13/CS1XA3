@@ -1,0 +1,3 @@
+testing1.sh:#TODO something blah blah in testing1.sh
+testing1.sh:mkdir -p ~/new_csv/html   #TODO making directory for html
+testing1.sh:fi    #TODO closing if loop
