@@ -1,4 +1,4 @@
-#CS 1XA3 Project 01
+# CS 1XA3 Project 01
 
 This project involves working with bash scripts and implementing multiple bash functions within a given script, which are called via user prompted input.
 
