@@ -28,5 +28,8 @@ Go to the /CS1XA3/Project01 directory where the script is located and run the fo
 
 This will present the user with a menu, wherein which they can select the function they would like to call by entering the corresponding number.
 
+## License
+This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) for details
+
 ## Authors
 * Ankit Kapoor
