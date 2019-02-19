@@ -1,0 +1,5 @@
+The following haskell file(s) failed to compile:
+./testhaskelldir/notwork/notwork.hs
+./testhaskelldir/why/awhythis.hs
+The following python file(s) failed to compile:
+./testpythondir/doesnotcompile.py
