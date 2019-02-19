@@ -5,8 +5,6 @@ PS3=$'\n'">>> Enter the number to call corresponding function: "
 
 cd ..
 
-
-
 function todo {
     rm -f todo.log
     touch todo.log
@@ -63,12 +61,29 @@ done
 }
 
 
+function filecount {
+
+    html_count=$(find . -name "*.html" -type f | wc -l)
+    js_count=$(find . -name "*.js" -type f | wc -l)
+    css_count=$(find . -name "*.css" -type f | wc -l)
+    py_count=$(find . -name "*.py" -type f | wc -l)
+    hs_count=$(find . -name "*.hs" -type f | wc -l)
+    sh_count=$(find . -name "*.sh" -type f | wc -l)
+
+    echo "<<< HTML: $html_count"
+    echo "<<< Javascript: $js_count"
+    echo "<<< CSS: $css_count"
+    echo "<<< Python: $py_count"
+    echo "<<< Haskell: $hs_count"
+    echo "<<< Bash: $sh_count"
+}
+
 
 echo "<<< --------"
 echo "<<< You are currently running project_analyze.sh"
 echo "<<< --------"
 
-select answer in TODO_log Delete_temp_files Compile_error_log Exit
+select answer in TODO_log Delete_temp_files Compile_error_log File_count Exit
 do
     case $answer in
         TODO_log)
@@ -102,6 +117,14 @@ do
             echo ""
             echo "<<< --------"
             echo "<<< Compile error log has been executed"
+            echo "<<< --------"
+            ;;
+        File_count)
+            echo ""
+            echo "<<< --------"
+            echo "<<< File count:"
+            echo "<<< ----"
+            filecount
             echo "<<< --------"
             ;;
         Exit)
