@@ -108,7 +108,7 @@ do
             echo "<<< ----"
             echo "<<< The following file(s) have been deleted"
             echo ""
-            git ls-files --exclude-standard --others | grep ".tmp"
+            git ls-files --exclude-standard --others | grep ".tmp$"
             echo ""
             echo "<<< --------"
             deltempfile
