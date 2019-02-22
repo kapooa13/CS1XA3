@@ -1,9 +1,16 @@
 #!/bin/bash
+#./bash_tutor.sh
+chmod a+x ./bash_tutor.sh
 
 #PS3:The value of this parameter is used as a prompt for the select command used below
 PS3=$'\n'">>> Enter the number to call corresponding function: "
 
+#
 cd ..
+
+function bashtutor {
+    ./Project01/bash_tutor.sh
+}
 
 function todo {
     rm -f todo.log
@@ -83,7 +90,7 @@ echo "<<< --------"
 echo "<<< You are currently running project_analyze.sh"
 echo "<<< --------"
 
-select answer in TODO_log Delete_temp_files Compile_error_log File_count Exit
+select answer in TODO_log Delete_temp_files Compile_error_log File_count Bash_tutor Exit
 do
     case $answer in
         TODO_log)
@@ -134,6 +141,11 @@ do
             echo "<<< --------"
             echo ""
             exit 0
+            ;;
+        Bash_tutor)
+            echo ""
+            bashtutor
+            echo "<<< ----"
             ;;
         *)
             echo ""

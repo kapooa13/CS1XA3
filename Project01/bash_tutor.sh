@@ -15,22 +15,42 @@ cd ..
 echo ""
 echo "    Bash is a Unix shell and command language written"
 echo "    by Brian Fox for the GNU Project as a free software"
-echo "    replacement for the Bourne shell. It has been widely"
-echo -e "    as the default login shell for most Linux distributions.\n"
+echo -e "    replacement for the Bourne shell.\n"
 
 echo "    This tutor will guide you through the most commonly"
-echo -e "    used commands in bash. Let us begin!\n"
+echo -e "    used commands in bash. Let us begin!\n\n    HINT: (Type in 'start' to begin your lesson)\n"
+
+tur="turing@machine:"
+dolla="$"
+dirvar="$tur$(pwd)$dolla "
+while read -p "$dirvar" cmd
+do
+    case "$cmd" in
+        start)
+            echo ""
+            break
+            ;;
+        exit)
+            echo -e "\n    Thank you for using bash tutor.\n"
+            cd ~
+            rm -rf bash_tutor/
+            exit
+            ;;
+        *)
+            echo "Please enter a valid input. (Hint: try 'ls')"
+            ;;
+    esac
+done
 
 
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo -e "                       Lesson 1.0\n"
 echo -e "    NAME\n    ls - list directory contents\n"
-echo -e "    DESCRIPTION\n    List information about the FILEs (the current directory by default)\n"
-echo -e "    INSTRUCTIONS\n    Try typing in the command to figure out what it does.\n    Once you're done figuring it out, type 'next_lesson' to move on to the next lesson.\n"
+echo -e "    DESCRIPTION\n    List information about the FILEs\n    (the current directory by default)\n"
+echo -e "    INSTRUCTIONS\n    Try typing in the command to figure out what it does.\n"
+echo -e "    NOTE\n    Once you're done figuring it out, type 'next_lesson'\n    to move on to the next lesson.\n    You may exit at any point by typing 'exit'\n"
 
-tur="turing@machine:"
-dolla="$"
-dirvar="$tur$(pwd)$dolla "
+
 while read -p "$dirvar" cmd
 do
     case "$cmd" in
@@ -41,7 +61,9 @@ do
             break
             ;;
         exit)
-            echo "Thank you for using bash tutor."
+            echo -e "\n    Thank you for using bash tutor.\n"
+            cd ~
+            rm -rf bash_tutor/
             exit
             ;;
         *)
@@ -91,7 +113,9 @@ do
             fi
             ;;
         exit)
-            echo "Thank you for using bash tutor."
+            echo -e "\n    Thank you for using bash tutor.\n"
+            cd ~
+            rm -rf bash_tutor/
             exit
             ;;
         *)
@@ -132,7 +156,9 @@ do
             fi
             ;;
         exit)
-            echo "Thank you for using bash tutor."
+            echo -e "\n    Thank you for using bash tutor.\n"
+            cd ~
+            rm -rf bash_tutor/
             exit
             ;;
         *)
@@ -175,7 +201,9 @@ do
             fi
             ;;
         exit)
-            echo "Thank you for using bash tutor."
+            echo -e "\n    Thank you for using bash tutor.\n"
+            cd ~
+            rm -rf bash_tutor/
             exit
             ;;
         *)
@@ -208,12 +236,11 @@ do
         touch*)
             $cmd
             ;;
-        "cat sample.txt")
-            $cmd
-            flag=1
-            ;;
         cat*)
             $cmd
+            if $cmd | grep -qE "^its 2:24 am and I just wanna finish this project$"; then
+                flag=1
+            fi
             ;;
         next_lesson)
             dir=$(pwd)
@@ -225,7 +252,9 @@ do
             fi
             ;;
         exit)
-            echo "Thank you for using bash tutor."
+            echo -e "\n    Thank you for using bash tutor.\n"
+            cd ~
+            rm -rf bash_tutor/
             exit
             ;;
         *)
@@ -273,7 +302,9 @@ do
             fi
             ;;
         exit)
-            echo "Thank you for using bash tutor."
+            echo -e "\n    Thank you for using bash tutor.\n"
+            cd ~
+            rm -rf bash_tutor/
             exit
             ;;
         *)
@@ -286,7 +317,7 @@ echo -e "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo -e "                       Lesson 7.0\n"
 echo -e "    NAME\n    cp <SOURCE> <DEST> - copy files and directories\n"
 echo -e "    DESCRIPTION\n    Copy SOURCE to DEST, or\n    multiple SOURCE(s) to DIRECTORY\n"
-echo -e "    INSTRUCTIONS\n    copy ~/bash_tutor/bambie.mov to ~/bash_tutor/somedir/\n"    
+echo -e "    INSTRUCTIONS\n    copy creat a copy of ~/bash_tutor/bambie.mov called 'boy.man'\n"    
 echo -e "    NOTE\n    You can continue to use previously learned commands\n"
 
 while read -p "$dirvar" cmd
@@ -311,9 +342,12 @@ do
         mv*)
             $cmd
             ;;
+        cp*)
+            $cmd
+            ;;
         next_lesson)
             dir=$(pwd)
-            if [[ -f ~/bash_tutor/somedir/bambie.mov ]]; then 
+            if [[ -f ~/bash_tutor/boy.man ]]; then 
                 echo ""
                 break
             else
@@ -321,11 +355,174 @@ do
             fi
             ;;
         exit)
-            echo "Thank you for using bash tutor."
+            echo -e "\n    Thank you for using bash tutor.\n"
+            cd ~
+            rm -rf bash_tutor/
             exit
             ;;
         *)
-            echo "Please enter a valid input. (Hint: the syntax is cp <SOURCE> <DEST>)"
+            echo -e "\nPlease enter a valid input. (Hint: the syntax is cp <SOURCE> <DEST>)\n"
+            ;;
+    esac
+done
+
+echo -e "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo -e "                       Lesson 8.0\n"
+echo -e "    NAME\n    rm - remove files and directories\n"
+echo -e "    DESCRIPTION\n    rm removes each specified file.\n    By default, it does not remove directories\n"
+echo -e "    INSTRUCTIONS\n    cd into ~/bash_tutor and delete ~/bash_tutor/bambie.mov\n"    
+echo -e "    NOTE\n    Do not try to delete anything except ~/bash_tutor/bambie.mov\n"
+
+while read -p "$dirvar" cmd
+do
+    case "$cmd" in
+        ls)
+            ls
+            ;;
+        cd*)
+            $cmd
+            dirvar="$tur$(pwd)$dolla "
+            ;;
+        mkdir*)
+            $cmd
+            ;;
+        touch*)
+            $cmd
+            ;;
+        cat*)
+            $cmd
+            ;;
+        mv*)
+            $cmd
+            ;;
+        "rm bambie.mov")
+            $cmd
+            ;;
+        rm*)
+            echo "    ### WARNING: DO NOT TRY TO DELETE ANYTHING ELSE ###"
+            ;;
+        next_lesson)
+            dir=$(pwd)
+            if [[ ! (-f ~/bash_tutor/somedir/bambie.mov) ]]; then 
+                echo ""
+                break
+            else
+                echo -e "\nPlease follow the required instructions before attempting to move to next lesson.\n"
+            fi
+            ;;
+        exit)
+            echo -e "\n    Thank you for using bash tutor.\n"
+            cd ~
+            rm -rf bash_tutor/
+            exit
+            ;;
+        *)
+            echo "Please enter a valid input. (Hint: the syntax is rm <FILE>)"
+            ;;
+    esac
+done
+
+echo -e "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo -e "                       Lesson 9.0\n"
+echo -e "    NAME\n    man <CMD> - an interface to the online reference manuals\n"
+echo -e "    DESCRIPTION\n    man is the system's manual pager.\n"
+echo -e "    INSTRUCTIONS\n    try reading the man pages for some of the commands you just learned\n"    
+echo -e "    NOTE\n    The man command is extremely useful and gives\n    you information about all the flags and syntax about <CMD>\n"
+
+while read -p "$dirvar" cmd
+do
+    case "$cmd" in
+        ls)
+            ls
+            ;;
+        cd*)
+            $cmd
+            dirvar="$tur$(pwd)$dolla "
+            ;;
+        mkdir*)
+            $cmd
+            ;;
+        touch*)
+            $cmd
+            ;;
+        cat*)
+            $cmd
+            ;;
+        mv*)
+            $cmd
+            ;;
+        rm*)
+            echo "### WARNING: DO NOT TRY TO DELETE ANYTHING ELSE ###"
+            ;;
+        man*)
+            $cmd
+            ;;
+        next_lesson)
+            dir=$(pwd)
+            break
+            ;;
+        exit)
+            echo -e "\n    Thank you for using bash tutor.\n"
+            cd ~
+            rm -rf bash_tutor/
+            exit
+            ;;
+        *)
+            echo "Please enter a valid input. (Hint: the syntax is man <CMD>)"
+            ;;
+    esac
+done
+
+echo -e "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo -e "                       Lesson 10.0\n"
+echo -e "    NAME\n    exit - cause normal process termination\n"
+echo -e "    DESCRIPTION\n    The exit() function causes normal process termination\n    and the value of status & 0377 is return to parent.\n"
+echo -e "    INSTRUCTIONS\n    You may now exit bash tutor\n"    
+echo -e "    NOTE\n    exit() can be used within a script to terminate it or\n    to leave the terminal.\n"
+
+while read -p "$dirvar" cmd
+do
+    case "$cmd" in
+        ls)
+            ls
+            ;;
+        cd*)
+            $cmd
+            dirvar="$tur$(pwd)$dolla "
+            ;;
+        mkdir*)
+            $cmd
+            ;;
+        touch*)
+            $cmd
+            ;;
+        cat*)
+            $cmd
+            ;;
+        mv*)
+            $cmd
+            ;;
+        rm*)
+            echo "### WARNING: DO NOT TRY TO DELETE ANYTHING ELSE ###"
+            ;;
+        man*)
+            $cmd
+            ;;
+        next_lesson)
+            dir=$(pwd)
+            echo -e "\n    Thank you for using bash tutor.\n"
+            cd ~
+            rm -rf bash_tutor/
+            exit
+            ;;
+        exit)
+            echo -e "\n    Thank you for using bash tutor.\n"
+            cd ~
+            rm -rf bash_tutor/
+            exit
+            ;;
+        *)
+            echo -e "\nPlease enter a valid input. (Hint: the syntax is man <CMD>)\n"
             ;;
     esac
 done
