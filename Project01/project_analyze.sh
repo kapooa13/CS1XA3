@@ -5,14 +5,18 @@ chmod a+x ./bash_tutor.sh
 #PS3:The value of this parameter is used as a prompt for the select command used below
 PS3=$'\n'">>> Enter the number to call corresponding function: "
 
-#
 cd ..
 
 function bashtutor {
+    # This function calls the bash_tutor.sh script
     ./Project01/bash_tutor.sh
 }
 
 function todo {
+
+    # Function implements todo log by searching for files with "#TODO" using grep
+    # Excludes project_analyze.sh(current file) and README.md
+
     rm -f todo.log
     touch todo.log
     grep -r --exclude=project_analyze.sh --exclude=README.md "#TODO" | while read -r line
@@ -22,6 +26,10 @@ done
 }
 
 function deltempfile {
+
+    # Function deletes untracked temporary files:
+    #     Finds all untracked files and greps for ".tmp" extension
+
     git ls-files --exclude-standard --others | grep -E ".tmp$" | while read -r line
     do
     rm "$line"
@@ -29,6 +37,9 @@ done
 }
 
 function compile_errlog {
+
+    # Function implements Compile Error Log feature
+
     rm -f compile_fail.log
     touch compile_fail.log
 
@@ -37,6 +48,7 @@ function compile_errlog {
     touch python_fail.pylog
     c="c"
     #the above line is to help in deleting the pyc file created when py_compile runs
+
 
     #Haskell Files
     find . -name "*.hs" -type f -print0 | while IFS= read -d $'\0' file
@@ -50,6 +62,7 @@ done
     cat haskell_fail.hslog >> compile_fail.log
     fi
     rm -f haskell_fail.hslog
+
 
     #Python Files
     find . -name "*.py" -type f -print0 | while IFS= read -d $'\0' file
@@ -70,6 +83,11 @@ done
 
 function filecount {
 
+    # Function implements File Count feature
+
+    #     Uses find to look for all files ending with the stated extension
+    #     Corresponding output is piped count the lines == number of files
+
     html_count=$(find . -name "*.html" -type f | wc -l)
     js_count=$(find . -name "*.js" -type f | wc -l)
     css_count=$(find . -name "*.css" -type f | wc -l)
@@ -89,6 +107,8 @@ function filecount {
 echo "<<< --------"
 echo "<<< You are currently running project_analyze.sh"
 echo "<<< --------"
+
+# Implementation of User Input via select-case statements
 
 select answer in TODO_log Delete_temp_files Compile_error_log File_count Bash_tutor Exit
 do

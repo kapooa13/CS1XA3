@@ -4,6 +4,7 @@ echo -e "\n============================================================"
 echo "                  Welcome to the Bash Tutor"
 echo "============================================================"
 
+# Setup for ~/bash_tutor
 cd ~/
 rm -rf bash_tutor
 mkdir -p bash_tutor
@@ -19,10 +20,14 @@ echo -e "    replacement for the Bourne shell.\n"
 
 echo "    This tutor will guide you through the most commonly"
 echo -e "    used commands in bash. Let us begin!\n\n    HINT: (Type in 'start' to begin your lesson)\n"
+echo -e "    NOTE: You may leave at any time by typing 'exit'\n"
 
+# Following lines are used to mimic the bash prompt
 tur="turing@machine:"
 dolla="$"
 dirvar="$tur$(pwd)$dolla "
+
+# User input to initliaze bash_tutor
 while read -p "$dirvar" cmd
 do
     case "$cmd" in
@@ -37,7 +42,7 @@ do
             exit
             ;;
         *)
-            echo "Please enter a valid input. (Hint: try 'ls')"
+            echo "Please enter a valid input."
             ;;
     esac
 done
@@ -48,9 +53,9 @@ echo -e "                       Lesson 1.0\n"
 echo -e "    NAME\n    ls - list directory contents\n"
 echo -e "    DESCRIPTION\n    List information about the FILEs\n    (the current directory by default)\n"
 echo -e "    INSTRUCTIONS\n    Try typing in the command to figure out what it does.\n"
-echo -e "    NOTE\n    Once you're done figuring it out, type 'next_lesson'\n    to move on to the next lesson.\n    You may exit at any point by typing 'exit'\n"
+echo -e "    NOTE\n    Once you're done figuring it out, type 'next_lesson'\n    to move on to the next lesson.\n"
 
-
+#User input prompt for Lesson 1.0
 while read -p "$dirvar" cmd
 do
     case "$cmd" in
@@ -78,7 +83,7 @@ echo -e "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo -e "                       Lesson 2.0\n"
 echo -e "    NAME\n    cd <DIR> - changes the shell working directory\n"
 echo -e "    DESCRIPTION\n    Changes the current directory to DIR.\n    The default DIR value is the HOME shell variable.\n"
-echo -e "    INSTRUCTIONS\n    cd into the bash_tutor directory.\n"    
+echo -e "    INSTRUCTIONS\n    cd into the bash_tutor directory.\n"
 echo -e "    NOTE\n    You can also use 'cd ~' to cd to home \n    or 'cd ..' to cd to parent directory\n    and previous commands like 'ls' can also be used\n"
 
 
@@ -105,7 +110,7 @@ do
             ;;
         next_lesson)
             dir=$(pwd)
-            if [ $dir == ~/bash_tutor ]; then            
+            if [ $dir == ~/bash_tutor ]; then
                 echo ""
                 break
             else
@@ -148,7 +153,7 @@ do
             ;;
         next_lesson)
             dir=$(pwd)
-            if [ $dir == ~/bash_tutor/somedir ]; then 
+            if [ $dir == ~/bash_tutor/somedir ]; then
                 echo ""
                 break
             else
@@ -193,7 +198,7 @@ do
             ;;
         next_lesson)
             dir=$(pwd)
-            if [[ -f ~/bash_tutor/somedir/journal.txt && -f ~/bash_tutor/hack.py ]]; then 
+            if [[ -f ~/bash_tutor/somedir/journal.txt && -f ~/bash_tutor/hack.py ]]; then
                 echo ""
                 break
             else
@@ -216,10 +221,12 @@ echo -e "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo -e "                       Lesson 5.0\n"
 echo -e "    NAME\n    cat <FILE> - concatenate files and print on the standard output\n"
 echo -e "    DESCRIPTION\n    Concatenate FILE(s) to standard output\n    With no FILE, or when FILE is -, read standard input.\n"
-echo -e "    INSTRUCTIONS\n    perform cat on sample.txt in ~/bash_tutor\n"    
+echo -e "    INSTRUCTIONS\n    perform cat on sample.txt in ~/bash_tutor\n"
 echo -e "    NOTE\n    You can continue to use previously learned commands\n"
 
 flag=0
+# The flag variable is used to check whether the user has completed the required lesson
+
 while read -p "$dirvar" cmd
 do
     case "$cmd" in
@@ -244,7 +251,7 @@ do
             ;;
         next_lesson)
             dir=$(pwd)
-            if [[ $flag -eq 1 ]]; then 
+            if [[ $flag -eq 1 ]]; then
                 echo ""
                 break
             else
@@ -294,7 +301,7 @@ do
             ;;
         next_lesson)
             dir=$(pwd)
-            if [[ -f ~/bash_tutor/bambie.mov && !(-f ~/bash_tutor/sample.txt) ]]; then 
+            if [[ -f ~/bash_tutor/bambie.mov && !(-f ~/bash_tutor/sample.txt) ]]; then
                 echo ""
                 break
             else
@@ -347,7 +354,7 @@ do
             ;;
         next_lesson)
             dir=$(pwd)
-            if [[ -f ~/bash_tutor/boy.man ]]; then 
+            if [[ -f ~/bash_tutor/boy.man ]]; then
                 echo ""
                 break
             else
@@ -403,7 +410,7 @@ do
             ;;
         next_lesson)
             dir=$(pwd)
-            if [[ ! (-f ~/bash_tutor/somedir/bambie.mov) ]]; then 
+            if [[ ! (-f ~/bash_tutor/somedir/bambie.mov) ]]; then
                 echo ""
                 break
             else
@@ -477,7 +484,7 @@ echo -e "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo -e "                       Lesson 10.0\n"
 echo -e "    NAME\n    exit - cause normal process termination\n"
 echo -e "    DESCRIPTION\n    The exit() function causes normal process termination\n    and the value of status & 0377 is return to parent.\n"
-echo -e "    INSTRUCTIONS\n    You may now exit bash tutor\n"    
+echo -e "    INSTRUCTIONS\n    You may now exit bash tutor\n"
 echo -e "    NOTE\n    exit() can be used within a script to terminate it or\n    to leave the terminal.\n"
 
 while read -p "$dirvar" cmd
