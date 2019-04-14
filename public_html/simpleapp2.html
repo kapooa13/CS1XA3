@@ -10840,7 +10840,14 @@ function PerformCalc(){
 	}
 }
 app.ports.play.subscribe(function (soundUrl) {
-          new Audio(soundUrl).play();
+        new Audio(soundUrl).play();
+          // var x = document.getElementById("sound");
+          //console.log(soundUrl)
+          // x.src = soundUrl;
+	//				PerformCalc();
+	//				console.log("Should have decrease playback speed")
+	//				x.playbackRate = play;
+        //  x.play();
       })
 </script>
 <audio id="sound" src=""></audio>
