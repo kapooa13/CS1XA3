@@ -1,0 +1,14 @@
+digraph D {
+  Keyboardnode [label="Keyboard"]
+  SomeKeyPressednode [label="SomeKeyPressed",shape=box]
+  NoOpnode [label="NoOp",shape=box]
+
+
+  SomeKeyPressednode -> Keyboardnode [arrowhead=none,sametail=KeyboardKeyUnpressedKeyboard]
+  SomeKeyPressednode -> Keyboardnode [label="KeyUnpressed",sametail=KeyboardKeyUnpressedKeyboard]
+
+
+Not yet supported.
+
+
+}
