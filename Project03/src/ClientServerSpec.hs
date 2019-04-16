@@ -8,20 +8,21 @@ import TypeHelpers
 --directory to output the generated files
 outputDirectory = "."
 --where the generator is
-generatorRoot = "../petri-app-land"
+generatorRoot = "../../petri-app-land/"
+--              "~/petri-app-land"
 
-exampleNet :: Net
-exampleNet =
+keyboardNet :: Net
+keyboardNet =
     let
-        placeOne =
-            Place "FirstPlace" 
+        mainMenu =
+            Place "MainMenu" 
                     [] --server state (persistent for this place)
                     [] --player state (client state stored on server)
                     [] --client state (state stored on client)
                     Nothing
 
-        placeTwo =
-            Place "SecondPlace"
+        keyboardRoom =
+            Place "KeyboardRoom"
                     []
                     []
                     []
