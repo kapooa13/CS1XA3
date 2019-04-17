@@ -8,52 +8,83 @@ import TypeHelpers
 --directory to output the generated files
 outputDirectory = "."
 --where the generator is
-generatorRoot = "..../../petri-app-land"
+generatorRoot = "../../../petri-app-land"
+
+
+
+myKeyInt = dt (IntRangeT 0 3) "myKeyInt" "representative of key"
+
+clientKeyStateList = dt (ListT ((IntRangeT 0 1),"clientKeyStateInt","represents state of a key")) "clientKeyStateList" "represents state of all eys"
+-- note: 1 represents pressed, 0 means not pressed
+
+
+
+{-
+- Layout for Keyboard prototype
+-
+   Key    CorrespondingInt (translates to index in clientKeyState)
+
+-- white keys
+    q           0
+    w           1
+
+-}
+
 
 frontEndNet :: Net
-fronEndNet =
+frontEndNet =
     let
-        placeOne =
-            Place "FirstPlace" 
+        keyboardPlace =
+            Place "Keyboard" 
                     [] --server state (persistent for this place)
                     [] --player state (client state stored on server)
-                    [] --client state (state stored on client)
+                    [clientKeyStateList] --client state (state stored on client)
                     Nothing
 
-
-        goToTwo =                 
+        boardKeyPressed =                 
             Transition
                 OriginClientOnly
-                (constructor "GoToTwo" [])
-                [("FirstPlace", Just ("SecondPlace", constructor "WentToSecondPlace" [], Nothing))
-                ,("SecondPlace", Nothing) --some people will stay
+                (constructor "BoardKeyPressed" [myKeyInt])
+                [("Keyboard", Just ("Keyboard", constructor "BoardKeyUnpressed" [myKeyInt], Just "NoOp"))
                 ]
                 Nothing
 
-        goToOne =                 
-            Transition
-                OriginClientOnly
-                (constructor "GoToOne" [])
-                [("SecondPlace", Just ("FirstPlace", constructor "WentToFirstPlace" [], Nothing))
-                ,("SecondPlace", Nothing)
-                ]
+        noOp =
+            ClientTransition        -- Note that this is a client transition only
+                (msg "NoOp" [])
+                "Keyboard"          -- only from and to Keyboard
                 Nothing
+
+        makeDark =                  -- would make specific key dark
+            ClientTransition
+                (msg "NoOp" [myKeyInt])
+                "Keyboard"
+                Nothing
+
+        makeLight =                  -- would make specific key light
+            ClientTransition
+                (msg "NoOp" [myKeyInt])
+                "Keyboard"
+                Nothing
+
+
     in
         Net
-            "MyExampleNet"  -- name of the petri net (by convention, suffixed by "Net")
-            "FirstPlace"      -- starting place when a user logs in
-            [placeOne
-            ,placeTwo
+            "FrontEndNet"  -- name of the petri net (by convention, suffixed by "Net")
+            "Keyboard"      -- starting place when a user logs in
+            [keyboardPlace
             ]  -- list of all defined places
-            [goToTwo
-            ,goToOne
+            [boardKeyPressed
+            ,noOp
+            ,makeDark
+            ,makeLight
             ]   -- list of all defined transitions
             []  -- list of installed plugins
 
 -- the entire client-server app
 clientServerApp :: ClientServerApp
 clientServerApp =
-    ( "MyExampleNet"            --starting net for a client
-    , [exampleNet]              --all the nets in this client/server app (current only one is supported at a time)
+    ( "FrontEndNet"            --starting net for a client
+    , [frontEndNet]              --all the nets in this client/server app (current only one is supported at a time)
     , []       --extra client types used in states or messages
     )
