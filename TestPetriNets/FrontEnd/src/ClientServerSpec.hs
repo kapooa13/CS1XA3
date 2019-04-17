@@ -65,13 +65,13 @@ frontEndNet =
 
         makeDark =
             ClientTransition
-                (msg "MakeDark" [clientKeyStateDict, myKeyInt])
+                (msg "MakeDark" [myKeyInt])
                 "Keyboard"
                 Nothing
 
         makeLight =
             ClientTransition
-                (msg "MakeLight" [clientKeyStateDict, myKeyInt])
+                (msg "MakeLight" [myKeyInt])
                 "Keyboard"
                 Nothing
 
