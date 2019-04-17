@@ -3,4 +3,4 @@ import FrontEndNet.Static.Types exposing(..)
 
 -- the initial state of the starting place
 init : Keyboard
-init = Keyboard [0,0]
+init = Keyboard [0,0,0]

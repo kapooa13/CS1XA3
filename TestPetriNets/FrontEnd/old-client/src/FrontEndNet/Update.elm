@@ -23,11 +23,16 @@ updateKeyboardBoardKeyUnpressedKeyboard fsp (BoardKeyUnpressed myKeyInt)  keyboa
             case myKeyInt of
                 0          -> (keyboard, playSound "./q.mp3")
                 1          -> (keyboard, playSound "./w.mp3")
+                2          -> (keyboard, playSound "./e.mp3")
                 otherwise  -> (keyboard, Cmd.none)
 
 updateNoOpKeyboard : FromSuperPlace -> NoOp -> Keyboard -> Keyboard
 updateNoOpKeyboard fsp NoOp  keyboard = keyboard
 
+{-
+ Note: Due to some issues with the color of keys,
+       they keys are going to modified such that only one key is shown to be pressed at a given time
+-- old code:
 updateKeyboardMadeKeyDarkKeyboard : FromSuperPlace -> MadeKeyDark -> Keyboard -> Keyboard
 updateKeyboardMadeKeyDarkKeyboard fsp (MadeKeyDark clientKeyStateList myKeyInt)  keyboard =
     let
@@ -39,6 +44,21 @@ updateKeyboardMadeKeyLightKeyboard : FromSuperPlace -> MadeKeyLight -> Keyboard 
 updateKeyboardMadeKeyLightKeyboard fsp (MadeKeyLight clientKeyStateList myKeyInt)  keyboard =
     let
         myClientList = Array.toList <| Array.set myKeyInt 0 (Array.fromList clientKeyStateList)
+    in
+       (Keyboard myClientList)
+-}
+
+updateKeyboardMadeKeyDarkKeyboard : FromSuperPlace -> MadeKeyDark -> Keyboard -> Keyboard
+updateKeyboardMadeKeyDarkKeyboard fsp (MadeKeyDark clientKeyStateList myKeyInt)  keyboard =
+    let
+        myClientList = Array.toList <| Array.set myKeyInt 1 (Array.fromList [0,0,0])
+    in
+       (Keyboard myClientList)
+
+updateKeyboardMadeKeyLightKeyboard : FromSuperPlace -> MadeKeyLight -> Keyboard -> Keyboard
+updateKeyboardMadeKeyLightKeyboard fsp (MadeKeyLight clientKeyStateList myKeyInt)  keyboard =
+    let
+        myClientList = Array.toList <| Array.set myKeyInt 0 (Array.fromList [0,0,0])
     in
        (Keyboard myClientList)
 

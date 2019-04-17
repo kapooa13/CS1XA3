@@ -25,10 +25,7 @@ import GraphicSVG exposing(Shape, roundedRect, rgb, white, darkPurple, move, fil
 import GraphicSVG.Widget as Widget
 
 subs : Keyboard -> Sub Msg
-subs keyboard =
-    let
-        myList = getClientKeyStateList keyboard
-    in
+subs (Keyboard myList) =
         Sub.batch [
          Events.onKeyDown (Decode.map BoardKeyPressed keyDecoder)
         ,Events.onKeyDown <| (Decode.map (MakeDark myList) keyDecoder)

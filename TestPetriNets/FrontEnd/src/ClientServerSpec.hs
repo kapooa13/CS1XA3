@@ -14,9 +14,16 @@ generatorRoot = "../../../petri-app-land"
 
 myKeyInt = dt (IntRangeT 0 3) "myKeyInt" "representative of key"
 
-clientKeyStateList = dt (ListT ((IntRangeT 0 1),"clientKeyStateInt","represents state of a key")) "clientKeyStateList" "represents state of all eys"
+-- clientKeyStateList = dt (ListT ((IntRangeT 0 1),"clientKeyStateInt","represents state of a key")) "clientKeyStateList" "represents state of all eys"
 -- note: 1 represents pressed, 0 means not pressed
 
+myKeyStateBool = dt BoolT "keyStateBool" "represents state of key"
+
+myDict = DictT (myKeyInt) (myKeyStateBool)
+
+clientKeyStateDict = dt myDict "clientKeyStateDict" "dictionary representing state of keys"
+
+-- note: True == pressed; False == not pressed
 
 
 {-
@@ -27,6 +34,7 @@ clientKeyStateList = dt (ListT ((IntRangeT 0 1),"clientKeyStateInt","represents 
 -- white keys
     q           0
     w           1
+    e           2
 
 -}
 
@@ -38,7 +46,7 @@ frontEndNet =
             Place "Keyboard" 
                     [] --server state (persistent for this place)
                     [] --player state (client state stored on server)
-                    [clientKeyStateList] --client state (state stored on client)
+                    [clientKeyStateDict] --client state (state stored on client)
                     Nothing
 
         boardKeyPressed =                 
@@ -55,6 +63,19 @@ frontEndNet =
                 "Keyboard"          -- only from and to Keyboard
                 Nothing
 
+        makeDark =
+            ClientTransition
+                (msg "MakeDark" [clientKeyStateDict, myKeyInt])
+                "Keyboard"
+                Nothing
+
+        makeLight =
+            ClientTransition
+                (msg "MakeLight" [clientKeyStateDict, myKeyInt])
+                "Keyboard"
+                Nothing
+
+{-
         makeDark =                  -- would make specific key dark
             Transition
                 OriginClientOnly
@@ -70,6 +91,7 @@ frontEndNet =
                 [("Keyboard", Just ("Keyboard", constructor "MadeKeyLight" [clientKeyStateList, myKeyInt], Nothing))
                 ]
                 Nothing
+-}
 
     in
         Net
