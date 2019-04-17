@@ -10,6 +10,7 @@ outputDirectory = "."
 --where the generator is
 generatorRoot = "../../../petri-app-land"
 
+myColor = dt (IntRangeT 0 24) "myColor" "representative of random color"
 
 
 myKeyInt = dt (IntRangeT 0 3) "myKeyInt" "representative of key"

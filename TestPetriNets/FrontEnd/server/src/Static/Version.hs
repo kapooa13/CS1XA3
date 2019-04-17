@@ -3,4 +3,4 @@ module Static.Version where
 
 import Data.Text as T
 version :: T.Text
-version = "v1555536526058987"
+version = "v1555540220948572"
