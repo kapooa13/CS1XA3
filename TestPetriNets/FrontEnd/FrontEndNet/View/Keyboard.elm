@@ -4,8 +4,6 @@ import FrontEndNet.Static.Types exposing(Keyboard(..))
 import FrontEndNet.Static.Helpers.Keyboard exposing(..)
 import FrontEndNet.Static.ExtraTypes exposing(..)
 
--- dis new
-
 import FrontEndNet.Keys exposing(..)
 import FrontEndNet.Update exposing(..)
 
@@ -22,7 +20,7 @@ import Html.Attributes exposing (style)
 import Debug exposing(todo)
 
 subs : Keyboard -> Sub Msg
-subs keyboard =
+subs keyboard = 
     let
         myList = getClientKeyStateList keyboard
     in
@@ -35,10 +33,8 @@ subs keyboard =
 view : Keyboard -> Html Msg
 view keyboard = div [] []
 
-
 title : Keyboard -> String
 title keyboard = "im not sure what im doing at this point"
 
 keyDecoder : Decode.Decoder Int
 keyDecoder = Decode.map fromCode (Decode.field "key" Decode.string)
-

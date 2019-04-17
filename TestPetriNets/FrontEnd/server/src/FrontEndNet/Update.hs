@@ -13,13 +13,11 @@ import qualified Static.Cmd as Cmd
 
 -- function called when new client connects (do not delete)
 clientConnect :: FromSuperPlace -> ClientID -> Keyboard -> (Keyboard, KeyboardPlayer)
-clientConnect fsp clientID keyboard =
-    error "Please fill out clientConnect function for the FrontEndNet net."
+clientConnect fsp clientID keyboard = (keyboard, KeyboardPlayer)
 
 -- functions called when a client disconnects (do not delete)
 clientDisconnectFromKeyboard :: FromSuperPlace -> ClientID -> Keyboard -> KeyboardPlayer -> Keyboard
-clientDisconnectFromKeyboard fsp clientID keyboard keyboardPlayer =
-    error "Please fill out the clientDisconnectFromKeyboard function for the FrontEndNet net."
+clientDisconnectFromKeyboard fsp clientID keyboard keyboardPlayer = keyboard
 
 
 -- functions for each transition
@@ -34,7 +32,7 @@ updateBoardKeyPressed :: FromSuperPlace ->
 updateBoardKeyPressed fsp clientId (BoardKeyPressed myKeyInt) keyboard lstKeyboard =
     let
         fromKeyboard :: (ClientID, KeyboardPlayer) -> BoardKeyPressedfromKeyboard
-        fromKeyboard (pId, pkeyboard) = error "Please fill in function stub."
+        fromKeyboard (pId, pkeyboard) = BoardKeyPressed_KeyboardtoKeyboard KeyboardPlayer (BoardKeyUnpressed myKeyInt)
 
 
     in
@@ -48,10 +46,10 @@ updateMakeDark :: FromSuperPlace ->
     ( Keyboard,
       (ClientID, KeyboardPlayer) -> MakeDarkfromKeyboard
     )
-updateMakeDark fsp clientId (MakeDark myKeyInt clientKeyStateList) keyboard lstKeyboard =
+updateMakeDark fsp clientId (MakeDark clientKeyStateList myKeyInt) keyboard lstKeyboard =
     let
         fromKeyboard :: (ClientID, KeyboardPlayer) -> MakeDarkfromKeyboard
-        fromKeyboard (pId, pkeyboard) = error "Please fill in function stub."
+        fromKeyboard (pId, pkeyboard) = MakeDark_KeyboardtoKeyboard KeyboardPlayer (MadeKeyDark clientKeyStateList myKeyInt)
 
 
     in
@@ -65,10 +63,10 @@ updateMakeLight :: FromSuperPlace ->
     ( Keyboard,
       (ClientID, KeyboardPlayer) -> MakeLightfromKeyboard
     )
-updateMakeLight fsp clientId (MakeLight myKeyInt clientKeyStateList) keyboard lstKeyboard =
+updateMakeLight fsp clientId (MakeLight clientKeyStateList myKeyInt) keyboard lstKeyboard =
     let
         fromKeyboard :: (ClientID, KeyboardPlayer) -> MakeLightfromKeyboard
-        fromKeyboard (pId, pkeyboard) = error "Please fill in function stub."
+        fromKeyboard (pId, pkeyboard) = MakeLight_KeyboardtoKeyboard KeyboardPlayer (MadeKeyLight clientKeyStateList myKeyInt)
 
 
     in

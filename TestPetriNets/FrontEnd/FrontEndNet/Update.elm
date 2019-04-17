@@ -5,9 +5,6 @@ import FrontEndNet.Static.ExtraTypes exposing(..)
 import FrontEndNet.Static.Helpers.Keyboard as Keyboard
 import Utils.Utils
 import Debug exposing(todo)
-
--- dis new
-
 import Array  -- why do I have to explicitly import something in the core module?? tch tch bad elm.
 
 import FrontEndNet.Sounds exposing(..)
@@ -25,8 +22,10 @@ updateKeyboardBoardKeyUnpressedKeyboard fsp (BoardKeyUnpressed myKeyInt)  keyboa
                 1          -> (keyboard, playSound "./w.mp3")
                 otherwise  -> (keyboard, Cmd.none)
 
+
 updateNoOpKeyboard : FromSuperPlace -> NoOp -> Keyboard -> Keyboard
 updateNoOpKeyboard fsp NoOp  keyboard = keyboard
+
 
 updateKeyboardMadeKeyDarkKeyboard : FromSuperPlace -> MadeKeyDark -> Keyboard -> Keyboard
 updateKeyboardMadeKeyDarkKeyboard fsp (MadeKeyDark clientKeyStateList myKeyInt)  keyboard =
@@ -35,10 +34,12 @@ updateKeyboardMadeKeyDarkKeyboard fsp (MadeKeyDark clientKeyStateList myKeyInt) 
     in
        (Keyboard myClientList)
 
+
 updateKeyboardMadeKeyLightKeyboard : FromSuperPlace -> MadeKeyLight -> Keyboard -> Keyboard
 updateKeyboardMadeKeyLightKeyboard fsp (MadeKeyLight clientKeyStateList myKeyInt)  keyboard =
     let
         myClientList = Array.toList <| Array.set myKeyInt 0 (Array.fromList clientKeyStateList)
     in
        (Keyboard myClientList)
+
 
