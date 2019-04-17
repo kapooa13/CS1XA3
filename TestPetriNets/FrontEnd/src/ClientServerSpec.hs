@@ -57,13 +57,13 @@ frontEndNet =
 
         makeDark =                  -- would make specific key dark
             ClientTransition
-                (msg "NoOp" [myKeyInt])
+                (msg "MakeDark" [myKeyInt])
                 "Keyboard"
                 Nothing
 
         makeLight =                  -- would make specific key light
             ClientTransition
-                (msg "NoOp" [myKeyInt])
+                (msg "MakeLight" [myKeyInt])
                 "Keyboard"
                 Nothing
 
