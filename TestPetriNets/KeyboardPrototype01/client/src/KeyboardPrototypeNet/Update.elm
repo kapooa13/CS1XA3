@@ -6,6 +6,8 @@ import KeyboardPrototypeNet.Static.Helpers.Keyboard as Keyboard
 import Utils.Utils
 import Debug exposing(todo)
 
+import KeyboardPrototypeNet.Sounds exposing (..)
+
 updateNoOpKeyboard : FromSuperPlace -> NoOp -> Keyboard -> Keyboard
 updateNoOpKeyboard fsp NoOp  keyboard = keyboard
 

@@ -4,17 +4,27 @@ import KeyboardPrototypeNet.Static.Types exposing(Keyboard(..))
 import KeyboardPrototypeNet.Static.Helpers.Keyboard exposing(..)
 import KeyboardPrototypeNet.Static.ExtraTypes exposing(..)
 
-import Html exposing(Html)
-import Debug exposing(todo)
+import KeyboardPrototypeNet.Keys exposing(..)
+
+-- need to import Json.Decode for keys
+import Json.Decode as Decode
+
+-- need to import Browser.Events for getting keys from subscriptions
+import Browser.Events as Events
+
+import Html exposing(..)
+import Html.Events exposing (..)
+import Html.Attributes exposing (style)
 
 subs : Keyboard -> Sub Msg
 subs keyboard =
-    Sub.none
+    Events.onKeyDown (Decode.map BoardKeyPressed keyDecoder)
 
 view : Keyboard -> Html Msg
-view keyboard =
-    todo "Please fill out the view function for the KeyboardPrototypeNet net for the Keyboard place."
+view keyboard = div [] []
 
 title : Keyboard -> String
-title keyboard =
-    todo "Please fill out the title function for the KeyboardPrototypeNet net for the Keyboard place."
+title keyboard = "myKeyboardPrototype01"
+
+keyDecoder : Decode.Decoder Int
+keyDecoder = Decode.map fromCode (Decode.field "key" Decode.string)
