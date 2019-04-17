@@ -21,6 +21,9 @@ import Html.Attributes exposing (style)
 
 import Debug exposing(todo)
 
+import GraphicSVG exposing(Shape, roundedRect, rgb, white, darkPurple, move, filled)
+import GraphicSVG.Widget as Widget
+
 subs : Keyboard -> Sub Msg
 subs keyboard =
     let
@@ -33,7 +36,25 @@ subs keyboard =
             ]
 
 view : Keyboard -> Html Msg
-view keyboard = div [] []
+view keyboard =
+    let
+        myList = getClientKeyStateList keyboard
+{-
+ one key would be a 
+     rounded rectangle 20 50 3 |> filled (if myint == 1 then (rgb 120 120 120) else if myint == 0 then white else darkPurple)
+                               |> move (20*myInt,0)
+ 
+-}
+
+        drawFunc : Int -> Int -> (Shape msg)
+        drawFunc idx myint = roundedRect 20 50 3 |> filled (if myint == 1 then (rgb 120 120 120) else if myint == 0 then white else darkPurple)
+                                                 |> move (toFloat(20*idx),0.0)
+
+    in
+        div [style "background-color" "blue"] [Widget.icon "myKeyboard" 400 200 
+        (List.indexedMap drawFunc myList)
+        ]
+        
 
 
 title : Keyboard -> String
