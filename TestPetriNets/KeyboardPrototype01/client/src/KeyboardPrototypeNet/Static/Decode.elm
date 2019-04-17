@@ -10,7 +10,7 @@ decodeIncomingMessage (_,incomingmessageTxts) =
             (Err "",rest) |> 
                 \(r3,l4) ->
                         (case l4 of
-                            (myKeyIntegerTxt :: ll4) -> (decodeInt (0) (19) myKeyIntegerTxt |> Result.andThen Ok,ll4)
+                            (myKeyIntegerTxt :: ll4) -> (decodeInt (0) (20) myKeyIntegerTxt |> Result.andThen Ok,ll4)
                             [] -> (Err "Ran out of string to process while parsing IncomingMessage",[]))
                  |>
                         (\(r4,l5) -> (rMap MDeflatedBoardKey r4,l5))

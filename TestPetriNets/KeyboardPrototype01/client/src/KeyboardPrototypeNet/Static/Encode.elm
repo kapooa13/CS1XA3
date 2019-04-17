@@ -15,7 +15,7 @@ encodeOutgoingTransition outgoingtransition =
     case outgoingtransition of
         TBoardKeyPressed myKeyInteger -> 
             let
-                myKeyIntegerTxt = encodeInt (0) (19) myKeyInteger
+                myKeyIntegerTxt = encodeInt (0) (20) myKeyInteger
             in
                 tConcat ["TBoardKeyPressed\u{0000}", myKeyIntegerTxt]
 

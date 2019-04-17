@@ -40,7 +40,7 @@ generatorRoot = "../../../petri-app-land"
     -           19
 -}
 
-myKeyInt = dt (IntRangeT 0 19) "myKeyInteger" "representative of key"
+myKeyInt = dt (IntRangeT 0 20) "myKeyInteger" "representative of key"
 
 keyPrototypeNet :: Net
 keyPrototypeNet =

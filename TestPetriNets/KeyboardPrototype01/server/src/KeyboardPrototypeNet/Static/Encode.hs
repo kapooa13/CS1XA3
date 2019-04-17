@@ -12,7 +12,7 @@ encodeClientMessage clientmessage =
     case clientmessage of
         MDeflatedBoardKey myKeyInteger -> 
             let
-                myKeyIntegerTxt = encodeInt (0) (19) myKeyInteger
+                myKeyIntegerTxt = encodeInt (0) (20) myKeyInteger
             in
                 tConcat ["MDeflatedBoardKey\0", myKeyIntegerTxt]
 
