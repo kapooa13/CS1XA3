@@ -56,17 +56,20 @@ frontEndNet =
                 Nothing
 
         makeDark =                  -- would make specific key dark
-            ClientTransition
-                (msg "MakeDark" [myKeyInt])
-                "Keyboard"
+            Transition
+                OriginClientOnly
+                (constructor "MakeDark" [clientKeyStateList, myKeyInt])
+                [("Keyboard", Just ("Keyboard", constructor "MadeKeyDark" [clientKeyStateList, myKeyInt], Nothing))
+                ]
                 Nothing
 
         makeLight =                  -- would make specific key light
-            ClientTransition
-                (msg "MakeLight" [myKeyInt])
-                "Keyboard"
+            Transition
+                OriginClientOnly
+                (constructor "MakeLight" [clientKeyStateList, myKeyInt])
+                [("Keyboard", Just ("Keyboard", constructor "MadeKeyLight" [clientKeyStateList, myKeyInt], Nothing))
+                ]
                 Nothing
-
 
     in
         Net
