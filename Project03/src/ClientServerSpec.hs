@@ -93,11 +93,30 @@ keyboardNet =
                 [("Keyboard", Just ("Keyboard", constructor "MadeKeyLight" [myKeyInt], Nothing))
                 ]
                 Nothing
-
-        randomColor =
+{-
+        randomColor =    -- reassigns my color val
             Transition
                 OriginClientOnly
                 (constructor "RandomColorNumber" [myColor])
+                [("Keyboard", Just ("Keyboard", constructor "ChangedColorNumber" [myColor], Nothing))
+                ]
+                Nothing-}
+
+        randomColor =
+            ClientTransition        -- Note that this is a client transition only
+                (msg "RandomColorNumber" [myColor])
+                "Keyboard"          -- from and to Keyboard
+                Nothing
+
+
+        roll =           -- calls randomColor random val
+            Transition
+                OriginClientOnly
+                (constructor "RollRandomNum" [])
+                [("Keyboard", Just ("Keyboard", constructor "RandomNumRolled" [], Just "RandomColorNumber"))
+                ]
+                Nothing
+
 
     in
         Net
@@ -109,13 +128,15 @@ keyboardNet =
             ,noOp
             ,makeDark
             ,makeLight
+            ,randomColor
+            ,roll
             ]                   -- list of all defined transitions
             []                  -- list of installed plugins
 
 -- the entire client-server app
 clientServerApp :: ClientServerApp
 clientServerApp =
-    ( "KeyboardNet"              --starting net for a client
+    ( "MyKeyboardNet"              --starting net for a client
     , [keyboardNet]              --all the nets in this client/server app (current only one is supported at a time)
     , []                         --extra client types used in states or messages
     )

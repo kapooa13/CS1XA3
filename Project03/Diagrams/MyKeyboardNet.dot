@@ -1,0 +1,32 @@
+digraph D {
+  Keyboardnode [label="Keyboard"]
+  BoardKeyPressednode [label="BoardKeyPressed",shape=box]
+  NoOpnode [label="NoOp",shape=box]
+  MakeDarknode [label="MakeDark",shape=box]
+  MakeLightnode [label="MakeLight",shape=box]
+  RandomColorNumbernode [label="RandomColorNumber",shape=box]
+  RollRandomNumnode [label="RollRandomNum",shape=box]
+
+
+  BoardKeyPressednode -> Keyboardnode [arrowhead=none,sametail=KeyboardBoardKeyUnpressedKeyboard]
+  BoardKeyPressednode -> Keyboardnode [label="BoardKeyUnpressed",sametail=KeyboardBoardKeyUnpressedKeyboard]
+
+
+Not yet supported.
+
+  MakeDarknode -> Keyboardnode [arrowhead=none,sametail=KeyboardMadeKeyDarkKeyboard]
+  MakeDarknode -> Keyboardnode [label="MadeKeyDark",sametail=KeyboardMadeKeyDarkKeyboard]
+
+
+  MakeLightnode -> Keyboardnode [arrowhead=none,sametail=KeyboardMadeKeyLightKeyboard]
+  MakeLightnode -> Keyboardnode [label="MadeKeyLight",sametail=KeyboardMadeKeyLightKeyboard]
+
+
+Not yet supported.
+
+  RollRandomNumnode -> Keyboardnode [arrowhead=none,sametail=KeyboardRandomNumRolledKeyboard]
+  RollRandomNumnode -> Keyboardnode [label="RandomNumRolled",sametail=KeyboardRandomNumRolledKeyboard]
+
+
+
+}
