@@ -21,18 +21,18 @@ data BoardKeyUnpressed  =
       BoardKeyUnpressed Int {-myKeyInt-}
     deriving(Ord,Eq,Show)
 data MadeKeyDark  =
-      MadeKeyDark Int {-otherColor-} Int {-myKeyInt-}
+      MadeKeyDark Int {-myKeyInt-}
     deriving(Ord,Eq,Show)
 data MadeKeyLight  =
-      MadeKeyLight Int {-otherColor-} Int {-myKeyInt-}
+      MadeKeyLight Int {-myKeyInt-}
     deriving(Ord,Eq,Show)
 data RandomNumRolled  =
       RandomNumRolled
     deriving(Ord,Eq,Show)
 data ClientMessage  =
       MBoardKeyUnpressed Int {-myKeyInt-}
-    | MMadeKeyDark Int {-otherColor-} Int {-myKeyInt-}
-    | MMadeKeyLight Int {-otherColor-} Int {-myKeyInt-}
+    | MMadeKeyDark Int {-myKeyInt-}
+    | MMadeKeyLight Int {-myKeyInt-}
     | MRandomNumRolled
     deriving(Ord,Eq,Show)
 
@@ -57,18 +57,18 @@ data RollRandomNumfromKeyboard  =
 -- main transition types
 data Transition  =
       TBoardKeyPressed Int {-myKeyInt-}
-    | TMakeDark Int {-otherColor-} Int {-myKeyInt-}
-    | TMakeLight Int {-otherColor-} Int {-myKeyInt-}
+    | TMakeDark Int {-myKeyInt-}
+    | TMakeLight Int {-myKeyInt-}
     | TRollRandomNum
     deriving(Ord,Eq,Show)
 data BoardKeyPressed  =
       BoardKeyPressed Int {-myKeyInt-}
     deriving(Ord,Eq,Show)
 data MakeDark  =
-      MakeDark Int {-otherColor-} Int {-myKeyInt-}
+      MakeDark Int {-myKeyInt-}
     deriving(Ord,Eq,Show)
 data MakeLight  =
-      MakeLight Int {-otherColor-} Int {-myKeyInt-}
+      MakeLight Int {-myKeyInt-}
     deriving(Ord,Eq,Show)
 data RollRandomNum  =
       RollRandomNum

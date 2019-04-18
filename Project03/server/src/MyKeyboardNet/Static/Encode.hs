@@ -15,18 +15,16 @@ encodeClientMessage clientmessage =
                 myKeyIntTxt = encodeInt (0) (20) myKeyInt
             in
                 tConcat ["MBoardKeyUnpressed\0", myKeyIntTxt]
-        MMadeKeyDark otherColor myKeyInt -> 
+        MMadeKeyDark myKeyInt -> 
             let
-                otherColorTxt = encodeInt (0) (24) otherColor
                 myKeyIntTxt = encodeInt (0) (20) myKeyInt
             in
-                tConcat ["MMadeKeyDark\0", otherColorTxt,"\0",myKeyIntTxt]
-        MMadeKeyLight otherColor myKeyInt -> 
+                tConcat ["MMadeKeyDark\0", myKeyIntTxt]
+        MMadeKeyLight myKeyInt -> 
             let
-                otherColorTxt = encodeInt (0) (24) otherColor
                 myKeyIntTxt = encodeInt (0) (20) myKeyInt
             in
-                tConcat ["MMadeKeyLight\0", otherColorTxt,"\0",myKeyIntTxt]
+                tConcat ["MMadeKeyLight\0", myKeyIntTxt]
         MRandomNumRolled -> 
                 tConcat ["MRandomNumRolled"]
 

@@ -9,11 +9,11 @@ unwrapBoardKeyPressed (BoardKeyPressed myKeyInt)  = (TBoardKeyPressed myKeyInt)
 
 
 unwrapMakeDark : MakeDark -> OutgoingTransition
-unwrapMakeDark (MakeDark otherColor myKeyInt)  = (TMakeDark otherColor myKeyInt) 
+unwrapMakeDark (MakeDark myKeyInt)  = (TMakeDark myKeyInt) 
 
 
 unwrapMakeLight : MakeLight -> OutgoingTransition
-unwrapMakeLight (MakeLight otherColor myKeyInt)  = (TMakeLight otherColor myKeyInt) 
+unwrapMakeLight (MakeLight myKeyInt)  = (TMakeLight myKeyInt) 
 
 
 unwrapRollRandomNum : RollRandomNum -> OutgoingTransition

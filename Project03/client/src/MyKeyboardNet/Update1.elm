@@ -62,9 +62,10 @@ updateKeyboardMadeKeyLightKeyboard fsp (MadeKeyLight myKeyInt)  (Keyboard client
     in
         Keyboard myDict myColor
 
+updateKeyboardChangedColorNumberKeyboard : FromSuperPlace -> ChangedColorNumber -> Keyboard -> Keyboard
+updateKeyboardChangedColorNumberKeyboard fsp (ChangedColorNumber myColor)  (Keyboard clientKeyStateDict someCol) = Keyboard clientKeyStateDict myColor
 
-updateRandomColorNumberKeyboard : FromSuperPlace -> RandomColorNumber -> Keyboard -> Keyboard
-updateRandomColorNumberKeyboard fsp (RandomColorNumber myColor)  (Keyboard clientKeyStateDict someCol) = Keyboard clientKeyStateDict myColor
+
 
 updateKeyboardRandomNumRolledKeyboard : FromSuperPlace -> RandomNumRolled -> Keyboard -> (Keyboard, Cmd RandomColorNumber)
 updateKeyboardRandomNumRolledKeyboard fsp RandomNumRolled  keyboard = (keyboard, Random.generate RandomColorNumber (Random.int 0 24))

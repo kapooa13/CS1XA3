@@ -48,7 +48,7 @@ updateMakeDark :: FromSuperPlace ->
     ( Keyboard,
       (ClientID, KeyboardPlayer) -> MakeDarkfromKeyboard
     )
-updateMakeDark fsp clientId (MakeDark otherColor myKeyInt) keyboard lstKeyboard =
+updateMakeDark fsp clientId (MakeDark myKeyInt) keyboard lstKeyboard =
     let
         fromKeyboard :: (ClientID, KeyboardPlayer) -> MakeDarkfromKeyboard
         fromKeyboard (pId, pkeyboard) = error "Please fill in function stub."
@@ -65,7 +65,7 @@ updateMakeLight :: FromSuperPlace ->
     ( Keyboard,
       (ClientID, KeyboardPlayer) -> MakeLightfromKeyboard
     )
-updateMakeLight fsp clientId (MakeLight otherColor myKeyInt) keyboard lstKeyboard =
+updateMakeLight fsp clientId (MakeLight myKeyInt) keyboard lstKeyboard =
     let
         fromKeyboard :: (ClientID, KeyboardPlayer) -> MakeLightfromKeyboard
         fromKeyboard (pId, pkeyboard) = error "Please fill in function stub."

@@ -8,46 +8,33 @@ import Dict exposing (Dict)
 
 
 getClientKeyStateDict : Keyboard -> (Dict Int Bool)
-getClientKeyStateDict (Keyboard clientKeyStateDict _ _)  = clientKeyStateDict
+getClientKeyStateDict (Keyboard clientKeyStateDict _)  = clientKeyStateDict
 
 getMyColor : Keyboard -> Int
-getMyColor (Keyboard _ myColor _)  = myColor
-
-getOtherColor : Keyboard -> Int
-getOtherColor (Keyboard _ _ otherColor)  = otherColor
+getMyColor (Keyboard _ myColor)  = myColor
 
 
 
 updateClientKeyStateDict : (Dict Int Bool) -> Keyboard -> Keyboard
-updateClientKeyStateDict newclientKeyStateDict (Keyboard clientKeyStateDict myColor otherColor)  = (Keyboard newclientKeyStateDict myColor otherColor) 
+updateClientKeyStateDict newclientKeyStateDict (Keyboard clientKeyStateDict myColor)  = (Keyboard newclientKeyStateDict myColor) 
 
 updateMyColor : Int -> Keyboard -> Keyboard
-updateMyColor newmyColor (Keyboard clientKeyStateDict myColor otherColor)  = (Keyboard clientKeyStateDict newmyColor otherColor) 
-
-updateOtherColor : Int -> Keyboard -> Keyboard
-updateOtherColor newotherColor (Keyboard clientKeyStateDict myColor otherColor)  = (Keyboard clientKeyStateDict myColor newotherColor) 
+updateMyColor newmyColor (Keyboard clientKeyStateDict myColor)  = (Keyboard clientKeyStateDict newmyColor) 
 
 
 alterClientKeyStateDict : ((Dict Int Bool) -> (Dict Int Bool)) -> Keyboard -> Keyboard
-alterClientKeyStateDict f (Keyboard clientKeyStateDict myColor otherColor)  = 
+alterClientKeyStateDict f (Keyboard clientKeyStateDict myColor)  = 
     let
         newclientKeyStateDict = f clientKeyStateDict
     in
-        (Keyboard newclientKeyStateDict myColor otherColor) 
+        (Keyboard newclientKeyStateDict myColor) 
 
 alterMyColor : (Int -> Int) -> Keyboard -> Keyboard
-alterMyColor f (Keyboard clientKeyStateDict myColor otherColor)  = 
+alterMyColor f (Keyboard clientKeyStateDict myColor)  = 
     let
         newmyColor = f myColor
     in
-        (Keyboard clientKeyStateDict newmyColor otherColor) 
-
-alterOtherColor : (Int -> Int) -> Keyboard -> Keyboard
-alterOtherColor f (Keyboard clientKeyStateDict myColor otherColor)  = 
-    let
-        newotherColor = f otherColor
-    in
-        (Keyboard clientKeyStateDict myColor newotherColor) 
+        (Keyboard clientKeyStateDict newmyColor) 
 
 
 

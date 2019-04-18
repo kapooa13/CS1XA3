@@ -105,19 +105,19 @@ update tld mClientID trans state =
                     in
                         (newPlaces, newPlayers, clientMessages, Nothing)
 
-                (TMakeDark otherColor myKeyInt) ->
+                (TMakeDark myKeyInt) ->
                     let
                         (keyboardPlayerLst) = splitMakeDarkPlayers (IM'.toList players)
-                        (keyboard,fromKeyboard) = updateMakeDark tld (fromJust mClientID) ((MakeDark otherColor myKeyInt) ) ((safeFromJust "place lookup") $ TM.lookup places) (map snd keyboardPlayerLst)
+                        (keyboard,fromKeyboard) = updateMakeDark tld (fromJust mClientID) ((MakeDark myKeyInt) ) ((safeFromJust "place lookup") $ TM.lookup places) (map snd keyboardPlayerLst)
                         newPlaces = TM.insert keyboard places
                         (newPlayers, clientMessages) = unzip $ map (processMakeDarkPlayer fromKeyboard) (mapSnd unwrapKeyboardPlayer keyboardPlayerLst)
                     in
                         (newPlaces, newPlayers, clientMessages, Nothing)
 
-                (TMakeLight otherColor myKeyInt) ->
+                (TMakeLight myKeyInt) ->
                     let
                         (keyboardPlayerLst) = splitMakeLightPlayers (IM'.toList players)
-                        (keyboard,fromKeyboard) = updateMakeLight tld (fromJust mClientID) ((MakeLight otherColor myKeyInt) ) ((safeFromJust "place lookup") $ TM.lookup places) (map snd keyboardPlayerLst)
+                        (keyboard,fromKeyboard) = updateMakeLight tld (fromJust mClientID) ((MakeLight myKeyInt) ) ((safeFromJust "place lookup") $ TM.lookup places) (map snd keyboardPlayerLst)
                         newPlaces = TM.insert keyboard places
                         (newPlayers, clientMessages) = unzip $ map (processMakeLightPlayer fromKeyboard) (mapSnd unwrapKeyboardPlayer keyboardPlayerLst)
                     in

@@ -21,28 +21,18 @@ decodeTransition (_,transitionTxts) =
             (Err "",rest) |> 
                 \(r3,l4) ->
                         (case l4 of
-                            (otherColorTxt : ll4) -> (decodeInt (0) (24) otherColorTxt |> Result.andThen Ok,ll4)
+                            (myKeyIntTxt : ll4) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll4)
                             [] -> (Err "Ran out of string to process while parsing Transition",[]))
                  |>
-                    \(r4,l5) ->
-                            (case l5 of
-                                (myKeyIntTxt : ll5) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll5)
-                                [] -> (Err "Ran out of string to process while parsing Transition",[]))
-                     |>
-                            (\(r5,l6) -> (Result.map2 TMakeDark r4 r5,l6))
+                        (\(r4,l5) -> (Result.map TMakeDark r4,l5))
         ("TMakeLight" : rest) ->
             (Err "",rest) |> 
                 \(r3,l4) ->
                         (case l4 of
-                            (otherColorTxt : ll4) -> (decodeInt (0) (24) otherColorTxt |> Result.andThen Ok,ll4)
+                            (myKeyIntTxt : ll4) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll4)
                             [] -> (Err "Ran out of string to process while parsing Transition",[]))
                  |>
-                    \(r4,l5) ->
-                            (case l5 of
-                                (myKeyIntTxt : ll5) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll5)
-                                [] -> (Err "Ran out of string to process while parsing Transition",[]))
-                     |>
-                            (\(r5,l6) -> (Result.map2 TMakeLight r4 r5,l6))
+                        (\(r4,l5) -> (Result.map TMakeLight r4,l5))
         ("TRollRandomNum" : rest) ->
             (Err "",rest) |> 
                     (\(r3,l4) -> (Ok <| TRollRandomNum ,l4))

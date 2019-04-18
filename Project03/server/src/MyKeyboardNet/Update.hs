@@ -45,10 +45,10 @@ updateMakeDark :: FromSuperPlace ->
     ( Keyboard,
       (ClientID, KeyboardPlayer) -> MakeDarkfromKeyboard
     )
-updateMakeDark fsp clientId (MakeDark myKeyInt otherColor) keyboard lstKeyboard =
+updateMakeDark fsp clientId (MakeDark myKeyInt) keyboard lstKeyboard =
     let
         fromKeyboard :: (ClientID, KeyboardPlayer) -> MakeDarkfromKeyboard
-        fromKeyboard (pId, pkeyboard) = MakeDark_KeyboardtoKeyboard KeyboardPlayer (MadeKeyDark myKeyInt otherColor)
+        fromKeyboard (pId, pkeyboard) = MakeDark_KeyboardtoKeyboard KeyboardPlayer (MadeKeyDark myKeyInt)
 
 
     in
@@ -62,10 +62,10 @@ updateMakeLight :: FromSuperPlace ->
     ( Keyboard,
       (ClientID, KeyboardPlayer) -> MakeLightfromKeyboard
     )
-updateMakeLight fsp clientId (MakeLight myKeyInt otherColor) keyboard lstKeyboard =
+updateMakeLight fsp clientId (MakeLight myKeyInt) keyboard lstKeyboard =
     let
         fromKeyboard :: (ClientID, KeyboardPlayer) -> MakeLightfromKeyboard
-        fromKeyboard (pId, pkeyboard) = MakeLight_KeyboardtoKeyboard KeyboardPlayer (MadeKeyLight myKeyInt otherColor)
+        fromKeyboard (pId, pkeyboard) = MakeLight_KeyboardtoKeyboard KeyboardPlayer (MadeKeyLight myKeyInt)
 
 
     in

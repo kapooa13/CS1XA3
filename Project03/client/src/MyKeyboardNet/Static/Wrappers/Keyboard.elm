@@ -10,8 +10,8 @@ unwrap msg =
     case msg of
         (MyKeyboardNet.Static.Types.Keyboard.BoardKeyPressed myKeyInt)  -> External (TBoardKeyPressed myKeyInt) 
         MyKeyboardNet.Static.Types.Keyboard.NoOp  -> Internal TNoOp 
-        (MyKeyboardNet.Static.Types.Keyboard.MakeDark otherColor myKeyInt)  -> External (TMakeDark otherColor myKeyInt) 
-        (MyKeyboardNet.Static.Types.Keyboard.MakeLight otherColor myKeyInt)  -> External (TMakeLight otherColor myKeyInt) 
+        (MyKeyboardNet.Static.Types.Keyboard.MakeDark myKeyInt)  -> External (TMakeDark myKeyInt) 
+        (MyKeyboardNet.Static.Types.Keyboard.MakeLight myKeyInt)  -> External (TMakeLight myKeyInt) 
         (MyKeyboardNet.Static.Types.Keyboard.RandomColorNumber myColor)  -> Internal (TRandomColorNumber myColor) 
         MyKeyboardNet.Static.Types.Keyboard.RollRandomNum  -> External TRollRandomNum 
 

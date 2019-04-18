@@ -13,9 +13,9 @@ update fsp trans state =
         ((MBoardKeyUnpressed myKeyInt) , SKeyboard st) -> let (newModel, cmd) = updateKeyboardBoardKeyUnpressedKeyboard fsp (BoardKeyUnpressed myKeyInt)  st in (SKeyboard newModel, Cmd.map (Internal << unwrapNoOp) cmd)
 
         (MNoOp , SKeyboard st) -> (SKeyboard <| updateNoOpKeyboard fsp NoOp  st, Cmd.none)
-        ((MMadeKeyDark otherColor myKeyInt) , SKeyboard st) -> (SKeyboard <| updateKeyboardMadeKeyDarkKeyboard fsp (MadeKeyDark otherColor myKeyInt)  st, Cmd.none)
+        ((MMadeKeyDark myKeyInt) , SKeyboard st) -> (SKeyboard <| updateKeyboardMadeKeyDarkKeyboard fsp (MadeKeyDark myKeyInt)  st, Cmd.none)
 
-        ((MMadeKeyLight otherColor myKeyInt) , SKeyboard st) -> (SKeyboard <| updateKeyboardMadeKeyLightKeyboard fsp (MadeKeyLight otherColor myKeyInt)  st, Cmd.none)
+        ((MMadeKeyLight myKeyInt) , SKeyboard st) -> (SKeyboard <| updateKeyboardMadeKeyLightKeyboard fsp (MadeKeyLight myKeyInt)  st, Cmd.none)
 
         ((MRandomColorNumber myColor) , SKeyboard st) -> (SKeyboard <| updateRandomColorNumberKeyboard fsp (RandomColorNumber myColor)  st, Cmd.none)
         (MRandomNumRolled , SKeyboard st) -> let (newModel, cmd) = updateKeyboardRandomNumRolledKeyboard fsp RandomNumRolled  st in (SKeyboard newModel, Cmd.map (Internal << unwrapRandomColorNumber) cmd)
