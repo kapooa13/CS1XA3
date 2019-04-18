@@ -14,7 +14,7 @@ import Browser.Events as Events
 
 import Html exposing(..)
 import Html.Events exposing (..)
-import Html.Attributes exposing (style)
+import Html.Attributes exposing (style, class)
 
 import Debug exposing(toString)
 import Array
@@ -23,13 +23,15 @@ import Dict
 import Bootstrap.Button as Button exposing(button,dark,attrs)
 import Bootstrap.CDN as CDN
 import Bootstrap.Grid as Grid
+import Bootstrap.Grid.Row as Row
+import Bootstrap.Grid.Col as Col
 
 import GraphicSVG exposing(Shape, roundedRect, rgb, move, filled
             ,blue, brown, charcoal, darkBlue, darkBrown, darkCharcoal
             ,darkGray, darkGreen, darkGrey, darkOrange, darkPurple, darkRed
             ,darkYellow, gray, green, grey, hotPink, lightBlue, lightBrown
             ,lightCharcoal, lightGray, lightGreen, lightGrey, lightOrange, lightPurple
-            ,lightRed, lightYellow, orange, pink, purple, red, yellow, black)
+            ,lightRed, lightYellow, orange, pink, purple, red, yellow, black, addOutline, solid)
 
 import GraphicSVG.Widget as Widget
 
@@ -50,6 +52,42 @@ myColList = [blue, brown, charcoal, darkBlue, darkBrown, darkCharcoal
             ,darkYellow, gray, green, grey, hotPink, lightBlue, lightBrown
             ,lightCharcoal, lightGray, lightGreen, lightGrey, lightOrange, lightPurple
             ,lightRed, lightYellow, orange, pink, purple, red, yellow]
+{-
+myColFunc : GraphicSVG.Color -> String
+myColFunc col = case col of
+                    blue, 
+                    brown,
+                    charcoal, 
+                    darkBlue, 
+                    darkBrown, 
+                    darkCharcoal
+                    darkGray, 
+                    darkGreen, 
+                    darkGrey, 
+                    darkOrange, 
+                    darkPurple, 
+                    darkRed
+                    darkYellow,
+                    gray, 
+                    green, 
+                    grey, 
+                    hotPink, 
+                    lightBlue, 
+                    lightBrown
+                    lightCharcoal, 
+                    lightGray, 
+                    lightGreen, 
+                    lightGrey, 
+                    lightOrange, 
+                    lightPurple
+                    lightRed, 
+                    lightYellow, 
+                    orange, 
+                    pink, 
+                    purple, 
+                    red, 
+                    yellow
+-}
 
 {- For reference:
 
@@ -124,17 +162,41 @@ view (Keyboard myDict myColor clientKeyColorDict) =
 
                     otherwise -> roundedRect 20 70 3 |> filled (if state == True then (myCol idx) else (rgb 237 237 237))
                                                      |> move (toFloat(-120 + 20*idx),0.0)
+                                                     |> addOutline (solid 0.42) black
+
+        someCol = "moccasin"
+
+        myViewFn =
+            div [style "background-color" someCol] [
+
+                div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" someCol] [Widget.icon "myKeyboard" 400 100
+                        (Dict.values (Dict.map drawFunc myDict))
+                    ]
+
+               ,div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" someCol] [
+
+                    Button.button [ Button.dark, Button.attrs [onClick (RollRandomNum)] ] [ text "Randomise Color!!" ]
+                ]
+            ]
     in
-        div [] [
-             div [style "background-color" "deepskyblue"] [Widget.icon "myKeyboard" 400 100
+        myViewFn
+
+{-
+        div [style "background-color" "deepskyblue"] [
+        div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" "deepskyblue"] 
+        [
+             div [style "background-color" "deepskyblue",style "margin-left" "auto", style "margin-right" "auto"] [Widget.icon "myKeyboard" 400 100
                 (Dict.values (Dict.map drawFunc myDict))]
-            ,div [] [Button.button [ Button.dark, Button.attrs [onClick (RollRandomNum)] ] [ text "Change Colors" ]]
-            ,div [] [text <| Debug.toString <| clientKeyColorDict] 
         ]
+       ,div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" "deepskyblue"] [Button.button [ Button.dark, Button.attrs [onClick (RollRandomNum)] ] [ text "Change Colors" ]]
+        ]
+-}
+
 {-
         div [style "background-color" "deepskyblue"] [Widget.icon "myKeyboard" 400 100
         (Dict.values (Dict.map drawFunc myDict))
-       ,Button.button [ Button.dark, Button.attrs [onClick RollRandomNum] ] [ text "Change Colors" ]
+       ,Button.button [ Button.dark, Button.attrs [onClick RollRandomNum,style "margin-left" "auto", style "margin-right" "auto" ] ] [ text "Change Colors" ]
+       ,div [] [text <| Debug.toString <| clientKeyColorDict] 
         ]
 -}
 
