@@ -39,7 +39,7 @@ updateNoOpKeyboard : FromSuperPlace -> NoOp -> Keyboard -> Keyboard
 updateNoOpKeyboard fsp NoOp  keyboard = keyboard
 
 updateKeyboardMadeKeyDarkKeyboard : FromSuperPlace -> MadeKeyDark -> Keyboard -> Keyboard
-updateKeyboardMadeKeyDarkKeyboard fsp (MadeKeyDark myKeyInt)  (Keyboard clientKeyStateDict myColor) =
+updateKeyboardMadeKeyDarkKeyboard fsp (MadeKeyDark myKeyInt)  (Keyboard clientKeyStateDict myColor clientKeyColorDict) =
     let
         myDarkFunc : Maybe Bool -> Maybe Bool
         myDarkFunc someBool =
@@ -47,11 +47,15 @@ updateKeyboardMadeKeyDarkKeyboard fsp (MadeKeyDark myKeyInt)  (Keyboard clientKe
                 Just False -> Just True
                 otherwise  -> someBool
         myDict = Dict.update myKeyInt myDarkFunc clientKeyStateDict
+        
+        myColFunc : Int -> Maybe Int -> Maybe Int
+        myColFunc mC someInt = Just mC
+        myColDict = Dict.update myKeyInt (myColFunc myColor) clientKeyColorDict
     in
-        Keyboard myDict myColor
+        Keyboard myDict myColor myColDict
 
 updateKeyboardMadeKeyLightKeyboard : FromSuperPlace -> MadeKeyLight -> Keyboard -> Keyboard
-updateKeyboardMadeKeyLightKeyboard fsp (MadeKeyLight myKeyInt)  (Keyboard clientKeyStateDict myColor) =
+updateKeyboardMadeKeyLightKeyboard fsp (MadeKeyLight myKeyInt)  (Keyboard clientKeyStateDict myColor cKCD) =
     let
         myLightFunc : Maybe Bool -> Maybe Bool
         myLightFunc someBool =
@@ -60,11 +64,12 @@ updateKeyboardMadeKeyLightKeyboard fsp (MadeKeyLight myKeyInt)  (Keyboard client
                 otherwise  -> someBool
         myDict = Dict.update myKeyInt myLightFunc clientKeyStateDict
     in
-        Keyboard myDict myColor
+        Keyboard myDict myColor cKCD
 
 
 updateRandomColorNumberKeyboard : FromSuperPlace -> RandomColorNumber -> Keyboard -> Keyboard
-updateRandomColorNumberKeyboard fsp (RandomColorNumber myColor)  (Keyboard clientKeyStateDict someCol) = Keyboard clientKeyStateDict myColor
+updateRandomColorNumberKeyboard fsp (RandomColorNumber myColor)  (Keyboard clientKeyStateDict someCol cKCD) = 
+            Keyboard clientKeyStateDict myColor cKCD
 
 updateKeyboardRandomNumRolledKeyboard : FromSuperPlace -> RandomNumRolled -> Keyboard -> (Keyboard, Cmd RandomColorNumber)
 updateKeyboardRandomNumRolledKeyboard fsp RandomNumRolled  keyboard = (keyboard, Random.generate RandomColorNumber (Random.int 0 24))

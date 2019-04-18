@@ -49,8 +49,6 @@ updateMakeDark fsp clientId (MakeDark myKeyInt) keyboard lstKeyboard =
     let
         fromKeyboard :: (ClientID, KeyboardPlayer) -> MakeDarkfromKeyboard
         fromKeyboard (pId, pkeyboard) = MakeDark_KeyboardtoKeyboard KeyboardPlayer (MadeKeyDark myKeyInt)
-
-
     in
         (keyboard, fromKeyboard)
 

@@ -7,7 +7,7 @@ import Dict exposing (Dict)
 type Dummy = Dummy
 -- place states
 type Keyboard  =
-      Keyboard (Dict Int {-myKeyInt-} Bool {-keyStateBool-}) {-clientKeyStateDict-} Int {-myColor-}
+      Keyboard (Dict Int {-myKeyInt-} Bool {-keyStateBool-}) {-clientKeyStateDict-} Int {-myColor-} (Dict Int {-myKeyInt-} Int {-myColor-}) {-clientKeyColorDict-}
 
 
 

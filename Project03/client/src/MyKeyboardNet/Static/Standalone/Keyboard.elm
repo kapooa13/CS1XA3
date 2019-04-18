@@ -13,4 +13,4 @@ main = Browser.document { init = \_ -> (model, Cmd.none), view = \m -> { body = 
 
 --Change the model here to preview your state
 model : Keyboard
-model = Keyboard Dict.empty 0
+model = Keyboard Dict.empty 0 Dict.empty
