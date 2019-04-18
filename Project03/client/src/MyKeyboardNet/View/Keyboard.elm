@@ -19,6 +19,10 @@ import Html.Attributes exposing (style)
 import Debug exposing(todo)
 import Array
 
+import Bootstrap.Button as Button exposing(button,dark,attrs)
+import Bootstrap.CDN as CDN
+import Bootstrap.Grid as Grid
+
 import GraphicSVG exposing(Shape, roundedRect, rgb, move, filled
             ,blue, brown, charcoal, darkBlue, darkBrown, darkCharcoal
             ,darkGray, darkGreen, darkGrey, darkOrange, darkPurple, darkRed
@@ -111,10 +115,17 @@ view (Keyboard myDict myColor) =
                     otherwise -> roundedRect 20 70 3 |> filled (if state == True then (myCol) else (rgb 227 227 227))
                                                      |> move (toFloat(-120 + 20*idx),0.0)
     in
+        div [] [
+             div [style "background-color" "deepskyblue"] [Widget.icon "myKeyboard" 400 100
+                (Dict.values (Dict.map drawFunc myDict))]
+            ,div [] [Button.button [ Button.dark, Button.attrs [onClick RollRandomNum] ] [ text "Change Colors" ]] 
+        ]
+{-
         div [style "background-color" "deepskyblue"] [Widget.icon "myKeyboard" 400 100
         (Dict.values (Dict.map drawFunc myDict))
-       ,button [onClick RollRandomNum] [text "roll"]
+       ,Button.button [ Button.dark, Button.attrs [onClick RollRandomNum] ] [ text "Change Colors" ]
         ]
+-}
 
 title : Keyboard -> String
 title keyboard = "Realtime Keyboard"

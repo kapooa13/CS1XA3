@@ -23,6 +23,8 @@ myDict = DictT myKeyInt myKeyStateBool
 
 clientKeyStateDict = dt myDict "clientKeyStateDict" "dictionary representing state of keys"
 
+clientKeyColorDict = dt (DictT myKeyInt myColor) "clientKeyColorDict" "dictionary for representing color of keys" 
+
 
 {-
 - Layout for Keyboard keys
@@ -61,7 +63,7 @@ keyboardNet =
             Place "Keyboard" 
                     [] --server state (persistent for this place)
                     [] --player state (client state stored on server)
-                    [clientKeyStateDict, myColor] --client state (state stored on client)
+                    [clientKeyStateDict, myColor, clientKeyColorDict] --client state (state stored on client)
                     Nothing
 
         boardKeyPressed =                 
