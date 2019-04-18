@@ -49,4 +49,4 @@ myInitColor = (Dict.fromList [(0,0)  -- it doesn't matter what it is initially a
                              ,(19,19)
                               ])
 init : Keyboard
-init = Keyboard myInitState (16) myInitColor 20
+init = Keyboard myInitState (16) myInitColor

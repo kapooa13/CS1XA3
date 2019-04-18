@@ -8,7 +8,7 @@ import Static.Dict (Dict)
 
 -- place states and place player states
 data Keyboard  =
-      Keyboard (Dict Int {-myKeyInt-} Int {-myColor-}) {-serverKeyColorDict-}
+      Keyboard (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-serverKeyColorDict-}
     deriving(Ord,Eq,Show,Typeable)
 
 data KeyboardPlayer  =
@@ -19,7 +19,7 @@ data KeyboardPlayer  =
 
 -- outgoing client message types
 data BoardKeyUnpressed  =
-      BoardKeyUnpressed (Dict Int {-myKeyInt-} Int {-myColor-}) {-clientKeyColorDict-} Int {-myColor-} Int {-myKeyInt-}
+      BoardKeyUnpressed (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-clientKeyColorDict-} Int {-myColor-} Int {-myKeyInt-}
     deriving(Ord,Eq,Show)
 data MadeKeyDark  =
       MadeKeyDark Int {-myKeyInt-}
@@ -31,7 +31,7 @@ data RandomNumRolled  =
       RandomNumRolled
     deriving(Ord,Eq,Show)
 data ClientMessage  =
-      MBoardKeyUnpressed (Dict Int {-myKeyInt-} Int {-myColor-}) {-clientKeyColorDict-} Int {-myColor-} Int {-myKeyInt-}
+      MBoardKeyUnpressed (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-clientKeyColorDict-} Int {-myColor-} Int {-myKeyInt-}
     | MMadeKeyDark Int {-myKeyInt-}
     | MMadeKeyLight Int {-myKeyInt-}
     | MRandomNumRolled
@@ -57,13 +57,13 @@ data RollRandomNumfromKeyboard  =
 
 -- main transition types
 data Transition  =
-      TBoardKeyPressed (Dict Int {-myKeyInt-} Int {-myColor-}) {-clientKeyColorDict-} Int {-myColor-} Int {-myKeyInt-}
+      TBoardKeyPressed (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-clientKeyColorDict-} Int {-myColor-} Int {-myKeyInt-}
     | TMakeDark Int {-myKeyInt-}
     | TMakeLight Int {-myKeyInt-}
-    | TRollRandomNum (Dict Int {-myKeyInt-} Int {-myColor-}) {-clientKeyColorDict-} Int {-myColor-} Int {-myKeyInt-}
+    | TRollRandomNum
     deriving(Ord,Eq,Show)
 data BoardKeyPressed  =
-      BoardKeyPressed (Dict Int {-myKeyInt-} Int {-myColor-}) {-clientKeyColorDict-} Int {-myColor-} Int {-myKeyInt-}
+      BoardKeyPressed (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-clientKeyColorDict-} Int {-myColor-} Int {-myKeyInt-}
     deriving(Ord,Eq,Show)
 data MakeDark  =
       MakeDark Int {-myKeyInt-}
@@ -72,7 +72,7 @@ data MakeLight  =
       MakeLight Int {-myKeyInt-}
     deriving(Ord,Eq,Show)
 data RollRandomNum  =
-      RollRandomNum (Dict Int {-myKeyInt-} Int {-myColor-}) {-clientKeyColorDict-} Int {-myColor-} Int {-myKeyInt-}
+      RollRandomNum
     deriving(Ord,Eq,Show)
 
 -- player state union type

@@ -7,7 +7,7 @@ import Dict exposing (Dict)
 type Dummy = Dummy
 -- place states
 type Keyboard  =
-      Keyboard (Dict Int {-myKeyInt-} Bool {-keyStateBool-}) {-clientKeyStateDict-} Int {-myColor-} (Dict Int {-myKeyInt-} Int {-myColor-}) {-clientKeyColorDict-} Int {-myKeyInt-}
+      Keyboard (Dict Int {-myKeyInt-} Bool {-keyStateBool-}) {-clientKeyStateDict-} Int {-myColor-} (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-clientKeyColorDict-}
 
 
 
@@ -23,7 +23,7 @@ type OutgoingTransition  =
       TBoardKeyPressed (Dict Int Int) Int Int
     | TMakeDark Int
     | TMakeLight Int
-    | TRollRandomNum (Dict Int Int) Int Int
+    | TRollRandomNum
 type BoardKeyUnpressed  =
       BoardKeyUnpressed (Dict Int Int) Int Int
 type NoOp  =
@@ -43,11 +43,11 @@ type MakeDark  =
 type MakeLight  =
       MakeLight Int
 type RollRandomNum  =
-      RollRandomNum (Dict Int Int) Int Int
+      RollRandomNum
 
 -- outgoing server message types
 type IncomingMessage  =
-      MBoardKeyUnpressed (Dict Int {-myKeyInt-} Int {-myColor-}) {-clientKeyColorDict-} Int {-myColor-} Int {-myKeyInt-}
+      MBoardKeyUnpressed (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-clientKeyColorDict-} Int {-myColor-} Int {-myKeyInt-}
     | MNoOp
     | MMadeKeyDark Int {-myKeyInt-}
     | MMadeKeyLight Int {-myKeyInt-}

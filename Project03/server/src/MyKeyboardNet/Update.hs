@@ -34,13 +34,20 @@ updateBoardKeyPressed :: FromSuperPlace ->
     )
 updateBoardKeyPressed fsp clientId (BoardKeyPressed clientKeyColorDict myColor myKeyInt) keyboard lstKeyboard =
     let
-        newServerKeyColorDict = Map.update (\_ -> Just myColor) myKeyInt (getServerKeyColorDict keyboard)
-        myDict = Map.update (\_ -> Just myColor) myKeyInt clientKeyColorDict
+        -- myDict = getServerKeyColorDict keyboard
+        newServerKeyColorDict = case myKeyInt of 
+                                        20        -> getServerKeyColorDict keyboard 
+                                        otherwise -> Map.update (\_ -> Just myColor) myKeyInt (getServerKeyColorDict keyboard)
+        {-
+        myDict = case myKeyInt of
+                        20        -> getServerKeyColorDict keyboard
+                        otherwise -> Map.update (\_ -> Just myColor) myKeyInt (getServerKeyColorDict keyboard)
+        -}
 
         fromKeyboard :: (ClientID, KeyboardPlayer) -> BoardKeyPressedfromKeyboard
-        fromKeyboard (pId, pkeyboard) = BoardKeyPressed_KeyboardtoKeyboard KeyboardPlayer (BoardKeyUnpressed myDict myColor myKeyInt)
+        fromKeyboard (pId, pkeyboard) = BoardKeyPressed_KeyboardtoKeyboard KeyboardPlayer (BoardKeyUnpressed newServerKeyColorDict myColor myKeyInt)
     in
-        (updateServerKeyColorDict myDict keyboard, fromKeyboard)
+        (updateServerKeyColorDict newServerKeyColorDict keyboard, fromKeyboard)
 
 updateMakeDark :: FromSuperPlace -> 
     ClientID ->
@@ -84,14 +91,13 @@ updateRollRandomNum :: FromSuperPlace ->
     ( Keyboard,
       (ClientID, KeyboardPlayer) -> RollRandomNumfromKeyboard
     )
-updateRollRandomNum fsp clientId (RollRandomNum clientKeyColorDict myColor myKeyInt) keyboard lstKeyboard =
+updateRollRandomNum fsp clientId (RollRandomNum) keyboard lstKeyboard =
     let
         fromKeyboard :: (ClientID, KeyboardPlayer) -> RollRandomNumfromKeyboard
         fromKeyboard (pId, pkeyboard) = RollRandomNum_KeyboardtoKeyboard KeyboardPlayer (RandomNumRolled)
-        myDict = Map.update (\_ -> Just myColor) myKeyInt clientKeyColorDict
-        newServerKeyColorDict = Map.update (\_ -> Just myColor) myKeyInt (getServerKeyColorDict keyboard)
+
 
     in
-        (updateServerKeyColorDict myDict keyboard, fromKeyboard)
+        (keyboard, fromKeyboard)
 
 

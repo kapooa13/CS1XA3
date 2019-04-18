@@ -3,7 +3,6 @@ import MyKeyboardNet.Static.Types.Keyboard exposing(..)
 import MyKeyboardNet.Static.ExtraTypes exposing(..)
 import MyKeyboardNet.Static.Types exposing(..)
 import Dict exposing (Dict)
-import Dict exposing (Dict)
 
 import Dict exposing (Dict)
 
@@ -15,5 +14,5 @@ unwrap msg =
         (MyKeyboardNet.Static.Types.Keyboard.MakeDark myKeyInt)  -> External (TMakeDark myKeyInt) 
         (MyKeyboardNet.Static.Types.Keyboard.MakeLight myKeyInt)  -> External (TMakeLight myKeyInt) 
         (MyKeyboardNet.Static.Types.Keyboard.RandomColorNumber myColor)  -> Internal (TRandomColorNumber myColor) 
-        (MyKeyboardNet.Static.Types.Keyboard.RollRandomNum clientKeyColorDict myColor myKeyInt)  -> External (TRollRandomNum clientKeyColorDict myColor myKeyInt) 
+        MyKeyboardNet.Static.Types.Keyboard.RollRandomNum  -> External TRollRandomNum 
 

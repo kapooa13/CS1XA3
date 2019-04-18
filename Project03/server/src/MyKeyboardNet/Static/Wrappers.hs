@@ -71,7 +71,7 @@ unwrapMakeLight (MakeLight myKeyInt)  = (TMakeLight myKeyInt)
 
 
 unwrapRollRandomNum :: RollRandomNum -> Transition
-unwrapRollRandomNum (RollRandomNum clientKeyColorDict myColor myKeyInt)  = (TRollRandomNum clientKeyColorDict myColor myKeyInt) 
+unwrapRollRandomNum RollRandomNum  = TRollRandomNum 
 
 
 

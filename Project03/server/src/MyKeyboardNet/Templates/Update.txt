@@ -82,7 +82,7 @@ updateRollRandomNum :: FromSuperPlace ->
     ( Keyboard,
       (ClientID, KeyboardPlayer) -> RollRandomNumfromKeyboard
     )
-updateRollRandomNum fsp clientId (RollRandomNum clientKeyColorDict myColor myKeyInt) keyboard lstKeyboard =
+updateRollRandomNum fsp clientId RollRandomNum keyboard lstKeyboard =
     let
         fromKeyboard :: (ClientID, KeyboardPlayer) -> RollRandomNumfromKeyboard
         fromKeyboard (pId, pkeyboard) = error "Please fill in function stub."

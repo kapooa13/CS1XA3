@@ -23,9 +23,14 @@ myDict = DictT myKeyInt myKeyStateBool
 
 clientKeyStateDict = dt myDict "clientKeyStateDict" "dictionary representing state of keys"
 
-clientKeyColorDict = dt (DictT myKeyInt myColor) "clientKeyColorDict" "dictionary for representing color of keys" 
 
-serverKeyColorDict = dt (DictT myKeyInt myColor) "serverKeyColorDict" "dictionary for representing color of keys on server" 
+myKeyColor = dt (IntRangeT 0 24) "myKeyColor" "represents color of keys"
+
+myserverKeyColor = dt (IntRangeT 0 24) "myserverKeyColor" "represents color of keys on server"
+
+clientKeyColorDict = dt (DictT myKeyInt myKeyColor) "clientKeyColorDict" "dictionary for representing color of keys" 
+
+serverKeyColorDict = dt (DictT myKeyInt myKeyColor) "serverKeyColorDict" "dictionary for representing color of keys on server" 
 
 {-
 - Layout for Keyboard keys
@@ -64,7 +69,7 @@ keyboardNet =
             Place "Keyboard" 
                     [serverKeyColorDict] --server state (persistent for this place)
                     [] --player state (client state stored on server)
-                    [clientKeyStateDict, myColor, clientKeyColorDict, myKeyInt] --client state (state stored on client)
+                    [clientKeyStateDict, myColor, clientKeyColorDict] --client state (state stored on client)
                     Nothing
 
         boardKeyPressed =                 
@@ -116,7 +121,7 @@ keyboardNet =
         roll =           -- calls randomColor random val
             Transition
                 OriginClientOnly
-                (constructor "RollRandomNum" [clientKeyColorDict, myColor, myKeyInt])
+                (constructor "RollRandomNum" [])
                 [("Keyboard", Just ("Keyboard", constructor "RandomNumRolled" [], Just "RandomColorNumber"))
                 ]
                 Nothing

@@ -8,59 +8,46 @@ import Dict exposing (Dict)
 
 
 getClientKeyStateDict : Keyboard -> (Dict Int Bool)
-getClientKeyStateDict (Keyboard clientKeyStateDict _ _ _)  = clientKeyStateDict
+getClientKeyStateDict (Keyboard clientKeyStateDict _ _)  = clientKeyStateDict
 
 getMyColor : Keyboard -> Int
-getMyColor (Keyboard _ myColor _ _)  = myColor
+getMyColor (Keyboard _ myColor _)  = myColor
 
 getClientKeyColorDict : Keyboard -> (Dict Int Int)
-getClientKeyColorDict (Keyboard _ _ clientKeyColorDict _)  = clientKeyColorDict
-
-getMyKeyInt : Keyboard -> Int
-getMyKeyInt (Keyboard _ _ _ myKeyInt)  = myKeyInt
+getClientKeyColorDict (Keyboard _ _ clientKeyColorDict)  = clientKeyColorDict
 
 
 
 updateClientKeyStateDict : (Dict Int Bool) -> Keyboard -> Keyboard
-updateClientKeyStateDict newclientKeyStateDict (Keyboard clientKeyStateDict myColor clientKeyColorDict myKeyInt)  = (Keyboard newclientKeyStateDict myColor clientKeyColorDict myKeyInt) 
+updateClientKeyStateDict newclientKeyStateDict (Keyboard clientKeyStateDict myColor clientKeyColorDict)  = (Keyboard newclientKeyStateDict myColor clientKeyColorDict) 
 
 updateMyColor : Int -> Keyboard -> Keyboard
-updateMyColor newmyColor (Keyboard clientKeyStateDict myColor clientKeyColorDict myKeyInt)  = (Keyboard clientKeyStateDict newmyColor clientKeyColorDict myKeyInt) 
+updateMyColor newmyColor (Keyboard clientKeyStateDict myColor clientKeyColorDict)  = (Keyboard clientKeyStateDict newmyColor clientKeyColorDict) 
 
 updateClientKeyColorDict : (Dict Int Int) -> Keyboard -> Keyboard
-updateClientKeyColorDict newclientKeyColorDict (Keyboard clientKeyStateDict myColor clientKeyColorDict myKeyInt)  = (Keyboard clientKeyStateDict myColor newclientKeyColorDict myKeyInt) 
-
-updateMyKeyInt : Int -> Keyboard -> Keyboard
-updateMyKeyInt newmyKeyInt (Keyboard clientKeyStateDict myColor clientKeyColorDict myKeyInt)  = (Keyboard clientKeyStateDict myColor clientKeyColorDict newmyKeyInt) 
+updateClientKeyColorDict newclientKeyColorDict (Keyboard clientKeyStateDict myColor clientKeyColorDict)  = (Keyboard clientKeyStateDict myColor newclientKeyColorDict) 
 
 
 alterClientKeyStateDict : ((Dict Int Bool) -> (Dict Int Bool)) -> Keyboard -> Keyboard
-alterClientKeyStateDict f (Keyboard clientKeyStateDict myColor clientKeyColorDict myKeyInt)  = 
+alterClientKeyStateDict f (Keyboard clientKeyStateDict myColor clientKeyColorDict)  = 
     let
         newclientKeyStateDict = f clientKeyStateDict
     in
-        (Keyboard newclientKeyStateDict myColor clientKeyColorDict myKeyInt) 
+        (Keyboard newclientKeyStateDict myColor clientKeyColorDict) 
 
 alterMyColor : (Int -> Int) -> Keyboard -> Keyboard
-alterMyColor f (Keyboard clientKeyStateDict myColor clientKeyColorDict myKeyInt)  = 
+alterMyColor f (Keyboard clientKeyStateDict myColor clientKeyColorDict)  = 
     let
         newmyColor = f myColor
     in
-        (Keyboard clientKeyStateDict newmyColor clientKeyColorDict myKeyInt) 
+        (Keyboard clientKeyStateDict newmyColor clientKeyColorDict) 
 
 alterClientKeyColorDict : ((Dict Int Int) -> (Dict Int Int)) -> Keyboard -> Keyboard
-alterClientKeyColorDict f (Keyboard clientKeyStateDict myColor clientKeyColorDict myKeyInt)  = 
+alterClientKeyColorDict f (Keyboard clientKeyStateDict myColor clientKeyColorDict)  = 
     let
         newclientKeyColorDict = f clientKeyColorDict
     in
-        (Keyboard clientKeyStateDict myColor newclientKeyColorDict myKeyInt) 
-
-alterMyKeyInt : (Int -> Int) -> Keyboard -> Keyboard
-alterMyKeyInt f (Keyboard clientKeyStateDict myColor clientKeyColorDict myKeyInt)  = 
-    let
-        newmyKeyInt = f myKeyInt
-    in
-        (Keyboard clientKeyStateDict myColor clientKeyColorDict newmyKeyInt) 
+        (Keyboard clientKeyStateDict myColor newclientKeyColorDict) 
 
 
 

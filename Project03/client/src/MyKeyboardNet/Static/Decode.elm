@@ -21,17 +21,17 @@ decodeIncomingMessage (_,incomingmessageTxts) =
                                                     [] -> (Err "Ran out of string to process while parsing IncomingMessage",[]))
 
                                     [] -> (Err "Ran out of string to process while parsing IncomingMessage",[])
-                            (myColor,ls5) =
+                            (myKeyColor,ls5) =
                                 case lf5 of
                                     (clientKeyColorDictKeyValPairTxt :: lls5) ->
                                          (Err "",lf5) |>
                                                             \(r9,l10) ->
                                                 (case l10 of
-                                                    (myColorTxt :: ll10) -> (decodeInt (0) (24) myColorTxt |> Result.andThen Ok,ll10)
+                                                    (myKeyColorTxt :: ll10) -> (decodeInt (0) (24) myKeyColorTxt |> Result.andThen Ok,ll10)
                                                     [] -> (Err "Ran out of string to process while parsing IncomingMessage",[]))
 
                                     [] -> (Err "Ran out of string to process while parsing IncomingMessage",[])
-                        in (Result.map2 (\rff5 rss5 -> (rff5,rss5)) myKeyInt myColor,ls5)) |>
+                        in (Result.map2 (\rff5 rss5 -> (rff5,rss5)) myKeyInt myKeyColor,ls5)) |>
                     decodeList l4
                 |> decodeDict
                  |>

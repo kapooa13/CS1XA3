@@ -123,10 +123,10 @@ update tld mClientID trans state =
                     in
                         (newPlaces, newPlayers, clientMessages, Nothing)
 
-                (TRollRandomNum clientKeyColorDict myColor myKeyInt) ->
+                TRollRandomNum ->
                     let
                         (keyboardPlayerLst) = splitRollRandomNumPlayers (IM'.toList players)
-                        (keyboard,fromKeyboard) = updateRollRandomNum tld (fromJust mClientID) ((RollRandomNum clientKeyColorDict myColor myKeyInt) ) ((safeFromJust "place lookup") $ TM.lookup places) (map snd keyboardPlayerLst)
+                        (keyboard,fromKeyboard) = updateRollRandomNum tld (fromJust mClientID) (RollRandomNum ) ((safeFromJust "place lookup") $ TM.lookup places) (map snd keyboardPlayerLst)
                         newPlaces = TM.insert keyboard places
                         (newPlayers, clientMessages) = unzip $ map (processRollRandomNumPlayer fromKeyboard) (mapSnd unwrapKeyboardPlayer keyboardPlayerLst)
                     in

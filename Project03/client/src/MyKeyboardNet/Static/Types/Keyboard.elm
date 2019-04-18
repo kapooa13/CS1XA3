@@ -1,7 +1,6 @@
 module MyKeyboardNet.Static.Types.Keyboard exposing(..)
 import MyKeyboardNet.Static.ExtraTypes exposing(..)
 import Dict exposing (Dict)
-import Dict exposing (Dict)
 
 
 type Msg  =
@@ -10,4 +9,4 @@ type Msg  =
     | MakeDark Int
     | MakeLight Int
     | RandomColorNumber Int
-    | RollRandomNum (Dict Int Int) Int Int
+    | RollRandomNum
