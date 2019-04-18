@@ -5,6 +5,9 @@ import MyKeyboardNet.Static.Helpers.Keyboard as Keyboard
 
 import MyKeyboardNet.Static.Helpers.KeyboardPlayer as KeyboardPlayer
 
+import Data.Map (Map)
+import qualified Data.Map as Map
+
 import Static.List
 import Utils.Utils
 import Static.ServerTypes
@@ -29,13 +32,15 @@ updateBoardKeyPressed :: FromSuperPlace ->
     ( Keyboard,
       (ClientID, KeyboardPlayer) -> BoardKeyPressedfromKeyboard
     )
-updateBoardKeyPressed fsp clientId (BoardKeyPressed myKeyInt) keyboard lstKeyboard =
+updateBoardKeyPressed fsp clientId (BoardKeyPressed clientKeyColorDict myColor myKeyInt) keyboard lstKeyboard =
     let
-        fromKeyboard :: (ClientID, KeyboardPlayer) -> BoardKeyPressedfromKeyboard
-        fromKeyboard (pId, pkeyboard) = BoardKeyPressed_KeyboardtoKeyboard KeyboardPlayer (BoardKeyUnpressed myKeyInt)
+        newServerKeyColorDict = Map.update (\_ -> Just myColor) myKeyInt (getServerKeyColorDict keyboard)
+        myDict = Map.update (\_ -> Just myColor) myKeyInt clientKeyColorDict
 
+        fromKeyboard :: (ClientID, KeyboardPlayer) -> BoardKeyPressedfromKeyboard
+        fromKeyboard (pId, pkeyboard) = BoardKeyPressed_KeyboardtoKeyboard KeyboardPlayer (BoardKeyUnpressed myDict myColor myKeyInt)
     in
-        (keyboard, fromKeyboard)
+        (updateServerKeyColorDict myDict keyboard, fromKeyboard)
 
 updateMakeDark :: FromSuperPlace -> 
     ClientID ->
@@ -49,6 +54,8 @@ updateMakeDark fsp clientId (MakeDark myKeyInt) keyboard lstKeyboard =
     let
         fromKeyboard :: (ClientID, KeyboardPlayer) -> MakeDarkfromKeyboard
         fromKeyboard (pId, pkeyboard) = MakeDark_KeyboardtoKeyboard KeyboardPlayer (MadeKeyDark myKeyInt)
+
+
     in
         (keyboard, fromKeyboard)
 
@@ -77,13 +84,14 @@ updateRollRandomNum :: FromSuperPlace ->
     ( Keyboard,
       (ClientID, KeyboardPlayer) -> RollRandomNumfromKeyboard
     )
-updateRollRandomNum fsp clientId RollRandomNum keyboard lstKeyboard =
+updateRollRandomNum fsp clientId (RollRandomNum clientKeyColorDict myColor myKeyInt) keyboard lstKeyboard =
     let
         fromKeyboard :: (ClientID, KeyboardPlayer) -> RollRandomNumfromKeyboard
         fromKeyboard (pId, pkeyboard) = RollRandomNum_KeyboardtoKeyboard KeyboardPlayer (RandomNumRolled)
-
+        myDict = Map.update (\_ -> Just myColor) myKeyInt clientKeyColorDict
+        newServerKeyColorDict = Map.update (\_ -> Just myColor) myKeyInt (getServerKeyColorDict keyboard)
 
     in
-        (keyboard, fromKeyboard)
+        (updateServerKeyColorDict myDict keyboard, fromKeyboard)
 
 

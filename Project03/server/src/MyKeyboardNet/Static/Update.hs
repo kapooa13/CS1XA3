@@ -96,10 +96,10 @@ update tld mClientID trans state =
         players = playerStates state
         (newPlaces, newPlayers, clientMessages, cmd) = 
             case trans of
-                (TBoardKeyPressed myKeyInt) ->
+                (TBoardKeyPressed clientKeyColorDict myColor myKeyInt) ->
                     let
                         (keyboardPlayerLst) = splitBoardKeyPressedPlayers (IM'.toList players)
-                        (keyboard,fromKeyboard) = updateBoardKeyPressed tld (fromJust mClientID) ((BoardKeyPressed myKeyInt) ) ((safeFromJust "place lookup") $ TM.lookup places) (map snd keyboardPlayerLst)
+                        (keyboard,fromKeyboard) = updateBoardKeyPressed tld (fromJust mClientID) ((BoardKeyPressed clientKeyColorDict myColor myKeyInt) ) ((safeFromJust "place lookup") $ TM.lookup places) (map snd keyboardPlayerLst)
                         newPlaces = TM.insert keyboard places
                         (newPlayers, clientMessages) = unzip $ map (processBoardKeyPressedPlayer fromKeyboard) (mapSnd unwrapKeyboardPlayer keyboardPlayerLst)
                     in
@@ -123,10 +123,10 @@ update tld mClientID trans state =
                     in
                         (newPlaces, newPlayers, clientMessages, Nothing)
 
-                TRollRandomNum ->
+                (TRollRandomNum clientKeyColorDict myColor myKeyInt) ->
                     let
                         (keyboardPlayerLst) = splitRollRandomNumPlayers (IM'.toList players)
-                        (keyboard,fromKeyboard) = updateRollRandomNum tld (fromJust mClientID) (RollRandomNum ) ((safeFromJust "place lookup") $ TM.lookup places) (map snd keyboardPlayerLst)
+                        (keyboard,fromKeyboard) = updateRollRandomNum tld (fromJust mClientID) ((RollRandomNum clientKeyColorDict myColor myKeyInt) ) ((safeFromJust "place lookup") $ TM.lookup places) (map snd keyboardPlayerLst)
                         newPlaces = TM.insert keyboard places
                         (newPlayers, clientMessages) = unzip $ map (processRollRandomNumPlayer fromKeyboard) (mapSnd unwrapKeyboardPlayer keyboardPlayerLst)
                     in

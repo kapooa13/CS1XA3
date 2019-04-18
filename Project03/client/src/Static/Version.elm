@@ -1,3 +1,3 @@
 module Static.Version exposing(version)
 
-version = "v1555559089308376"
+version = "v1555570477751000"

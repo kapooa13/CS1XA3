@@ -31,7 +31,7 @@ updateBoardKeyPressed :: FromSuperPlace ->
     ( Keyboard,
       (ClientID, KeyboardPlayer) -> BoardKeyPressedfromKeyboard
     )
-updateBoardKeyPressed fsp clientId (BoardKeyPressed myKeyInt) keyboard lstKeyboard =
+updateBoardKeyPressed fsp clientId (BoardKeyPressed clientKeyColorDict myColor myKeyInt) keyboard lstKeyboard =
     let
         fromKeyboard :: (ClientID, KeyboardPlayer) -> BoardKeyPressedfromKeyboard
         fromKeyboard (pId, pkeyboard) = error "Please fill in function stub."
@@ -82,7 +82,7 @@ updateRollRandomNum :: FromSuperPlace ->
     ( Keyboard,
       (ClientID, KeyboardPlayer) -> RollRandomNumfromKeyboard
     )
-updateRollRandomNum fsp clientId RollRandomNum keyboard lstKeyboard =
+updateRollRandomNum fsp clientId (RollRandomNum clientKeyColorDict myColor myKeyInt) keyboard lstKeyboard =
     let
         fromKeyboard :: (ClientID, KeyboardPlayer) -> RollRandomNumfromKeyboard
         fromKeyboard (pId, pkeyboard) = error "Please fill in function stub."

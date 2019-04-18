@@ -7,7 +7,7 @@ import Utils.Utils
 import Debug exposing(todo)
 
 updateKeyboardBoardKeyUnpressedKeyboard : FromSuperPlace -> BoardKeyUnpressed -> Keyboard -> (Keyboard Cmd, NoOp)
-updateKeyboardBoardKeyUnpressedKeyboard fsp (BoardKeyUnpressed myKeyInt)  keyboard =
+updateKeyboardBoardKeyUnpressedKeyboard fsp (BoardKeyUnpressed clientKeyColorDict myColor myKeyInt)  keyboard =
     todo "Please implement update function updateKeyboardBoardKeyUnpressedKeyboard for the MyKeyboardNet net."
 
 

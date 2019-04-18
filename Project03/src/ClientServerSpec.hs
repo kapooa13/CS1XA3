@@ -25,6 +25,7 @@ clientKeyStateDict = dt myDict "clientKeyStateDict" "dictionary representing sta
 
 clientKeyColorDict = dt (DictT myKeyInt myColor) "clientKeyColorDict" "dictionary for representing color of keys" 
 
+serverKeyColorDict = dt (DictT myKeyInt myColor) "serverKeyColorDict" "dictionary for representing color of keys on server" 
 
 {-
 - Layout for Keyboard keys
@@ -61,16 +62,16 @@ keyboardNet =
     let
         keyboardPlace =
             Place "Keyboard" 
-                    [] --server state (persistent for this place)
+                    [serverKeyColorDict] --server state (persistent for this place)
                     [] --player state (client state stored on server)
-                    [clientKeyStateDict, myColor, clientKeyColorDict] --client state (state stored on client)
+                    [clientKeyStateDict, myColor, clientKeyColorDict, myKeyInt] --client state (state stored on client)
                     Nothing
 
         boardKeyPressed =                 
             Transition
                 OriginClientOnly
-                (constructor "BoardKeyPressed" [myKeyInt])
-                [("Keyboard", Just ("Keyboard", constructor "BoardKeyUnpressed" [myKeyInt], Just "NoOp"))
+                (constructor "BoardKeyPressed" [clientKeyColorDict, myColor, myKeyInt])
+                [("Keyboard", Just ("Keyboard", constructor "BoardKeyUnpressed" [clientKeyColorDict, myColor, myKeyInt], Just "NoOp"))
                 ]
                 Nothing
 
@@ -100,9 +101,10 @@ keyboardNet =
             Transition
                 OriginClientOnly
                 (constructor "RandomColorNumber" [myColor])
-                [("Keyboard", Just ("Keyboard", constructor "ChangedColorNumber" [myColor], Nothing))
+                [("Keyboard", Just ("Keyboard", constructor "ChangedColorNumber" [myColor], Just "BoardKeyPressed"))
                 ]
-                Nothing-}
+                Nothing
+-}
 
         randomColor =
             ClientTransition        -- Note that this is a client transition only
@@ -114,7 +116,7 @@ keyboardNet =
         roll =           -- calls randomColor random val
             Transition
                 OriginClientOnly
-                (constructor "RollRandomNum" [])
+                (constructor "RollRandomNum" [clientKeyColorDict, myColor, myKeyInt])
                 [("Keyboard", Just ("Keyboard", constructor "RandomNumRolled" [], Just "RandomColorNumber"))
                 ]
                 Nothing

@@ -36,9 +36,9 @@ import GraphicSVG.Widget as Widget
 import Dict
 
 subs : Keyboard -> Sub Msg
-subs keyboard =
+subs (Keyboard clientKeyStateDict myColor clientKeyColorDict myKeyInt) =
     Sub.batch [
-        Events.onKeyDown (Decode.map BoardKeyPressed keyDecoder)
+        Events.onKeyDown (Decode.map (BoardKeyPressed clientKeyColorDict myColor) keyDecoder)
        ,Events.onKeyDown <| (Decode.map MakeDark keyDecoder)
        ,Events.onKeyUp   <| (Decode.map MakeLight keyDecoder)
             ]
@@ -81,7 +81,7 @@ myColList = [blue, brown, charcoal, darkBlue, darkBrown, darkCharcoal
 -}
 
 view : Keyboard -> Html Msg
-view (Keyboard myDict myColor clientKeyColorDict) =
+view (Keyboard myDict myColor clientKeyColorDict myKeyInt) =
     let
         myColPicker : Int -> Int
         -- takes index of key and returns the corresponding color int
@@ -126,7 +126,7 @@ view (Keyboard myDict myColor clientKeyColorDict) =
         div [] [
              div [style "background-color" "deepskyblue"] [Widget.icon "myKeyboard" 400 100
                 (Dict.values (Dict.map drawFunc myDict))]
-            ,div [] [Button.button [ Button.dark, Button.attrs [onClick RollRandomNum] ] [ text "Change Colors" ]]
+            ,div [] [Button.button [ Button.dark, Button.attrs [onClick (RollRandomNum clientKeyColorDict myColor myKeyInt)] ] [ text "Change Colors" ]]
             ,div [] [text <| Debug.toString <| clientKeyColorDict] 
         ]
 {-

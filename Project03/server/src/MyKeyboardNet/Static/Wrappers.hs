@@ -4,7 +4,7 @@ import Data.Map.Strict as Dict
 import MyKeyboardNet.Static.Types
 
 unwrapBoardKeyUnpressed :: BoardKeyUnpressed -> ClientMessage
-unwrapBoardKeyUnpressed (BoardKeyUnpressed myKeyInt)  = (MBoardKeyUnpressed myKeyInt) 
+unwrapBoardKeyUnpressed (BoardKeyUnpressed clientKeyColorDict myColor myKeyInt)  = (MBoardKeyUnpressed clientKeyColorDict myColor myKeyInt) 
 
 
 unwrapMadeKeyDark :: MadeKeyDark -> ClientMessage
@@ -59,7 +59,7 @@ unwrapRollRandomNumfromKeyboard trans =
 
 
 unwrapBoardKeyPressed :: BoardKeyPressed -> Transition
-unwrapBoardKeyPressed (BoardKeyPressed myKeyInt)  = (TBoardKeyPressed myKeyInt) 
+unwrapBoardKeyPressed (BoardKeyPressed clientKeyColorDict myColor myKeyInt)  = (TBoardKeyPressed clientKeyColorDict myColor myKeyInt) 
 
 
 unwrapMakeDark :: MakeDark -> Transition
@@ -71,7 +71,7 @@ unwrapMakeLight (MakeLight myKeyInt)  = (TMakeLight myKeyInt)
 
 
 unwrapRollRandomNum :: RollRandomNum -> Transition
-unwrapRollRandomNum RollRandomNum  = TRollRandomNum 
+unwrapRollRandomNum (RollRandomNum clientKeyColorDict myColor myKeyInt)  = (TRollRandomNum clientKeyColorDict myColor myKeyInt) 
 
 
 
