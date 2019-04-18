@@ -18,16 +18,18 @@ encodeOutgoingTransition outgoingtransition =
                 myKeyIntTxt = encodeInt (0) (20) myKeyInt
             in
                 tConcat ["TBoardKeyPressed\u{0000}", myKeyIntTxt]
-        TMakeDark myKeyInt -> 
+        TMakeDark otherColor myKeyInt -> 
             let
+                otherColorTxt = encodeInt (0) (24) otherColor
                 myKeyIntTxt = encodeInt (0) (20) myKeyInt
             in
-                tConcat ["TMakeDark\u{0000}", myKeyIntTxt]
-        TMakeLight myKeyInt -> 
+                tConcat ["TMakeDark\u{0000}", otherColorTxt,"\u{0000}",myKeyIntTxt]
+        TMakeLight otherColor myKeyInt -> 
             let
+                otherColorTxt = encodeInt (0) (24) otherColor
                 myKeyIntTxt = encodeInt (0) (20) myKeyInt
             in
-                tConcat ["TMakeLight\u{0000}", myKeyIntTxt]
+                tConcat ["TMakeLight\u{0000}", otherColorTxt,"\u{0000}",myKeyIntTxt]
         TRollRandomNum -> 
                 tConcat ["TRollRandomNum"]
 

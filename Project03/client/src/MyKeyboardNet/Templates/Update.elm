@@ -16,12 +16,12 @@ updateNoOpKeyboard fsp NoOp  keyboard =
     todo "Please implement update function updateNoOpKeyboard for the MyKeyboardNet net."
 
 updateKeyboardMadeKeyDarkKeyboard : FromSuperPlace -> MadeKeyDark -> Keyboard -> Keyboard
-updateKeyboardMadeKeyDarkKeyboard fsp (MadeKeyDark myKeyInt)  keyboard =
+updateKeyboardMadeKeyDarkKeyboard fsp (MadeKeyDark otherColor myKeyInt)  keyboard =
     todo "Please implement update function updateKeyboardMadeKeyDarkKeyboard for the MyKeyboardNet net."
 
 
 updateKeyboardMadeKeyLightKeyboard : FromSuperPlace -> MadeKeyLight -> Keyboard -> Keyboard
-updateKeyboardMadeKeyLightKeyboard fsp (MadeKeyLight myKeyInt)  keyboard =
+updateKeyboardMadeKeyLightKeyboard fsp (MadeKeyLight otherColor myKeyInt)  keyboard =
     todo "Please implement update function updateKeyboardMadeKeyLightKeyboard for the MyKeyboardNet net."
 
 

@@ -23,6 +23,9 @@ myDict = DictT myKeyInt myKeyStateBool
 
 clientKeyStateDict = dt myDict "clientKeyStateDict" "dictionary representing state of keys"
 
+-- adding client color to fix color issue
+
+otherColor = dt (IntRangeT 0 24) "otherColor" "represents index of colour to be used by other clients"
 
 {-
 - Layout for Keyboard keys
@@ -61,7 +64,7 @@ keyboardNet =
             Place "Keyboard" 
                     [] --server state (persistent for this place)
                     [] --player state (client state stored on server)
-                    [clientKeyStateDict, myColor] --client state (state stored on client)
+                    [clientKeyStateDict, myColor, otherColor] --client state (state stored on client)
                     Nothing
 
         boardKeyPressed =                 
@@ -81,16 +84,16 @@ keyboardNet =
         makeDark =
             Transition
                 OriginClientOnly
-                (constructor "MakeDark" [myKeyInt])
-                [("Keyboard", Just ("Keyboard", constructor "MadeKeyDark" [myKeyInt], Nothing))
+                (constructor "MakeDark" [otherColor, myKeyInt])
+                [("Keyboard", Just ("Keyboard", constructor "MadeKeyDark" [otherColor, myKeyInt], Nothing))
                 ]
                 Nothing
 
         makeLight =
             Transition
                 OriginClientOnly
-                (constructor "MakeLight" [myKeyInt])
-                [("Keyboard", Just ("Keyboard", constructor "MadeKeyLight" [myKeyInt], Nothing))
+                (constructor "MakeLight" [otherColor, myKeyInt])
+                [("Keyboard", Just ("Keyboard", constructor "MadeKeyLight" [otherColor, myKeyInt], Nothing))
                 ]
                 Nothing
 {-
@@ -100,7 +103,8 @@ keyboardNet =
                 (constructor "RandomColorNumber" [myColor])
                 [("Keyboard", Just ("Keyboard", constructor "ChangedColorNumber" [myColor], Nothing))
                 ]
-                Nothing-}
+                Nothing
+-}
 
         randomColor =
             ClientTransition        -- Note that this is a client transition only

@@ -5,7 +5,7 @@ import MyKeyboardNet.Static.ExtraTypes exposing(..)
 type Msg  =
       BoardKeyPressed Int
     | NoOp
-    | MakeDark Int
-    | MakeLight Int
+    | MakeDark Int Int
+    | MakeLight Int Int
     | RandomColorNumber Int
     | RollRandomNum

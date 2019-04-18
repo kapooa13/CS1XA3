@@ -8,11 +8,11 @@ unwrapBoardKeyUnpressed (BoardKeyUnpressed myKeyInt)  = (MBoardKeyUnpressed myKe
 
 
 unwrapMadeKeyDark :: MadeKeyDark -> ClientMessage
-unwrapMadeKeyDark (MadeKeyDark myKeyInt)  = (MMadeKeyDark myKeyInt) 
+unwrapMadeKeyDark (MadeKeyDark otherColor myKeyInt)  = (MMadeKeyDark otherColor myKeyInt) 
 
 
 unwrapMadeKeyLight :: MadeKeyLight -> ClientMessage
-unwrapMadeKeyLight (MadeKeyLight myKeyInt)  = (MMadeKeyLight myKeyInt) 
+unwrapMadeKeyLight (MadeKeyLight otherColor myKeyInt)  = (MMadeKeyLight otherColor myKeyInt) 
 
 
 unwrapRandomNumRolled :: RandomNumRolled -> ClientMessage
@@ -63,11 +63,11 @@ unwrapBoardKeyPressed (BoardKeyPressed myKeyInt)  = (TBoardKeyPressed myKeyInt)
 
 
 unwrapMakeDark :: MakeDark -> Transition
-unwrapMakeDark (MakeDark myKeyInt)  = (TMakeDark myKeyInt) 
+unwrapMakeDark (MakeDark otherColor myKeyInt)  = (TMakeDark otherColor myKeyInt) 
 
 
 unwrapMakeLight :: MakeLight -> Transition
-unwrapMakeLight (MakeLight myKeyInt)  = (TMakeLight myKeyInt) 
+unwrapMakeLight (MakeLight otherColor myKeyInt)  = (TMakeLight otherColor myKeyInt) 
 
 
 unwrapRollRandomNum :: RollRandomNum -> Transition

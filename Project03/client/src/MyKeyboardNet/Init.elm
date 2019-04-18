@@ -28,4 +28,4 @@ myInitState = (Dict.fromList [(0,False)
                               ])
 
 init : Keyboard
-init = Keyboard myInitState (0)
+init = Keyboard myInitState (0) (0)

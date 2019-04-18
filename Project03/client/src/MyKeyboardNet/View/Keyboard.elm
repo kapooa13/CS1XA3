@@ -31,11 +31,11 @@ import GraphicSVG.Widget as Widget
 import Dict
 
 subs : Keyboard -> Sub Msg
-subs keyboard =
+subs (Keyboard _ _ otherCol) =
     Sub.batch [
         Events.onKeyDown (Decode.map BoardKeyPressed keyDecoder)
-       ,Events.onKeyDown <| (Decode.map MakeDark keyDecoder)
-       ,Events.onKeyUp   <| (Decode.map MakeLight keyDecoder)
+       ,Events.onKeyDown <| (Decode.map (MakeDark otherCol) keyDecoder)
+       ,Events.onKeyUp   <| (Decode.map (MakeLight otherCol) keyDecoder)
             ]
 
 myColList = [blue, brown, charcoal, darkBlue, darkBrown, darkCharcoal
@@ -76,9 +76,9 @@ myColList = [blue, brown, charcoal, darkBlue, darkBrown, darkCharcoal
 -}
 
 view : Keyboard -> Html Msg
-view (Keyboard myDict myColor) =
+view (Keyboard myDict myColor otherColor) =
     let
-        myCol = case (Array.get myColor (Array.fromList myColList)) of
+        myCol = case (Array.get otherColor (Array.fromList myColList)) of
                     Just a   -> a
                     otherwise -> black
         drawFunc : Int -> Bool -> Shape msg

@@ -18,18 +18,28 @@ decodeIncomingMessage (_,incomingmessageTxts) =
             (Err "",rest) |> 
                 \(r3,l4) ->
                         (case l4 of
-                            (myKeyIntTxt :: ll4) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll4)
+                            (otherColorTxt :: ll4) -> (decodeInt (0) (24) otherColorTxt |> Result.andThen Ok,ll4)
                             [] -> (Err "Ran out of string to process while parsing IncomingMessage",[]))
                  |>
-                        (\(r4,l5) -> (rMap MMadeKeyDark r4,l5))
+                    \(r4,l5) ->
+                            (case l5 of
+                                (myKeyIntTxt :: ll5) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll5)
+                                [] -> (Err "Ran out of string to process while parsing IncomingMessage",[]))
+                     |>
+                            (\(r5,l6) -> (rMap2 MMadeKeyDark r4 r5,l6))
         ("MMadeKeyLight" :: rest) ->
             (Err "",rest) |> 
                 \(r3,l4) ->
                         (case l4 of
-                            (myKeyIntTxt :: ll4) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll4)
+                            (otherColorTxt :: ll4) -> (decodeInt (0) (24) otherColorTxt |> Result.andThen Ok,ll4)
                             [] -> (Err "Ran out of string to process while parsing IncomingMessage",[]))
                  |>
-                        (\(r4,l5) -> (rMap MMadeKeyLight r4,l5))
+                    \(r4,l5) ->
+                            (case l5 of
+                                (myKeyIntTxt :: ll5) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll5)
+                                [] -> (Err "Ran out of string to process while parsing IncomingMessage",[]))
+                     |>
+                            (\(r5,l6) -> (rMap2 MMadeKeyLight r4 r5,l6))
         ("MRandomNumRolled" :: rest) ->
             (Err "",rest) |> 
                     (\(r3,l4) -> (Ok <| MRandomNumRolled ,l4))
