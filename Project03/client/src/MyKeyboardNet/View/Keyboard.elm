@@ -233,7 +233,7 @@ view (Keyboard myDict myColor clientKeyColorDict) =
 -}
 
 title : Keyboard -> String
-title keyboard = "Realtime Keyboard"
+title keyboard = "Piano RT"
 
 keyDecoder : Decode.Decoder Int
 keyDecoder = Decode.map fromCode (Decode.field "key" Decode.string)
