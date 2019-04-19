@@ -12,7 +12,7 @@ import Json.Decode as Decode
 -- need to import Browser.Events for getting keys from subscriptions
 import Browser.Events as Events
 
-import Html exposing(..)
+import Html exposing (Html,text, div)
 import Html.Events exposing (..)
 import Html.Attributes exposing (style, class)
 
@@ -26,10 +26,10 @@ import Bootstrap.Grid as Grid
 import Bootstrap.Grid.Row as Row
 import Bootstrap.Grid.Col as Col
 
-import GraphicSVG exposing(Shape, roundedRect, rgb, move, filled
-            ,blue, brown, charcoal, darkBlue, darkBrown, darkCharcoal
-            ,darkGray, darkGreen, darkGrey, darkOrange, darkPurple, darkRed
-            ,darkYellow, gray, green, grey, hotPink, lightBlue, lightBrown
+import GraphicSVG exposing(Shape, roundedRect, rgb, move, filled, group, text, notifyTap
+            ,blue, brown, charcoal, darkBlue, darkBrown, darkCharcoal, bold, html
+            ,darkGray, darkGreen, darkGrey, darkOrange, darkPurple, darkRed, customFont
+            ,darkYellow, gray, green, grey, hotPink, lightBlue, lightBrown, size, outlined
             ,lightCharcoal, lightGray, lightGreen, lightGrey, lightOrange, lightPurple
             ,lightRed, lightYellow, orange, pink, purple, red, yellow, black, addOutline, solid)
 
@@ -162,54 +162,58 @@ view (Keyboard myDict myColor clientKeyColorDict) =
                     60        -> drawBlackKeys idx state
 
                     otherwise -> roundedRect 10 60 0.7 |> filled (if state == True then (myCol idx) else (rgb 237 237 237))
-                                                     |> move (toFloat(-170 + 10*idx),0.0)
-                                                     |> addOutline (solid 0.42) black
-
-{-
-                case idx of
-                    12        -> roundedRect 10 45 1 |> filled (if state == True then (myCol idx) else (black))
-                                                     |> move (toFloat(-120 + 10),12.5)
-
-                    13        -> roundedRect 10 45 1 |> filled (if state == True then (myCol idx) else (black))
-                                                     |> move (toFloat(-120 + 30),12.5)
-
-                    14        -> roundedRect 10 45 1 |> filled (if state == True then (myCol idx) else (black))
-                                                     |> move (toFloat(-120 + 50),12.5)
-
-                    15        -> roundedRect 10 45 1 |> filled (if state == True then (myCol idx) else (black))
-                                                     |> move (toFloat(-120 + 90),12.5)
-
-                    16        -> roundedRect 10 45 1 |> filled (if state == True then (myCol idx) else (black))
-                                                     |> move (toFloat(-120 + 110),12.5)
-
-                    17        -> roundedRect 10 45 1 |> filled (if state == True then (myCol idx) else (black))
-                                                     |> move (toFloat(-120 + 150),12.5)
-
-                    18        -> roundedRect 10 45 1 |> filled (if state == True then (myCol idx) else (black))
-                                                     |> move (toFloat(-120 + 170),12.5)
-
-                    19        -> roundedRect 10 45 1 |> filled (if state == True then (myCol idx) else (black))
-                                                     |> move (toFloat(-120 + 190),12.5)
-
-                    otherwise -> roundedRect 20 70 3 |> filled (if state == True then (myCol idx) else (rgb 237 237 237))
-                                                     |> move (toFloat(-120 + 20*idx),0.0)
-                                                     |> addOutline (solid 0.42) black
--}
+                                                       |> move (toFloat(-170 + 10*idx),0.0)
+                                                       |> addOutline (solid 0.42) black
 
         someCol = "moccasin"
 
+        personalCol idx = case (Array.get (idx) (Array.fromList myColList)) of
+                                Just a     -> a
+                                otherwise  -> black
+
         myViewFn =
-            div [style "background-color" someCol] [
+            let
+                myList = group <| (Dict.values (Dict.map drawFunc myDict))
 
-                div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" someCol] [Widget.icon "myKeyboard" 400 100
-                        (Dict.values (Dict.map drawFunc myDict))
-                    ]
+                myButton = group [ text "Randomise Colors!!"
+                                       |> size 4
+                                       |> customFont "Arial"
+                                       |> filled (lightGreen)
+                                       |> move (-15,0)
 
-               ,div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" someCol] [
+                                 , roundedRect 42 8 1
+                                       |> outlined (solid 0.5) lightGreen
+                                       |> move (1.42,1)
+                                 ]
 
-                    Button.button [ Button.dark, Button.attrs [onClick (RollRandomNum)] ] [ text "Randomise Color!!" ]
+                myView = [ text "Piano RT"
+                               |> size 32
+                               |> bold
+                               |> customFont "Times New Roman"
+                               |> filled (personalCol myColor)
+                               |> addOutline (solid 1) black
+                               |> move(-65, 35)
+                            -- |> notifyTap (RollRandomNum)
+                         , myList 
+                               |> move(-5, -15)
+{-
+                         , myButton
+                               |> move(-5, -60)
+                               |> notifyTap (RollRandomNum)
+-}
+                         ]
+            in
+                div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" someCol] [
+
+                     Widget.icon "myKeyboard" 400 172 myView
+{-
+
+                    ,div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" someCol] [
+
+                          Button.button [ Button.dark, Button.attrs [onClick (RollRandomNum)] ] [ text "Randomise Color!!" ]
+                     ]
+-}
                 ]
-            ]
     in
         myViewFn
 
@@ -225,11 +229,19 @@ view (Keyboard myDict myColor clientKeyColorDict) =
 -}
 
 {-
-        div [style "background-color" "deepskyblue"] [Widget.icon "myKeyboard" 400 400
-        (Dict.values (Dict.map drawFunc myDict))
-       ,Button.button [ Button.dark, Button.attrs [onClick RollRandomNum,style "margin-left" "auto", style "margin-right" "auto" ] ] [ text "Change Colors" ]
-       ,div [] [text <| Debug.toString <| clientKeyColorDict] 
-        ]
+        myViewFn =
+            div [style "background-color" someCol] [
+
+                div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" someCol] [
+                         Widget.icon "myKeyboard" 400 172
+                        (Dict.values (Dict.map drawFunc myDict))
+                    ]
+{-
+               ,div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" someCol] [
+
+                    Button.button [ Button.dark, Button.attrs [onClick (RollRandomNum)] ] [ Html.text "Randomise Color!!" ]
+                ]-}
+            ]
 -}
 
 title : Keyboard -> String
