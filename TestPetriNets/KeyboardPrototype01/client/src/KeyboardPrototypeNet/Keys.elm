@@ -34,11 +34,11 @@ module KeyboardPrototypeNet.Keys exposing (..)
 fromCode : String -> Int
 fromCode keyCode =
     case keyCode of
-        "q"       -> 0
+        "f"       -> 0
         "w"       -> 1
-        "e"       -> 2
+        "F"       -> 2
         "r"       -> 3
-        "t"       -> 4
+        "R"       -> 4
         "y"       -> 5
         "u"       -> 6
         "i"       -> 7
