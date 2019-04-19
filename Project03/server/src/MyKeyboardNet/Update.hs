@@ -36,13 +36,8 @@ updateBoardKeyPressed fsp clientId (BoardKeyPressed clientKeyColorDict myColor m
     let
         -- myDict = getServerKeyColorDict keyboard
         newServerKeyColorDict = case myKeyInt of 
-                                        20        -> getServerKeyColorDict keyboard 
+                                        61        -> getServerKeyColorDict keyboard 
                                         otherwise -> Map.update (\_ -> Just myColor) myKeyInt (getServerKeyColorDict keyboard)
-        {-
-        myDict = case myKeyInt of
-                        20        -> getServerKeyColorDict keyboard
-                        otherwise -> Map.update (\_ -> Just myColor) myKeyInt (getServerKeyColorDict keyboard)
-        -}
 
         fromKeyboard :: (ClientID, KeyboardPlayer) -> BoardKeyPressedfromKeyboard
         fromKeyboard (pId, pkeyboard) = BoardKeyPressed_KeyboardtoKeyboard KeyboardPlayer (BoardKeyUnpressed newServerKeyColorDict myColor myKeyInt)

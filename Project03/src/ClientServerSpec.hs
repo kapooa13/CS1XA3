@@ -13,7 +13,7 @@ generatorRoot = "../../petri-app-land"
 
 -- DoctypeT variables
 
-myKeyInt = dt (IntRangeT 0 20) "myKeyInt" "representative of Key"
+myKeyInt = dt (IntRangeT 0 62) "myKeyInt" "representative of Key"
 
 myColor = dt (IntRangeT 0 24) "myColor" "represents index of colour to be used by client"
 
@@ -32,35 +32,6 @@ clientKeyColorDict = dt (DictT myKeyInt myKeyColor) "clientKeyColorDict" "dictio
 
 serverKeyColorDict = dt (DictT myKeyInt myKeyColor) "serverKeyColorDict" "dictionary for representing color of keys on server" 
 
-{-
-- Layout for Keyboard keys
--
-   Key    CorrespondingInt
-
--- white keys
-    q           0
-    w           1
-    e           2
-    r           3
-    t           4
-    y           5
-    u           6
-    i           7
-    o           8
-    p           9
-    [           10
-    ]           11
-
--- black keys
-    2           12
-    3           13
-    4           14
-    6           15
-    7           16
-    9           17
-    0           18
-    -           19
--}
 
 keyboardNet :: Net
 keyboardNet =

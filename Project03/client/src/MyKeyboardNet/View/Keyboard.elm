@@ -40,12 +40,14 @@ import Time exposing(every)
 
 subs : Keyboard -> Sub Msg
 subs (Keyboard clientKeyStateDict myColor clientKeyColorDict) =
-    Sub.batch [
-        Time.every (200) (always <| (BoardKeyPressed clientKeyColorDict myColor 20))
-       ,Events.onKeyDown (Decode.map (BoardKeyPressed clientKeyColorDict myColor) keyDecoder)
-       ,Events.onKeyDown <| (Decode.map MakeDark keyDecoder)
-       ,Events.onKeyUp   <| (Decode.map MakeLight keyDecoder)
-            ]
+        Sub.batch [
+            Time.every (200) (always <| (BoardKeyPressed clientKeyColorDict myColor 61))
+
+           ,Events.onKeyDown (Decode.map (BoardKeyPressed clientKeyColorDict myColor) keyDecoder)
+
+           ,Events.onKeyDown <| (Decode.map MakeDark keyDecoder)
+           ,Events.onKeyUp   <| (Decode.map MakeLight keyDecoder)
+                ]
 
 myColList = [blue, brown, charcoal, darkBlue, darkBrown, darkCharcoal
             ,darkGray, darkGreen, darkGrey, darkOrange, darkPurple, darkRed
@@ -89,36 +91,6 @@ myColFunc col = case col of
                     yellow
 -}
 
-{- For reference:
-
-- Layout for Keyboard prototype
--
-   Key    CorrespondingInt
-
--- white keys
-    q           0
-    w           1
-    e           2
-    r           3
-    t           4
-    y           5
-    u           6
-    i           7
-    o           8
-    p           9
-    [           10
-    ]           11
-
--- black keys
-    2           12
-    3           13
-    4           14
-    6           15
-    7           16
-    9           17
-    0           18
-    -           19
--}
 
 view : Keyboard -> Html Msg
 view (Keyboard myDict myColor clientKeyColorDict) =
@@ -133,8 +105,67 @@ view (Keyboard myDict myColor clientKeyColorDict) =
                                 Just a     -> a
                                 otherwise  -> black
 
+        divModFive intNum = (intNum//5, intNum - 5*(intNum//5))
+                         -- ( quotient, remainder             )
+
+        drawBlackKeys idx state = 
+            let
+                (quotient, remainder) = divModFive idx
+                
+            in
+                case remainder of
+                        1          -> roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
+                                                     |> move (toFloat(-170 + 5 + 70*(quotient-7)),10)
+
+                        2          -> roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
+                                                     |> move (toFloat(-170 + 15 + 70*(quotient-7)),10)
+
+                        3          -> roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
+                                                     |> move (toFloat(-170 + 35 + 70*(quotient-7)),10)
+
+                        4          -> roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
+                                                     |> move (toFloat(-170 + 45 + 70*(quotient-7)),10)
+
+                        0          -> roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
+                                                     |> move (toFloat(-170 + 55 + 70*(quotient-7)),10)
+
+                        otherwise  -> roundedRect 25 25 0.3 |> filled (if state == True then (hotPink) else (hotPink))
+                                                     |> move (0,0)
+
         drawFunc : Int -> Bool -> Shape msg
         drawFunc idx state =
+                case idx of
+                    36        -> drawBlackKeys idx state
+                    37        -> drawBlackKeys idx state
+                    38        -> drawBlackKeys idx state
+                    39        -> drawBlackKeys idx state
+                    40        -> drawBlackKeys idx state
+                    41        -> drawBlackKeys idx state
+                    42        -> drawBlackKeys idx state
+                    43        -> drawBlackKeys idx state
+                    44        -> drawBlackKeys idx state
+                    45        -> drawBlackKeys idx state
+                    46        -> drawBlackKeys idx state
+                    47        -> drawBlackKeys idx state
+                    48        -> drawBlackKeys idx state
+                    49        -> drawBlackKeys idx state
+                    50        -> drawBlackKeys idx state
+                    51        -> drawBlackKeys idx state
+                    52        -> drawBlackKeys idx state
+                    53        -> drawBlackKeys idx state
+                    54        -> drawBlackKeys idx state
+                    55        -> drawBlackKeys idx state
+                    56        -> drawBlackKeys idx state
+                    57        -> drawBlackKeys idx state
+                    58        -> drawBlackKeys idx state
+                    59        -> drawBlackKeys idx state
+                    60        -> drawBlackKeys idx state
+
+                    otherwise -> roundedRect 10 60 0.7 |> filled (if state == True then (myCol idx) else (rgb 237 237 237))
+                                                     |> move (toFloat(-170 + 10*idx),0.0)
+                                                     |> addOutline (solid 0.42) black
+
+{-
                 case idx of
                     12        -> roundedRect 10 45 1 |> filled (if state == True then (myCol idx) else (black))
                                                      |> move (toFloat(-120 + 10),12.5)
@@ -163,6 +194,7 @@ view (Keyboard myDict myColor clientKeyColorDict) =
                     otherwise -> roundedRect 20 70 3 |> filled (if state == True then (myCol idx) else (rgb 237 237 237))
                                                      |> move (toFloat(-120 + 20*idx),0.0)
                                                      |> addOutline (solid 0.42) black
+-}
 
         someCol = "moccasin"
 
@@ -193,7 +225,7 @@ view (Keyboard myDict myColor clientKeyColorDict) =
 -}
 
 {-
-        div [style "background-color" "deepskyblue"] [Widget.icon "myKeyboard" 400 100
+        div [style "background-color" "deepskyblue"] [Widget.icon "myKeyboard" 400 400
         (Dict.values (Dict.map drawFunc myDict))
        ,Button.button [ Button.dark, Button.attrs [onClick RollRandomNum,style "margin-left" "auto", style "margin-right" "auto" ] ] [ text "Change Colors" ]
        ,div [] [text <| Debug.toString <| clientKeyColorDict] 

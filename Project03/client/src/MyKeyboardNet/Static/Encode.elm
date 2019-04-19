@@ -25,7 +25,7 @@ encodeOutgoingTransition outgoingtransition =
                                         keyValuePairsTxt =
                                             let
                                                 (fst6,snd6) = keyValuePairs
-                                                fst6Txt = encodeInt (0) (20) fst6
+                                                fst6Txt = encodeInt (0) (62) fst6
                                                 snd6Txt = encodeInt (0) (24) snd6
                                             in
                                                 tConcat [fst6Txt,"\u{0000}",snd6Txt]
@@ -37,17 +37,17 @@ encodeOutgoingTransition outgoingtransition =
                     in
                         tConcat [encodeInt 0 16777216 <| lLength clientKeyColorDictAsList, pFst <| encodeclientKeyColorDictAsList clientKeyColorDictAsList]
                 myColorTxt = encodeInt (0) (24) myColor
-                myKeyIntTxt = encodeInt (0) (20) myKeyInt
+                myKeyIntTxt = encodeInt (0) (62) myKeyInt
             in
                 tConcat ["TBoardKeyPressed\u{0000}", clientKeyColorDictAsListTxt,"\u{0000}",myColorTxt,"\u{0000}",myKeyIntTxt]
         TMakeDark myKeyInt -> 
             let
-                myKeyIntTxt = encodeInt (0) (20) myKeyInt
+                myKeyIntTxt = encodeInt (0) (62) myKeyInt
             in
                 tConcat ["TMakeDark\u{0000}", myKeyIntTxt]
         TMakeLight myKeyInt -> 
             let
-                myKeyIntTxt = encodeInt (0) (20) myKeyInt
+                myKeyIntTxt = encodeInt (0) (62) myKeyInt
             in
                 tConcat ["TMakeLight\u{0000}", myKeyIntTxt]
         TRollRandomNum -> 

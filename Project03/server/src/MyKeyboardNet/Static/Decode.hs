@@ -20,7 +20,7 @@ decodeTransition (_,transitionTxts) =
                                          (Err "",l5) |>
                                                             \(r9,l10) ->
                                                 (case l10 of
-                                                    (myKeyIntTxt : ll10) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll10)
+                                                    (myKeyIntTxt : ll10) -> (decodeInt (0) (62) myKeyIntTxt |> Result.andThen Ok,ll10)
                                                     [] -> (Err "Ran out of string to process while parsing Transition",[]))
 
                                     [] -> (Err "Ran out of string to process while parsing Transition",[])
@@ -45,7 +45,7 @@ decodeTransition (_,transitionTxts) =
                      |>
                         \(r5,l6) ->
                                 (case l6 of
-                                    (myKeyIntTxt : ll6) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll6)
+                                    (myKeyIntTxt : ll6) -> (decodeInt (0) (62) myKeyIntTxt |> Result.andThen Ok,ll6)
                                     [] -> (Err "Ran out of string to process while parsing Transition",[]))
                          |>
                                 (\(r6,l7) -> (Result.map3 TBoardKeyPressed r4 r5 r6,l7))
@@ -53,7 +53,7 @@ decodeTransition (_,transitionTxts) =
             (Err "",rest) |> 
                 \(r3,l4) ->
                         (case l4 of
-                            (myKeyIntTxt : ll4) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll4)
+                            (myKeyIntTxt : ll4) -> (decodeInt (0) (62) myKeyIntTxt |> Result.andThen Ok,ll4)
                             [] -> (Err "Ran out of string to process while parsing Transition",[]))
                  |>
                         (\(r4,l5) -> (Result.map TMakeDark r4,l5))
@@ -61,7 +61,7 @@ decodeTransition (_,transitionTxts) =
             (Err "",rest) |> 
                 \(r3,l4) ->
                         (case l4 of
-                            (myKeyIntTxt : ll4) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll4)
+                            (myKeyIntTxt : ll4) -> (decodeInt (0) (62) myKeyIntTxt |> Result.andThen Ok,ll4)
                             [] -> (Err "Ran out of string to process while parsing Transition",[]))
                  |>
                         (\(r4,l5) -> (Result.map TMakeLight r4,l5))

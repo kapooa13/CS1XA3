@@ -34,8 +34,8 @@ module KeyboardPrototypeNet.Keys exposing (..)
 fromCode : String -> Int
 fromCode keyCode =
     case keyCode of
-        "f"       -> 0
-        "w"       -> 1
+        "!"       -> 0
+        "1"       -> 1
         "F"       -> 2
         "r"       -> 3
         "R"       -> 4

@@ -17,7 +17,7 @@ decodeIncomingMessage (_,incomingmessageTxts) =
                                          (Err "",l5) |>
                                                             \(r9,l10) ->
                                                 (case l10 of
-                                                    (myKeyIntTxt :: ll10) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll10)
+                                                    (myKeyIntTxt :: ll10) -> (decodeInt (0) (62) myKeyIntTxt |> Result.andThen Ok,ll10)
                                                     [] -> (Err "Ran out of string to process while parsing IncomingMessage",[]))
 
                                     [] -> (Err "Ran out of string to process while parsing IncomingMessage",[])
@@ -42,7 +42,7 @@ decodeIncomingMessage (_,incomingmessageTxts) =
                      |>
                         \(r5,l6) ->
                                 (case l6 of
-                                    (myKeyIntTxt :: ll6) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll6)
+                                    (myKeyIntTxt :: ll6) -> (decodeInt (0) (62) myKeyIntTxt |> Result.andThen Ok,ll6)
                                     [] -> (Err "Ran out of string to process while parsing IncomingMessage",[]))
                          |>
                                 (\(r6,l7) -> (rMap3 MBoardKeyUnpressed r4 r5 r6,l7))
@@ -50,7 +50,7 @@ decodeIncomingMessage (_,incomingmessageTxts) =
             (Err "",rest) |> 
                 \(r3,l4) ->
                         (case l4 of
-                            (myKeyIntTxt :: ll4) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll4)
+                            (myKeyIntTxt :: ll4) -> (decodeInt (0) (62) myKeyIntTxt |> Result.andThen Ok,ll4)
                             [] -> (Err "Ran out of string to process while parsing IncomingMessage",[]))
                  |>
                         (\(r4,l5) -> (rMap MMadeKeyDark r4,l5))
@@ -58,7 +58,7 @@ decodeIncomingMessage (_,incomingmessageTxts) =
             (Err "",rest) |> 
                 \(r3,l4) ->
                         (case l4 of
-                            (myKeyIntTxt :: ll4) -> (decodeInt (0) (20) myKeyIntTxt |> Result.andThen Ok,ll4)
+                            (myKeyIntTxt :: ll4) -> (decodeInt (0) (62) myKeyIntTxt |> Result.andThen Ok,ll4)
                             [] -> (Err "Ran out of string to process while parsing IncomingMessage",[]))
                  |>
                         (\(r4,l5) -> (rMap MMadeKeyLight r4,l5))

@@ -22,7 +22,7 @@ encodeClientMessage clientmessage =
                                         keyValuePairsTxt =
                                             let
                                                 (fst6,snd6) = keyValuePairs
-                                                fst6Txt = encodeInt (0) (20) fst6
+                                                fst6Txt = encodeInt (0) (62) fst6
                                                 snd6Txt = encodeInt (0) (24) snd6
                                             in
                                                 tConcat [fst6Txt,"\0",snd6Txt]
@@ -34,17 +34,17 @@ encodeClientMessage clientmessage =
                     in
                         tConcat [encodeInt 0 16777216 <| lLength clientKeyColorDictAsList, pFst <| encodeclientKeyColorDictAsList clientKeyColorDictAsList]
                 myColorTxt = encodeInt (0) (24) myColor
-                myKeyIntTxt = encodeInt (0) (20) myKeyInt
+                myKeyIntTxt = encodeInt (0) (62) myKeyInt
             in
                 tConcat ["MBoardKeyUnpressed\0", clientKeyColorDictAsListTxt,"\0",myColorTxt,"\0",myKeyIntTxt]
         MMadeKeyDark myKeyInt -> 
             let
-                myKeyIntTxt = encodeInt (0) (20) myKeyInt
+                myKeyIntTxt = encodeInt (0) (62) myKeyInt
             in
                 tConcat ["MMadeKeyDark\0", myKeyIntTxt]
         MMadeKeyLight myKeyInt -> 
             let
-                myKeyIntTxt = encodeInt (0) (20) myKeyInt
+                myKeyIntTxt = encodeInt (0) (62) myKeyInt
             in
                 tConcat ["MMadeKeyLight\0", myKeyIntTxt]
         MRandomNumRolled -> 
