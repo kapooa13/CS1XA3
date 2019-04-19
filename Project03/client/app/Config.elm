@@ -5,4 +5,5 @@ module Config exposing(..)
 -- "ws://localhost:8080" is the default server address
 -- for running the server locally.
 serverUrl : String
-serverUrl = "ws://localhost:8080"
+serverUrl = "wss://mac1xa3.ca/e/kapooa13/"
+
