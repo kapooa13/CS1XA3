@@ -4,6 +4,7 @@ module Config exposing(..)
 -- for servers secured with SSL, use wss://.
 -- "ws://localhost:8080" is the default server address
 -- for running the server locally.
+-- "wss://mac1xa3.ca/e/kapooa13/"
 serverUrl : String
-serverUrl = "wss://mac1xa3.ca/e/kapooa13/"
+serverUrl = "ws://localhost:8080"
 
