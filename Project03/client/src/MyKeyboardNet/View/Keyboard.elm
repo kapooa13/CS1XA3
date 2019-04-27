@@ -27,7 +27,7 @@ import Bootstrap.Grid.Row as Row
 import Bootstrap.Grid.Col as Col
 
 import GraphicSVG exposing(Shape, roundedRect, rgb, move, filled, group, text, notifyTap
-            ,blue, brown, charcoal, darkBlue, darkBrown, darkCharcoal, bold, html
+            ,blue, brown, charcoal, darkBlue, darkBrown, darkCharcoal, bold, html, square
             ,darkGray, darkGreen, darkGrey, darkOrange, darkPurple, darkRed, customFont
             ,darkYellow, gray, green, grey, hotPink, lightBlue, lightBrown, size, outlined
             ,lightCharcoal, lightGray, lightGreen, lightGrey, lightOrange, lightPurple
@@ -165,6 +165,12 @@ view (Keyboard myDict myColor clientKeyColorDict) =
                                                        |> move (toFloat(-170 + 10*idx),0.0)
                                                        |> addOutline (solid 0.42) black
 
+        myColTupList = List.indexedMap Tuple.pair myColList
+
+        colorPicker (idx, col) = square 8 |> filled col
+                                          |> move (8*(toFloat idx), 0)
+
+
         someCol = "moccasin"
 
         personalCol idx = case (Array.get (idx) (Array.fromList myColList)) of
@@ -187,15 +193,17 @@ view (Keyboard myDict myColor clientKeyColorDict) =
                                  ]
 
                 myView = [ text "Piano RT"
-                               |> size 32
-                               |> bold
-                               |> customFont "Times New Roman"
+                               |> size 36
+                            --   |> bold
+                               |> customFont "Arial"
                                |> filled (personalCol myColor)
-                               |> addOutline (solid 1) black
+                               |> addOutline (solid 0.5) black
                                |> move(-65, 35)
                             -- |> notifyTap (RollRandomNum)
                          , myList 
                                |> move(-5, -15)
+                         , group (List.map colorPicker myColTupList)
+                               |> move(-110, -65)
 {-
                          , myButton
                                |> move(-5, -60)
