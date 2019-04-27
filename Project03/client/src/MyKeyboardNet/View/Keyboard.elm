@@ -4,6 +4,8 @@ import MyKeyboardNet.Static.Types exposing(Keyboard(..))
 import MyKeyboardNet.Static.Helpers.Keyboard exposing(..)
 import MyKeyboardNet.Static.ExtraTypes exposing(..)
 
+-- import MyKeyboardNet.View.Widget exposing(..)
+
 import MyKeyboardNet.Keys exposing(..)
 
 -- need to import Json.Decode for keys
@@ -169,7 +171,7 @@ view (Keyboard myDict myColor clientKeyColorDict pC) =
 
         colorPicker (idx, col) = square 8 |> filled col
                                           |> move (8*(toFloat idx), 0)
-
+                                        --  |> notifyTap (BoardKeyPressed clientKeyColorDict myColor 20)
 
         someCol = "moccasin"
 
@@ -179,6 +181,9 @@ view (Keyboard myDict myColor clientKeyColorDict pC) =
 
         myViewFn =
             let
+                myHtmlMsg : Html Msg
+                myHtmlMsg = Html.text "Randomise Color!!"
+
                 myList = group <| (Dict.values (Dict.map drawFunc myDict))
 
                 myButton = group [ text "Randomise Colors!!"
@@ -199,7 +204,6 @@ view (Keyboard myDict myColor clientKeyColorDict pC) =
                                |> filled (personalCol myColor)
                                |> addOutline (solid 0.5) black
                                |> move(-65, 35)
-                            -- |> notifyTap (RollRandomNum)
                          , myList 
                                |> move(-5, -15)
                          , group (List.map colorPicker myColTupList)
@@ -218,13 +222,12 @@ view (Keyboard myDict myColor clientKeyColorDict pC) =
                 div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" someCol] [
 
                      Widget.icon "myKeyboard" 400 172 myView
-{-
 
-                    ,div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" someCol] [
+                    ,div [style "width" "8%", style "margin-left" "auto", style "margin-right" "auto", style "background-color" someCol] [
 
-                          Button.button [ Button.dark, Button.attrs [onClick (RollRandomNum)] ] [ text "Randomise Color!!" ]
+                          Button.button [ Button.dark, Button.attrs [onClick (RollRandomNum)] ] [ myHtmlMsg ]
                      ]
--}
+
                 ]
     in
         myViewFn
