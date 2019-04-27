@@ -16,11 +16,21 @@ import qualified Static.Cmd as Cmd
 
 -- function called when new client connects (do not delete)
 clientConnect :: FromSuperPlace -> ClientID -> Keyboard -> (Keyboard, KeyboardPlayer)
-clientConnect fsp clientID keyboard = (keyboard, KeyboardPlayer)
+clientConnect fsp clientID keyboard = 
+    let
+        newCounter = (getPlayerCounter keyboard) + 1
+        newBoard = updatePlayerCounter newCounter keyboard
+    in
+        (newBoard, KeyboardPlayer)
 
 -- functions called when a client disconnects (do not delete)
 clientDisconnectFromKeyboard :: FromSuperPlace -> ClientID -> Keyboard -> KeyboardPlayer -> Keyboard
-clientDisconnectFromKeyboard fsp clientID keyboard keyboardPlayer = keyboard
+clientDisconnectFromKeyboard fsp clientID keyboard keyboardPlayer =
+    let
+        newCounter = (getPlayerCounter keyboard) - 1
+        newBoard = updatePlayerCounter newCounter keyboard
+    in
+        newBoard
 
 
 -- functions for each transition
@@ -94,5 +104,24 @@ updateRollRandomNum fsp clientId (RollRandomNum) keyboard lstKeyboard =
 
     in
         (keyboard, fromKeyboard)
+
+updateInfoUpdating :: FromSuperPlace -> 
+    ClientID ->
+    InfoUpdating ->
+    Keyboard -> 
+    List KeyboardPlayer -> 
+    ( Keyboard,
+      (ClientID, KeyboardPlayer) -> InfoUpdatingfromKeyboard
+    )
+updateInfoUpdating fsp clientId (InfoUpdating cKCD pC) keyboard lstKeyboard =
+    let
+        newCounter = getPlayerCounter keyboard
+        newBoard = updatePlayerCounter newCounter keyboard
+        newSKCD = getServerKeyColorDict keyboard
+
+        fromKeyboard :: (ClientID, KeyboardPlayer) -> InfoUpdatingfromKeyboard
+        fromKeyboard (pId, pkeyboard) = InfoUpdating_KeyboardtoKeyboard KeyboardPlayer (InfoUpdated newSKCD newCounter)
+    in
+        (updateServerKeyColorDict newSKCD newBoard, fromKeyboard)
 
 

@@ -11,9 +11,9 @@ import Random
 import MyKeyboardNet.Sounds exposing(..)
 
 updateKeyboardBoardKeyUnpressedKeyboard : FromSuperPlace -> BoardKeyUnpressed -> Keyboard -> (Keyboard,Cmd NoOp)
-updateKeyboardBoardKeyUnpressedKeyboard fsp (BoardKeyUnpressed clientKeyColorDict myColor myKeyInt)  (Keyboard cKSD mC cKCD) =
+updateKeyboardBoardKeyUnpressedKeyboard fsp (BoardKeyUnpressed clientKeyColorDict myColor myKeyInt)  (Keyboard cKSD mC cKCD playerCounter) =
     let
-        keyboard = Keyboard cKSD mC clientKeyColorDict
+        keyboard = Keyboard cKSD mC clientKeyColorDict playerCounter
         -- updates the clientKeyColorDict to the one recieved from the server
 
         checkState = case (Dict.get myKeyInt cKSD) of
@@ -115,7 +115,7 @@ updateNoOpKeyboard : FromSuperPlace -> NoOp -> Keyboard -> Keyboard
 updateNoOpKeyboard fsp NoOp  keyboard = keyboard
 
 updateKeyboardMadeKeyDarkKeyboard : FromSuperPlace -> MadeKeyDark -> Keyboard -> Keyboard
-updateKeyboardMadeKeyDarkKeyboard fsp (MadeKeyDark myKeyInt)  (Keyboard clientKeyStateDict myColor clientKeyColorDict) =
+updateKeyboardMadeKeyDarkKeyboard fsp (MadeKeyDark myKeyInt)  (Keyboard clientKeyStateDict myColor clientKeyColorDict playerCounter) =
     let
         -- updating state of key
         myDarkFunc : Maybe Bool -> Maybe Bool
@@ -130,10 +130,10 @@ updateKeyboardMadeKeyDarkKeyboard fsp (MadeKeyDark myKeyInt)  (Keyboard clientKe
         myColDict = Dict.update myKeyInt (myColFunc myColor) clientKeyColorDict
 -}
     in
-        Keyboard myDict myColor clientKeyColorDict
+        Keyboard myDict myColor clientKeyColorDict playerCounter
 
 updateKeyboardMadeKeyLightKeyboard : FromSuperPlace -> MadeKeyLight -> Keyboard -> Keyboard
-updateKeyboardMadeKeyLightKeyboard fsp (MadeKeyLight myKeyInt)  (Keyboard clientKeyStateDict myColor cKCD) =
+updateKeyboardMadeKeyLightKeyboard fsp (MadeKeyLight myKeyInt)  (Keyboard clientKeyStateDict myColor cKCD playerCounter) =
     let
         myLightFunc : Maybe Bool -> Maybe Bool
         myLightFunc someBool =
@@ -142,15 +142,17 @@ updateKeyboardMadeKeyLightKeyboard fsp (MadeKeyLight myKeyInt)  (Keyboard client
                 otherwise  -> someBool
         myDict = Dict.update myKeyInt myLightFunc clientKeyStateDict
     in
-        Keyboard myDict myColor cKCD
+        Keyboard myDict myColor cKCD playerCounter
 
 
 updateRandomColorNumberKeyboard : FromSuperPlace -> RandomColorNumber -> Keyboard -> Keyboard
-updateRandomColorNumberKeyboard fsp (RandomColorNumber myColor)  (Keyboard clientKeyStateDict someCol cKCD) = 
-            Keyboard clientKeyStateDict myColor cKCD
+updateRandomColorNumberKeyboard fsp (RandomColorNumber myColor)  (Keyboard clientKeyStateDict someCol cKCD playerCounter) = 
+            Keyboard clientKeyStateDict myColor cKCD playerCounter
 
 updateKeyboardRandomNumRolledKeyboard : FromSuperPlace -> RandomNumRolled -> Keyboard -> (Keyboard, Cmd RandomColorNumber)
 updateKeyboardRandomNumRolledKeyboard fsp RandomNumRolled  keyboard = (keyboard, Random.generate RandomColorNumber (Random.int 0 24))
 
 
-
+updateKeyboardInfoUpdatedKeyboard : FromSuperPlace -> InfoUpdated -> Keyboard -> Keyboard
+updateKeyboardInfoUpdatedKeyboard fsp (InfoUpdated cKCD pC) (Keyboard clientKeyStateDict someCol a b) =
+            Keyboard clientKeyStateDict someCol cKCD pC

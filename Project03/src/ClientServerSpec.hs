@@ -30,17 +30,31 @@ myserverKeyColor = dt (IntRangeT 0 24) "myserverKeyColor" "represents color of k
 
 clientKeyColorDict = dt (DictT myKeyInt myKeyColor) "clientKeyColorDict" "dictionary for representing color of keys" 
 
-serverKeyColorDict = dt (DictT myKeyInt myKeyColor) "serverKeyColorDict" "dictionary for representing color of keys on server" 
+serverKeyColorDict = dt (DictT myKeyInt myKeyColor) "serverKeyColorDict" "dictionary for representing color of keys on server"
+
+
+roomNum = dt (IntRangeT 0 1000) "roomNum" "represents room number/index where player is"
+
+playerCounter = dt (IntRangeT 0 100) "playerCounter" "represents number of players in room"
 
 
 keyboardNet :: Net
 keyboardNet =
     let
+{-
+        menuPlace =
+            Place "MainMenu"
+                    [] --server state (persistent for this place)
+                    [] --player state (client state stored on server)
+                    [] --client state (state stored on client)
+                    Nothing
+-}            
+
         keyboardPlace =
             Place "Keyboard" 
-                    [serverKeyColorDict] --server state (persistent for this place)
+                    [serverKeyColorDict, playerCounter] --server state (persistent for this place)
                     [] --player state (client state stored on server)
-                    [clientKeyStateDict, myColor, clientKeyColorDict] --client state (state stored on client)
+                    [clientKeyStateDict, myColor, clientKeyColorDict, playerCounter] --client state (state stored on client)
                     Nothing
 
         boardKeyPressed =                 
@@ -72,6 +86,15 @@ keyboardNet =
                 [("Keyboard", Just ("Keyboard", constructor "MadeKeyLight" [myKeyInt], Nothing))
                 ]
                 Nothing
+
+        infoUpdater =
+            Transition
+                OriginClientOnly
+                (constructor "InfoUpdating" [clientKeyColorDict, playerCounter])
+                [("Keyboard", Just ("Keyboard", constructor "InfoUpdated" [clientKeyColorDict, playerCounter], Nothing))
+                ]
+                Nothing
+
 {-
         randomColor =    -- reassigns my color val
             Transition
@@ -110,6 +133,7 @@ keyboardNet =
             ,makeLight
             ,randomColor
             ,roll
+            ,infoUpdater
             ]                   -- list of all defined transitions
             []                  -- list of installed plugins
 

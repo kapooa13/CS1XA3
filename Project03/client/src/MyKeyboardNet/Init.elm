@@ -24,4 +24,4 @@ myInitColor = (Dict.fromList [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (5, 0), (6
 
 
 init : Keyboard
-init = Keyboard myInitState (16) myInitColor
+init = Keyboard myInitState (16) myInitColor 0

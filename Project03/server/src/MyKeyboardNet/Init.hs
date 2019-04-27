@@ -15,6 +15,6 @@ myInitColor = (Map.fromList [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (5, 0), (6,
 
 -- the initial states of each place in this net
 initKeyboard :: Keyboard
-initKeyboard = Keyboard myInitColor
+initKeyboard = Keyboard myInitColor 0
 
 

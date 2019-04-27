@@ -20,6 +20,10 @@ unwrapRollRandomNum : RollRandomNum -> OutgoingTransition
 unwrapRollRandomNum RollRandomNum  = TRollRandomNum 
 
 
+unwrapInfoUpdating : InfoUpdating -> OutgoingTransition
+unwrapInfoUpdating (InfoUpdating clientKeyColorDict playerCounter)  = (TInfoUpdating clientKeyColorDict playerCounter) 
+
+
 
 unwrapNoOp : NoOp -> InternalTransition
 unwrapNoOp NoOp  = TNoOp 

@@ -34,6 +34,11 @@ processRollRandomNumPlayer fromKeyboard (cId,player) = case player of
     PKeyboardPlayer  -> let (np, mCm) = (unwrapRollRandomNumfromKeyboard $ fromKeyboard (cId,KeyboardPlayer )) in ((cId, np), (cId, mCm))
 
 
+processInfoUpdatingPlayer :: ((ClientID, KeyboardPlayer) -> InfoUpdatingfromKeyboard) -> (ClientID, Player) -> ((ClientID, Player), (ClientID, Maybe ClientMessage))
+processInfoUpdatingPlayer fromKeyboard (cId,player) = case player of
+    PKeyboardPlayer  -> let (np, mCm) = (unwrapInfoUpdatingfromKeyboard $ fromKeyboard (cId,KeyboardPlayer )) in ((cId, np), (cId, mCm))
+
+
 
 -- player splitting functions
 splitBoardKeyPressedPlayers :: [(ClientID,Player)] -> ([(ClientID,KeyboardPlayer)])
@@ -56,6 +61,12 @@ splitMakeLightPlayers players = foldl (\t@(fromKeyboardlst) pl -> case pl of
 
 splitRollRandomNumPlayers :: [(ClientID,Player)] -> ([(ClientID,KeyboardPlayer)])
 splitRollRandomNumPlayers players = foldl (\t@(fromKeyboardlst) pl -> case pl of
+    (cId,p@(PKeyboardPlayer )) -> ((cId,KeyboardPlayer ):fromKeyboardlst)
+
+    _ -> t) ([]) players
+
+splitInfoUpdatingPlayers :: [(ClientID,Player)] -> ([(ClientID,KeyboardPlayer)])
+splitInfoUpdatingPlayers players = foldl (\t@(fromKeyboardlst) pl -> case pl of
     (cId,p@(PKeyboardPlayer )) -> ((cId,KeyboardPlayer ):fromKeyboardlst)
 
     _ -> t) ([]) players
@@ -129,6 +140,15 @@ update tld mClientID trans state =
                         (keyboard,fromKeyboard) = updateRollRandomNum tld (fromJust mClientID) (RollRandomNum ) ((safeFromJust "place lookup") $ TM.lookup places) (map snd keyboardPlayerLst)
                         newPlaces = TM.insert keyboard places
                         (newPlayers, clientMessages) = unzip $ map (processRollRandomNumPlayer fromKeyboard) (mapSnd unwrapKeyboardPlayer keyboardPlayerLst)
+                    in
+                        (newPlaces, newPlayers, clientMessages, Nothing)
+
+                (TInfoUpdating clientKeyColorDict playerCounter) ->
+                    let
+                        (keyboardPlayerLst) = splitInfoUpdatingPlayers (IM'.toList players)
+                        (keyboard,fromKeyboard) = updateInfoUpdating tld (fromJust mClientID) ((InfoUpdating clientKeyColorDict playerCounter) ) ((safeFromJust "place lookup") $ TM.lookup places) (map snd keyboardPlayerLst)
+                        newPlaces = TM.insert keyboard places
+                        (newPlayers, clientMessages) = unzip $ map (processInfoUpdatingPlayer fromKeyboard) (mapSnd unwrapKeyboardPlayer keyboardPlayerLst)
                     in
                         (newPlaces, newPlayers, clientMessages, Nothing)
 

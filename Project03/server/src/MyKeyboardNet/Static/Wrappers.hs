@@ -19,6 +19,10 @@ unwrapRandomNumRolled :: RandomNumRolled -> ClientMessage
 unwrapRandomNumRolled RandomNumRolled  = MRandomNumRolled 
 
 
+unwrapInfoUpdated :: InfoUpdated -> ClientMessage
+unwrapInfoUpdated (InfoUpdated clientKeyColorDict playerCounter)  = (MInfoUpdated clientKeyColorDict playerCounter) 
+
+
 
 unwrapKeyboardPlayer :: KeyboardPlayer -> Player
 unwrapKeyboardPlayer KeyboardPlayer  = PKeyboardPlayer 
@@ -57,6 +61,14 @@ unwrapRollRandomNumfromKeyboard trans =
 
 
 
+unwrapInfoUpdatingfromKeyboard :: InfoUpdatingfromKeyboard -> (Player, Maybe ClientMessage)
+unwrapInfoUpdatingfromKeyboard trans =
+    case trans of
+        (InfoUpdating_KeyboardtoKeyboard player msg)  -> (unwrapKeyboardPlayer player, Just $ unwrapInfoUpdated msg)
+
+
+
+
 
 unwrapBoardKeyPressed :: BoardKeyPressed -> Transition
 unwrapBoardKeyPressed (BoardKeyPressed clientKeyColorDict myColor myKeyInt)  = (TBoardKeyPressed clientKeyColorDict myColor myKeyInt) 
@@ -72,6 +84,10 @@ unwrapMakeLight (MakeLight myKeyInt)  = (TMakeLight myKeyInt)
 
 unwrapRollRandomNum :: RollRandomNum -> Transition
 unwrapRollRandomNum RollRandomNum  = TRollRandomNum 
+
+
+unwrapInfoUpdating :: InfoUpdating -> Transition
+unwrapInfoUpdating (InfoUpdating clientKeyColorDict playerCounter)  = (TInfoUpdating clientKeyColorDict playerCounter) 
 
 
 

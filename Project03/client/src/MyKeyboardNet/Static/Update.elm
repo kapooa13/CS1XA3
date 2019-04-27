@@ -20,6 +20,8 @@ update fsp trans state =
         ((MRandomColorNumber myColor) , SKeyboard st) -> (SKeyboard <| updateRandomColorNumberKeyboard fsp (RandomColorNumber myColor)  st, Cmd.none)
         (MRandomNumRolled , SKeyboard st) -> let (newModel, cmd) = updateKeyboardRandomNumRolledKeyboard fsp RandomNumRolled  st in (SKeyboard newModel, Cmd.map (Internal << unwrapRandomColorNumber) cmd)
 
+        ((MInfoUpdated clientKeyColorDict playerCounter) , SKeyboard st) -> (SKeyboard <| updateKeyboardInfoUpdatedKeyboard fsp (InfoUpdated clientKeyColorDict playerCounter)  st, Cmd.none)
+
 
 
 outgoingToIncoming : Transition -> Either IncomingMessage Transition

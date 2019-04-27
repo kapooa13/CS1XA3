@@ -6,6 +6,7 @@ digraph D {
   MakeLightnode [label="MakeLight",shape=box]
   RandomColorNumbernode [label="RandomColorNumber",shape=box]
   RollRandomNumnode [label="RollRandomNum",shape=box]
+  InfoUpdatingnode [label="InfoUpdating",shape=box]
 
 
   BoardKeyPressednode -> Keyboardnode [arrowhead=none,sametail=KeyboardBoardKeyUnpressedKeyboard]
@@ -26,6 +27,10 @@ Not yet supported.
 
   RollRandomNumnode -> Keyboardnode [arrowhead=none,sametail=KeyboardRandomNumRolledKeyboard]
   RollRandomNumnode -> Keyboardnode [label="RandomNumRolled",sametail=KeyboardRandomNumRolledKeyboard]
+
+
+  InfoUpdatingnode -> Keyboardnode [arrowhead=none,sametail=KeyboardInfoUpdatedKeyboard]
+  InfoUpdatingnode -> Keyboardnode [label="InfoUpdated",sametail=KeyboardInfoUpdatedKeyboard]
 
 
 

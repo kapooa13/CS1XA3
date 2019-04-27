@@ -34,4 +34,9 @@ updateKeyboardRandomNumRolledKeyboard fsp RandomNumRolled  keyboard =
     todo "Please implement update function updateKeyboardRandomNumRolledKeyboard for the MyKeyboardNet net."
 
 
+updateKeyboardInfoUpdatedKeyboard : FromSuperPlace -> InfoUpdated -> Keyboard -> Keyboard
+updateKeyboardInfoUpdatedKeyboard fsp (InfoUpdated clientKeyColorDict playerCounter)  keyboard =
+    todo "Please implement update function updateKeyboardInfoUpdatedKeyboard for the MyKeyboardNet net."
+
+
 

@@ -8,7 +8,7 @@ import Static.Dict (Dict)
 
 -- place states and place player states
 data Keyboard  =
-      Keyboard (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-serverKeyColorDict-}
+      Keyboard (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-serverKeyColorDict-} Int {-playerCounter-}
     deriving(Ord,Eq,Show,Typeable)
 
 data KeyboardPlayer  =
@@ -30,11 +30,15 @@ data MadeKeyLight  =
 data RandomNumRolled  =
       RandomNumRolled
     deriving(Ord,Eq,Show)
+data InfoUpdated  =
+      InfoUpdated (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-clientKeyColorDict-} Int {-playerCounter-}
+    deriving(Ord,Eq,Show)
 data ClientMessage  =
       MBoardKeyUnpressed (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-clientKeyColorDict-} Int {-myColor-} Int {-myKeyInt-}
     | MMadeKeyDark Int {-myKeyInt-}
     | MMadeKeyLight Int {-myKeyInt-}
     | MRandomNumRolled
+    | MInfoUpdated (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-clientKeyColorDict-} Int {-playerCounter-}
     deriving(Ord,Eq,Show)
 
 -- individual transition types
@@ -54,6 +58,10 @@ data RollRandomNumfromKeyboard  =
       RollRandomNum_KeyboardtoKeyboard KeyboardPlayer RandomNumRolled
     deriving(Ord,Eq,Show)
 
+data InfoUpdatingfromKeyboard  =
+      InfoUpdating_KeyboardtoKeyboard KeyboardPlayer InfoUpdated
+    deriving(Ord,Eq,Show)
+
 
 -- main transition types
 data Transition  =
@@ -61,6 +69,7 @@ data Transition  =
     | TMakeDark Int {-myKeyInt-}
     | TMakeLight Int {-myKeyInt-}
     | TRollRandomNum
+    | TInfoUpdating (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-clientKeyColorDict-} Int {-playerCounter-}
     deriving(Ord,Eq,Show)
 data BoardKeyPressed  =
       BoardKeyPressed (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-clientKeyColorDict-} Int {-myColor-} Int {-myKeyInt-}
@@ -73,6 +82,9 @@ data MakeLight  =
     deriving(Ord,Eq,Show)
 data RollRandomNum  =
       RollRandomNum
+    deriving(Ord,Eq,Show)
+data InfoUpdating  =
+      InfoUpdating (Dict Int {-myKeyInt-} Int {-myKeyColor-}) {-clientKeyColorDict-} Int {-playerCounter-}
     deriving(Ord,Eq,Show)
 
 -- player state union type

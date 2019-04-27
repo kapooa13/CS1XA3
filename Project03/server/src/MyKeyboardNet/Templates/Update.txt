@@ -91,4 +91,21 @@ updateRollRandomNum fsp clientId RollRandomNum keyboard lstKeyboard =
     in
         (keyboard, fromKeyboard)
 
+updateInfoUpdating :: FromSuperPlace -> 
+    ClientID ->
+    InfoUpdating ->
+    Keyboard -> 
+    List KeyboardPlayer -> 
+    ( Keyboard,
+      (ClientID, KeyboardPlayer) -> InfoUpdatingfromKeyboard
+    )
+updateInfoUpdating fsp clientId (InfoUpdating clientKeyColorDict playerCounter) keyboard lstKeyboard =
+    let
+        fromKeyboard :: (ClientID, KeyboardPlayer) -> InfoUpdatingfromKeyboard
+        fromKeyboard (pId, pkeyboard) = error "Please fill in function stub."
+
+
+    in
+        (keyboard, fromKeyboard)
+
 

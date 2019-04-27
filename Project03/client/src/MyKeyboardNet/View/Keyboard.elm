@@ -39,10 +39,10 @@ import Dict
 import Time exposing(every)
 
 subs : Keyboard -> Sub Msg
-subs (Keyboard clientKeyStateDict myColor clientKeyColorDict) =
+subs (Keyboard clientKeyStateDict myColor clientKeyColorDict pC) =
         Sub.batch [
-            Time.every (200) (always <| (BoardKeyPressed clientKeyColorDict myColor 61))
-
+            -- Time.every (200) (always <| (BoardKeyPressed clientKeyColorDict myColor 61))
+            Time.every 100 (always <| InfoUpdating clientKeyColorDict pC)
            ,Events.onKeyDown (Decode.map (BoardKeyPressed clientKeyColorDict myColor) keyDecoder)
 
            ,Events.onKeyDown <| (Decode.map MakeDark keyDecoder)
@@ -93,7 +93,7 @@ myColFunc col = case col of
 
 
 view : Keyboard -> Html Msg
-view (Keyboard myDict myColor clientKeyColorDict) =
+view (Keyboard myDict myColor clientKeyColorDict pC) =
     let
         myColPicker : Int -> Int
         -- takes index of key and returns the corresponding color int
@@ -204,6 +204,10 @@ view (Keyboard myDict myColor clientKeyColorDict) =
                                |> move(-5, -15)
                          , group (List.map colorPicker myColTupList)
                                |> move(-110, -65)
+                         , text ("Player Counter: " ++ Debug.toString pC)
+                               |> size 18
+                               |> filled black
+                               |> move(20, 40)
 {-
                          , myButton
                                |> move(-5, -60)

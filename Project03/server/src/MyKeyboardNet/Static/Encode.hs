@@ -49,6 +49,32 @@ encodeClientMessage clientmessage =
                 tConcat ["MMadeKeyLight\0", myKeyIntTxt]
         MRandomNumRolled -> 
                 tConcat ["MRandomNumRolled"]
+        MInfoUpdated clientKeyColorDict playerCounter -> 
+            let
+                clientKeyColorDictAsList = Dict.toList clientKeyColorDict
+                clientKeyColorDictAsListTxt =
+                    let
+                        encodeclientKeyColorDictAsList_ _ (str0,clientKeyColorDictAsListList) =
+                            case clientKeyColorDictAsListList of
+                                keyValuePairs : rest ->
+                                    let
+                                        keyValuePairsTxt =
+                                            let
+                                                (fst6,snd6) = keyValuePairs
+                                                fst6Txt = encodeInt (0) (62) fst6
+                                                snd6Txt = encodeInt (0) (24) snd6
+                                            in
+                                                tConcat [fst6Txt,"\0",snd6Txt]
+                                    in
+                                        (tConcat [str0,"\0",keyValuePairsTxt], rest)
+                                [] -> (str0,clientKeyColorDictAsListList)
+                        encodeclientKeyColorDictAsList ls =
+                            lFoldl encodeclientKeyColorDictAsList_ ("",ls) (lRange 0 (lLength clientKeyColorDictAsList))
+                    in
+                        tConcat [encodeInt 0 16777216 <| lLength clientKeyColorDictAsList, pFst <| encodeclientKeyColorDictAsList clientKeyColorDictAsList]
+                playerCounterTxt = encodeInt (0) (100) playerCounter
+            in
+                tConcat ["MInfoUpdated\0", clientKeyColorDictAsListTxt,"\0",playerCounterTxt]
 
 
 -- extra type encoders
