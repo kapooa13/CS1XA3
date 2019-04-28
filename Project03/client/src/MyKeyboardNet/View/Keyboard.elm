@@ -43,8 +43,7 @@ import Time exposing(every)
 subs : Keyboard -> Sub Msg
 subs (Keyboard clientKeyStateDict myColor clientKeyColorDict pC) =
         Sub.batch [
-            -- Time.every (200) (always <| (BoardKeyPressed clientKeyColorDict myColor 61))
-            Time.every 100 (always <| InfoUpdating clientKeyColorDict pC)
+            Time.every 50 (always <| InfoUpdating clientKeyColorDict pC)
            ,Events.onKeyDown (Decode.map (BoardKeyPressed clientKeyColorDict myColor) keyDecoder)
 
            ,Events.onKeyDown <| (Decode.map MakeDark keyDecoder)
@@ -56,42 +55,6 @@ myColList = [blue, brown, charcoal, darkBlue, darkBrown, darkCharcoal
             ,darkYellow, gray, green, grey, hotPink, lightBlue, lightBrown
             ,lightCharcoal, lightGray, lightGreen, lightGrey, lightOrange, lightPurple
             ,lightRed, lightYellow, orange, pink, purple, red, yellow]
-{-
-myColFunc : GraphicSVG.Color -> String
-myColFunc col = case col of
-                    blue, 
-                    brown,
-                    charcoal, 
-                    darkBlue, 
-                    darkBrown, 
-                    darkCharcoal
-                    darkGray, 
-                    darkGreen, 
-                    darkGrey, 
-                    darkOrange, 
-                    darkPurple, 
-                    darkRed
-                    darkYellow,
-                    gray, 
-                    green, 
-                    grey, 
-                    hotPink, 
-                    lightBlue, 
-                    lightBrown
-                    lightCharcoal, 
-                    lightGray, 
-                    lightGreen, 
-                    lightGrey, 
-                    lightOrange, 
-                    lightPurple
-                    lightRed, 
-                    lightYellow, 
-                    orange, 
-                    pink, 
-                    purple, 
-                    red, 
-                    yellow
--}
 
 
 view : Keyboard -> Html Msg
@@ -110,26 +73,49 @@ view (Keyboard myDict myColor clientKeyColorDict pC) =
         divModFive intNum = (intNum//5, intNum - 5*(intNum//5))
                          -- ( quotient, remainder             )
 
+        
+
+
         drawBlackKeys idx state = 
             let
                 (quotient, remainder) = divModFive idx
                 
             in
                 case remainder of
-                        1          -> roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
+                        1          -> group [ roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
                                                      |> move (toFloat(-170 + 5 + 70*(quotient-7)),10)
+                                             ,text (fromInt idx)
+                                                     |> size 4
+                                                     |> filled (rgb 255 255 255)
+                                                     |> move (toFloat(-171 + 5 + 70*(quotient-7)),-5) ]
 
-                        2          -> roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
+                        2          -> group [ roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
                                                      |> move (toFloat(-170 + 15 + 70*(quotient-7)),10)
+                                             ,text (fromInt idx)
+                                                     |> size 4
+                                                     |> filled (rgb 255 255 255)
+                                                     |> move (toFloat(-171 + 15 + 70*(quotient-7)),-5) ]
 
-                        3          -> roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
+                        3          -> group [ roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
                                                      |> move (toFloat(-170 + 35 + 70*(quotient-7)),10)
+                                             ,text (fromInt idx)
+                                                     |> size 4
+                                                     |> filled (rgb 255 255 255)
+                                                     |> move (toFloat(-171 + 35 + 70*(quotient-7)),-5) ]
 
-                        4          -> roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
+                        4          -> group [ roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
                                                      |> move (toFloat(-170 + 45 + 70*(quotient-7)),10)
+                                             ,text (fromInt idx)
+                                                     |> size 4
+                                                     |> filled (rgb 255 255 255)
+                                                     |> move (toFloat(-171 + 45 + 70*(quotient-7)),-5) ]
 
-                        0          -> roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
+                        0          -> group [ roundedRect 5 40 0.3 |> filled (if state == True then (myCol idx) else (black))
                                                      |> move (toFloat(-170 + 55 + 70*(quotient-7)),10)
+                                             ,text (fromInt idx)
+                                                     |> size 4
+                                                     |> filled (rgb 255 255 255)
+                                                     |> move (toFloat(-171 + 55 + 70*(quotient-7)),-5) ]
 
                         otherwise  -> roundedRect 25 25 0.3 |> filled (if state == True then (hotPink) else (hotPink))
                                                      |> move (0,0)
@@ -163,15 +149,19 @@ view (Keyboard myDict myColor clientKeyColorDict pC) =
                     59        -> drawBlackKeys idx state
                     60        -> drawBlackKeys idx state
 
-                    otherwise -> roundedRect 10 60 0.7 |> filled (if state == True then (myCol idx) else (rgb 237 237 237))
-                                                       |> move (toFloat(-170 + 10*idx),0.0)
-                                                       |> addOutline (solid 0.42) black
+                    otherwise -> group [ roundedRect 10 60 0.7 |> filled (if state == True then (myCol idx) else (rgb 237 237 237))
+                                                               |> move (toFloat(-170 + 10*idx),0.0)
+                                                               |> addOutline (solid 0.42) black
+                                       , text (fromInt idx)
+                                              |> size 4
+                                              |> filled black
+                                              |> move (-171 + 9.99*(toFloat idx),-25)
+                                        ]
 
         myColTupList = List.indexedMap Tuple.pair myColList
 
         colorPicker (idx, col) = square 8 |> filled col
                                           |> move (8*(toFloat idx), 0)
-                                        --  |> notifyTap (BoardKeyPressed clientKeyColorDict myColor 20)
 
         someCol = "moccasin"
 
@@ -203,61 +193,29 @@ view (Keyboard myDict myColor clientKeyColorDict pC) =
                                |> customFont "Arial"
                                |> filled (personalCol myColor)
                                |> addOutline (solid 0.5) black
-                               |> move(-65, 35)
+                               |> move(-65, 30)
                          , myList 
-                               |> move(-5, -15)
-                         , group (List.map colorPicker myColTupList)
-                               |> move(-110, -65)
+                               |> move(-5, -25)
                          , text ("Player Counter: " ++ Debug.toString pC)
-                               |> size 18
+                               |> size 8
                                |> filled black
-                               |> move(20, 40)
-{-
-                         , myButton
-                               |> move(-5, -60)
-                               |> notifyTap (RollRandomNum)
--}
+                               |> move(90, 15)
                          ]
             in
                 div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" someCol] [
 
-                     Widget.icon "myKeyboard" 400 172 myView
+                     Widget.icon "myKeyboard" 400 140 myView
 
                     ,div [style "width" "8%", style "margin-left" "auto", style "margin-right" "auto", style "background-color" someCol] [
 
                           Button.button [ Button.dark, Button.attrs [onClick (RollRandomNum)] ] [ myHtmlMsg ]
                      ]
+                    ,div [style "height" "18%",style "background-color" someCol] []
 
                 ]
     in
         myViewFn
 
-{-
-        div [style "background-color" "deepskyblue"] [
-        div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" "deepskyblue"] 
-        [
-             div [style "background-color" "deepskyblue",style "margin-left" "auto", style "margin-right" "auto"] [Widget.icon "myKeyboard" 400 100
-                (Dict.values (Dict.map drawFunc myDict))]
-        ]
-       ,div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" "deepskyblue"] [Button.button [ Button.dark, Button.attrs [onClick (RollRandomNum)] ] [ text "Change Colors" ]]
-        ]
--}
-
-{-
-        myViewFn =
-            div [style "background-color" someCol] [
-
-                div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" someCol] [
-                         Widget.icon "myKeyboard" 400 172
-                        (Dict.values (Dict.map drawFunc myDict))
-                    ]
-{-
-               ,div [style "margin-left" "auto", style "margin-right" "auto",style "background-color" someCol] [
-
-                    Button.button [ Button.dark, Button.attrs [onClick (RollRandomNum)] ] [ Html.text "Randomise Color!!" ]
-                ]-}
-            ]
--}
 
 title : Keyboard -> String
 title keyboard = "Piano RT"
