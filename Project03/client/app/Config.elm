@@ -6,5 +6,5 @@ module Config exposing(..)
 -- for running the server locally.
 -- "wss://mac1xa3.ca/e/kapooa13/"
 serverUrl : String
-serverUrl = "ws://localhost:8080"
+serverUrl = "wss://mac1xa3.ca/e/kapooa13"
 

@@ -8,7 +8,7 @@ import TypeHelpers
 --directory to output the generated files
 outputDirectory = "."
 --where the generator is
-generatorRoot = "../../../petri-app-land"
+generatorRoot = "../../petri-app-land"
 
 
 -- DoctypeT variables

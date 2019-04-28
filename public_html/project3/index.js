@@ -4877,7 +4877,7 @@ var author$project$Main$NotConnected = {$: 'NotConnected'};
 var author$project$Main$OutgoingTrans = function (a) {
 	return {$: 'OutgoingTrans', a: a};
 };
-var author$project$Config$serverUrl = 'wss://mac1xa3.ca/e/kapooa13/';
+var author$project$Config$serverUrl = 'wss://mac1xa3.ca/e/kapooa13';
 var author$project$Main$defaultUrl = author$project$Config$serverUrl;
 var billstclair$elm_websocket_client$PortFunnel$WebSocket$State = function (a) {
 	return {$: 'State', a: a};
@@ -6885,25 +6885,66 @@ var author$project$MyKeyboardNet$Init$myInitColor = elm$core$Dict$fromList(
 	_List_fromArray(
 		[
 			_Utils_Tuple2(0, 0),
-			_Utils_Tuple2(1, 1),
-			_Utils_Tuple2(2, 2),
-			_Utils_Tuple2(3, 3),
-			_Utils_Tuple2(4, 4),
-			_Utils_Tuple2(5, 5),
-			_Utils_Tuple2(6, 6),
-			_Utils_Tuple2(7, 7),
-			_Utils_Tuple2(8, 8),
-			_Utils_Tuple2(9, 9),
-			_Utils_Tuple2(10, 10),
-			_Utils_Tuple2(11, 11),
-			_Utils_Tuple2(12, 12),
-			_Utils_Tuple2(13, 13),
-			_Utils_Tuple2(14, 14),
-			_Utils_Tuple2(15, 15),
-			_Utils_Tuple2(16, 16),
-			_Utils_Tuple2(17, 17),
-			_Utils_Tuple2(18, 18),
-			_Utils_Tuple2(19, 19)
+			_Utils_Tuple2(1, 0),
+			_Utils_Tuple2(2, 0),
+			_Utils_Tuple2(3, 0),
+			_Utils_Tuple2(4, 0),
+			_Utils_Tuple2(5, 0),
+			_Utils_Tuple2(6, 0),
+			_Utils_Tuple2(7, 0),
+			_Utils_Tuple2(8, 0),
+			_Utils_Tuple2(9, 0),
+			_Utils_Tuple2(10, 0),
+			_Utils_Tuple2(11, 0),
+			_Utils_Tuple2(12, 0),
+			_Utils_Tuple2(13, 0),
+			_Utils_Tuple2(14, 0),
+			_Utils_Tuple2(15, 0),
+			_Utils_Tuple2(16, 0),
+			_Utils_Tuple2(17, 0),
+			_Utils_Tuple2(18, 0),
+			_Utils_Tuple2(19, 0),
+			_Utils_Tuple2(20, 0),
+			_Utils_Tuple2(21, 0),
+			_Utils_Tuple2(22, 0),
+			_Utils_Tuple2(23, 0),
+			_Utils_Tuple2(24, 0),
+			_Utils_Tuple2(25, 0),
+			_Utils_Tuple2(26, 0),
+			_Utils_Tuple2(27, 0),
+			_Utils_Tuple2(28, 0),
+			_Utils_Tuple2(29, 0),
+			_Utils_Tuple2(30, 0),
+			_Utils_Tuple2(31, 0),
+			_Utils_Tuple2(32, 0),
+			_Utils_Tuple2(33, 0),
+			_Utils_Tuple2(34, 0),
+			_Utils_Tuple2(35, 0),
+			_Utils_Tuple2(36, 0),
+			_Utils_Tuple2(37, 0),
+			_Utils_Tuple2(38, 0),
+			_Utils_Tuple2(39, 0),
+			_Utils_Tuple2(40, 0),
+			_Utils_Tuple2(41, 0),
+			_Utils_Tuple2(42, 0),
+			_Utils_Tuple2(43, 0),
+			_Utils_Tuple2(44, 0),
+			_Utils_Tuple2(45, 0),
+			_Utils_Tuple2(46, 0),
+			_Utils_Tuple2(47, 0),
+			_Utils_Tuple2(48, 0),
+			_Utils_Tuple2(49, 0),
+			_Utils_Tuple2(50, 0),
+			_Utils_Tuple2(51, 0),
+			_Utils_Tuple2(52, 0),
+			_Utils_Tuple2(53, 0),
+			_Utils_Tuple2(54, 0),
+			_Utils_Tuple2(55, 0),
+			_Utils_Tuple2(56, 0),
+			_Utils_Tuple2(57, 0),
+			_Utils_Tuple2(58, 0),
+			_Utils_Tuple2(59, 0),
+			_Utils_Tuple2(60, 0)
 		]));
 var author$project$MyKeyboardNet$Init$myInitState = elm$core$Dict$fromList(
 	_List_fromArray(
@@ -6927,13 +6968,54 @@ var author$project$MyKeyboardNet$Init$myInitState = elm$core$Dict$fromList(
 			_Utils_Tuple2(16, false),
 			_Utils_Tuple2(17, false),
 			_Utils_Tuple2(18, false),
-			_Utils_Tuple2(19, false)
+			_Utils_Tuple2(19, false),
+			_Utils_Tuple2(20, false),
+			_Utils_Tuple2(21, false),
+			_Utils_Tuple2(22, false),
+			_Utils_Tuple2(23, false),
+			_Utils_Tuple2(24, false),
+			_Utils_Tuple2(25, false),
+			_Utils_Tuple2(26, false),
+			_Utils_Tuple2(27, false),
+			_Utils_Tuple2(28, false),
+			_Utils_Tuple2(29, false),
+			_Utils_Tuple2(30, false),
+			_Utils_Tuple2(31, false),
+			_Utils_Tuple2(32, false),
+			_Utils_Tuple2(33, false),
+			_Utils_Tuple2(34, false),
+			_Utils_Tuple2(35, false),
+			_Utils_Tuple2(36, false),
+			_Utils_Tuple2(37, false),
+			_Utils_Tuple2(38, false),
+			_Utils_Tuple2(39, false),
+			_Utils_Tuple2(40, false),
+			_Utils_Tuple2(41, false),
+			_Utils_Tuple2(42, false),
+			_Utils_Tuple2(43, false),
+			_Utils_Tuple2(44, false),
+			_Utils_Tuple2(45, false),
+			_Utils_Tuple2(46, false),
+			_Utils_Tuple2(47, false),
+			_Utils_Tuple2(48, false),
+			_Utils_Tuple2(49, false),
+			_Utils_Tuple2(50, false),
+			_Utils_Tuple2(51, false),
+			_Utils_Tuple2(52, false),
+			_Utils_Tuple2(53, false),
+			_Utils_Tuple2(54, false),
+			_Utils_Tuple2(55, false),
+			_Utils_Tuple2(56, false),
+			_Utils_Tuple2(57, false),
+			_Utils_Tuple2(58, false),
+			_Utils_Tuple2(59, false),
+			_Utils_Tuple2(60, false)
 		]));
-var author$project$MyKeyboardNet$Static$Types$Keyboard = F3(
-	function (a, b, c) {
-		return {$: 'Keyboard', a: a, b: b, c: c};
+var author$project$MyKeyboardNet$Static$Types$Keyboard = F4(
+	function (a, b, c, d) {
+		return {$: 'Keyboard', a: a, b: b, c: c, d: d};
 	});
-var author$project$MyKeyboardNet$Init$init = A3(author$project$MyKeyboardNet$Static$Types$Keyboard, author$project$MyKeyboardNet$Init$myInitState, 16, author$project$MyKeyboardNet$Init$myInitColor);
+var author$project$MyKeyboardNet$Init$init = A4(author$project$MyKeyboardNet$Static$Types$Keyboard, author$project$MyKeyboardNet$Init$myInitState, 16, author$project$MyKeyboardNet$Init$myInitColor, 0);
 var author$project$MyKeyboardNet$Static$Types$SKeyboard = function (a) {
 	return {$: 'SKeyboard', a: a};
 };
@@ -6985,6 +7067,10 @@ var author$project$MyKeyboardNet$Static$Types$TBoardKeyPressed = F3(
 	function (a, b, c) {
 		return {$: 'TBoardKeyPressed', a: a, b: b, c: c};
 	});
+var author$project$MyKeyboardNet$Static$Types$TInfoUpdating = F2(
+	function (a, b) {
+		return {$: 'TInfoUpdating', a: a, b: b};
+	});
 var author$project$MyKeyboardNet$Static$Types$TMakeDark = function (a) {
 	return {$: 'TMakeDark', a: a};
 };
@@ -7018,13 +7104,22 @@ var author$project$MyKeyboardNet$Static$Wrappers$Keyboard$unwrap = function (msg
 			var myColor = msg.a;
 			return author$project$MyKeyboardNet$Static$Types$Internal(
 				author$project$MyKeyboardNet$Static$Types$TRandomColorNumber(myColor));
-		default:
+		case 'RollRandomNum':
 			return author$project$MyKeyboardNet$Static$Types$External(author$project$MyKeyboardNet$Static$Types$TRollRandomNum);
+		default:
+			var clientKeyColorDict = msg.a;
+			var playerCounter = msg.b;
+			return author$project$MyKeyboardNet$Static$Types$External(
+				A2(author$project$MyKeyboardNet$Static$Types$TInfoUpdating, clientKeyColorDict, playerCounter));
 	}
 };
 var author$project$MyKeyboardNet$Static$Types$Keyboard$BoardKeyPressed = F3(
 	function (a, b, c) {
 		return {$: 'BoardKeyPressed', a: a, b: b, c: c};
+	});
+var author$project$MyKeyboardNet$Static$Types$Keyboard$InfoUpdating = F2(
+	function (a, b) {
+		return {$: 'InfoUpdating', a: a, b: b};
 	});
 var author$project$MyKeyboardNet$Static$Types$Keyboard$MakeDark = function (a) {
 	return {$: 'MakeDark', a: a};
@@ -7034,49 +7129,131 @@ var author$project$MyKeyboardNet$Static$Types$Keyboard$MakeLight = function (a) 
 };
 var author$project$MyKeyboardNet$Keys$fromCode = function (keyCode) {
 	switch (keyCode) {
-		case 'q':
+		case '1':
 			return 0;
-		case 'w':
-			return 1;
-		case 'e':
-			return 2;
-		case 'r':
-			return 3;
-		case 't':
-			return 4;
-		case 'y':
-			return 5;
-		case 'u':
-			return 6;
-		case 'i':
-			return 7;
-		case 'o':
-			return 8;
-		case 'p':
-			return 9;
-		case '[':
-			return 10;
-		case ']':
-			return 11;
 		case '2':
-			return 12;
+			return 1;
 		case '3':
-			return 13;
+			return 2;
 		case '4':
-			return 14;
+			return 3;
+		case '5':
+			return 4;
 		case '6':
-			return 15;
+			return 5;
 		case '7':
-			return 16;
+			return 6;
+		case '8':
+			return 7;
 		case '9':
-			return 17;
+			return 8;
 		case '0':
+			return 9;
+		case 'q':
+			return 10;
+		case 'w':
+			return 11;
+		case 'e':
+			return 12;
+		case 'r':
+			return 13;
+		case 't':
+			return 14;
+		case 'y':
+			return 15;
+		case 'u':
+			return 16;
+		case 'i':
+			return 17;
+		case 'o':
 			return 18;
-		case '-':
+		case 'p':
 			return 19;
+		case 'a':
+			return 20;
+		case 's':
+			return 21;
+		case 'd':
+			return 22;
+		case 'f':
+			return 23;
+		case 'g':
+			return 24;
+		case 'h':
+			return 25;
+		case 'j':
+			return 26;
+		case 'k':
+			return 27;
+		case 'l':
+			return 28;
+		case 'z':
+			return 29;
+		case 'x':
+			return 30;
+		case 'c':
+			return 31;
+		case 'v':
+			return 32;
+		case 'b':
+			return 33;
+		case 'n':
+			return 34;
+		case 'm':
+			return 35;
+		case '!':
+			return 36;
+		case '@':
+			return 37;
+		case '$':
+			return 38;
+		case '%':
+			return 39;
+		case '^':
+			return 40;
+		case '&':
+			return 41;
+		case '*':
+			return 42;
+		case 'Q':
+			return 43;
+		case 'W':
+			return 44;
+		case 'E':
+			return 45;
+		case 'T':
+			return 46;
+		case 'Y':
+			return 47;
+		case 'I':
+			return 48;
+		case 'O':
+			return 49;
+		case 'P':
+			return 50;
+		case 'S':
+			return 51;
+		case 'D':
+			return 52;
+		case 'G':
+			return 53;
+		case 'H':
+			return 54;
+		case 'J':
+			return 55;
+		case 'L':
+			return 56;
+		case 'Z':
+			return 57;
+		case 'C':
+			return 58;
+		case 'V':
+			return 59;
+		case 'B':
+			return 60;
 		default:
 			var otherwise = keyCode;
-			return 20;
+			return 61;
 	}
 };
 var author$project$MyKeyboardNet$View$Keyboard$keyDecoder = A2(
@@ -7808,14 +7985,15 @@ var author$project$MyKeyboardNet$View$Keyboard$subs = function (_n0) {
 	var clientKeyStateDict = _n0.a;
 	var myColor = _n0.b;
 	var clientKeyColorDict = _n0.c;
+	var pC = _n0.d;
 	return elm$core$Platform$Sub$batch(
 		_List_fromArray(
 			[
 				A2(
 				elm$time$Time$every,
-				200,
+				50,
 				elm$core$Basics$always(
-					A3(author$project$MyKeyboardNet$Static$Types$Keyboard$BoardKeyPressed, clientKeyColorDict, myColor, 20))),
+					A2(author$project$MyKeyboardNet$Static$Types$Keyboard$InfoUpdating, clientKeyColorDict, pC))),
 				elm$browser$Browser$Events$onKeyDown(
 				A2(
 					elm$json$Json$Decode$map,
@@ -8010,6 +8188,10 @@ var author$project$MyKeyboardNet$Static$Types$MBoardKeyUnpressed = F3(
 	function (a, b, c) {
 		return {$: 'MBoardKeyUnpressed', a: a, b: b, c: c};
 	});
+var author$project$MyKeyboardNet$Static$Types$MInfoUpdated = F2(
+	function (a, b) {
+		return {$: 'MInfoUpdated', a: a, b: b};
+	});
 var author$project$MyKeyboardNet$Static$Types$MMadeKeyDark = function (a) {
 	return {$: 'MMadeKeyDark', a: a};
 };
@@ -8157,6 +8339,7 @@ var author$project$Utils$Utils$decodeList = F2(
 				A2(elm$core$List$drop, 1, ls)),
 			A2(elm$core$List$range, 1, n));
 	});
+var author$project$Utils$Utils$rMap2 = elm$core$Result$map2;
 var elm$core$Result$map3 = F4(
 	function (func, ra, rb, rc) {
 		if (ra.$ === 'Err') {
@@ -8197,7 +8380,7 @@ var elm$core$Result$andThen = F2(
 	});
 var author$project$MyKeyboardNet$Static$Decode$decodeIncomingMessage = function (_n0) {
 	var incomingmessageTxts = _n0.b;
-	_n1$4:
+	_n1$5:
 	while (true) {
 		if (incomingmessageTxts.b) {
 			switch (incomingmessageTxts.a) {
@@ -8227,7 +8410,7 @@ var author$project$MyKeyboardNet$Static$Decode$decodeIncomingMessage = function 
 												A2(
 													elm$core$Result$andThen,
 													elm$core$Result$Ok,
-													A3(author$project$Utils$Utils$decodeInt, 0, 20, myKeyIntTxt)),
+													A3(author$project$Utils$Utils$decodeInt, 0, 62, myKeyIntTxt)),
 												ll6);
 										} else {
 											return _Utils_Tuple2(
@@ -8274,7 +8457,7 @@ var author$project$MyKeyboardNet$Static$Decode$decodeIncomingMessage = function 
 															A2(
 																elm$core$Result$andThen,
 																elm$core$Result$Ok,
-																A3(author$project$Utils$Utils$decodeInt, 0, 20, myKeyIntTxt)),
+																A3(author$project$Utils$Utils$decodeInt, 0, 62, myKeyIntTxt)),
 															ll10);
 													} else {
 														return _Utils_Tuple2(
@@ -8361,7 +8544,7 @@ var author$project$MyKeyboardNet$Static$Decode$decodeIncomingMessage = function 
 										A2(
 											elm$core$Result$andThen,
 											elm$core$Result$Ok,
-											A3(author$project$Utils$Utils$decodeInt, 0, 20, myKeyIntTxt)),
+											A3(author$project$Utils$Utils$decodeInt, 0, 62, myKeyIntTxt)),
 										ll4);
 								} else {
 									return _Utils_Tuple2(
@@ -8393,7 +8576,7 @@ var author$project$MyKeyboardNet$Static$Decode$decodeIncomingMessage = function 
 										A2(
 											elm$core$Result$andThen,
 											elm$core$Result$Ok,
-											A3(author$project$Utils$Utils$decodeInt, 0, 20, myKeyIntTxt)),
+											A3(author$project$Utils$Utils$decodeInt, 0, 62, myKeyIntTxt)),
 										ll4);
 								} else {
 									return _Utils_Tuple2(
@@ -8417,11 +8600,131 @@ var author$project$MyKeyboardNet$Static$Decode$decodeIncomingMessage = function 
 						_Utils_Tuple2(
 							elm$core$Result$Err(''),
 							rest));
+				case 'MInfoUpdated':
+					var rest = incomingmessageTxts.b;
+					return function (_n24) {
+						var r3 = _n24.a;
+						var l4 = _n24.b;
+						return function (_n34) {
+							var r4 = _n34.a;
+							var l5 = _n34.b;
+							return function (_n36) {
+								var r5 = _n36.a;
+								var l6 = _n36.b;
+								return _Utils_Tuple2(
+									A3(author$project$Utils$Utils$rMap2, author$project$MyKeyboardNet$Static$Types$MInfoUpdated, r4, r5),
+									l6);
+							}(
+								function () {
+									if (l5.b) {
+										var playerCounterTxt = l5.a;
+										var ll5 = l5.b;
+										return _Utils_Tuple2(
+											A2(
+												elm$core$Result$andThen,
+												elm$core$Result$Ok,
+												A3(author$project$Utils$Utils$decodeInt, 0, 100, playerCounterTxt)),
+											ll5);
+									} else {
+										return _Utils_Tuple2(
+											elm$core$Result$Err('Ran out of string to process while parsing IncomingMessage'),
+											_List_Nil);
+									}
+								}());
+						}(
+							author$project$Utils$Utils$decodeDict(
+								A2(
+									author$project$Utils$Utils$decodeList,
+									l4,
+									function (_n25) {
+										var r4 = _n25.a;
+										var l5 = _n25.b;
+										var _n26 = function () {
+											if (l5.b) {
+												var clientKeyColorDictKeyValPairTxt = l5.a;
+												var llf5 = l5.b;
+												return function (_n28) {
+													var r9 = _n28.a;
+													var l10 = _n28.b;
+													if (l10.b) {
+														var myKeyIntTxt = l10.a;
+														var ll10 = l10.b;
+														return _Utils_Tuple2(
+															A2(
+																elm$core$Result$andThen,
+																elm$core$Result$Ok,
+																A3(author$project$Utils$Utils$decodeInt, 0, 62, myKeyIntTxt)),
+															ll10);
+													} else {
+														return _Utils_Tuple2(
+															elm$core$Result$Err('Ran out of string to process while parsing IncomingMessage'),
+															_List_Nil);
+													}
+												}(
+													_Utils_Tuple2(
+														elm$core$Result$Err(''),
+														l5));
+											} else {
+												return _Utils_Tuple2(
+													elm$core$Result$Err('Ran out of string to process while parsing IncomingMessage'),
+													_List_Nil);
+											}
+										}();
+										var myKeyInt = _n26.a;
+										var lf5 = _n26.b;
+										var _n30 = function () {
+											if (lf5.b) {
+												var clientKeyColorDictKeyValPairTxt = lf5.a;
+												var lls5 = lf5.b;
+												return function (_n32) {
+													var r9 = _n32.a;
+													var l10 = _n32.b;
+													if (l10.b) {
+														var myKeyColorTxt = l10.a;
+														var ll10 = l10.b;
+														return _Utils_Tuple2(
+															A2(
+																elm$core$Result$andThen,
+																elm$core$Result$Ok,
+																A3(author$project$Utils$Utils$decodeInt, 0, 24, myKeyColorTxt)),
+															ll10);
+													} else {
+														return _Utils_Tuple2(
+															elm$core$Result$Err('Ran out of string to process while parsing IncomingMessage'),
+															_List_Nil);
+													}
+												}(
+													_Utils_Tuple2(
+														elm$core$Result$Err(''),
+														lf5));
+											} else {
+												return _Utils_Tuple2(
+													elm$core$Result$Err('Ran out of string to process while parsing IncomingMessage'),
+													_List_Nil);
+											}
+										}();
+										var myKeyColor = _n30.a;
+										var ls5 = _n30.b;
+										return _Utils_Tuple2(
+											A3(
+												elm$core$Result$map2,
+												F2(
+													function (rff5, rss5) {
+														return _Utils_Tuple2(rff5, rss5);
+													}),
+												myKeyInt,
+												myKeyColor),
+											ls5);
+									})));
+					}(
+						_Utils_Tuple2(
+							elm$core$Result$Err(''),
+							rest));
 				default:
-					break _n1$4;
+					break _n1$5;
 			}
 		} else {
-			break _n1$4;
+			break _n1$5;
 		}
 	}
 	return _Utils_Tuple2(
@@ -8448,7 +8751,7 @@ var author$project$Static$Decode$decodeIncomingMessage = F2(
 					elm$core$Result$Err(''),
 					A2(elm$core$String$split, '\u0000', txt))).a);
 	});
-var author$project$Static$Version$version = 'v1555627259300587';
+var author$project$Static$Version$version = 'v1556420140518206';
 var author$project$Utils$Utils$newMsg = function (msg) {
 	return A2(
 		elm$core$Task$perform,
@@ -8788,7 +9091,7 @@ var author$project$MyKeyboardNet$Static$Encode$encodeOutgoingTransition = functi
 			var clientKeyColorDict = outgoingtransition.a;
 			var myColor = outgoingtransition.b;
 			var myKeyInt = outgoingtransition.c;
-			var myKeyIntTxt = A3(author$project$Utils$Utils$encodeInt, 0, 20, myKeyInt);
+			var myKeyIntTxt = A3(author$project$Utils$Utils$encodeInt, 0, 62, myKeyInt);
 			var myColorTxt = A3(author$project$Utils$Utils$encodeInt, 0, 24, myColor);
 			var clientKeyColorDictAsList = elm$core$Dict$toList(clientKeyColorDict);
 			var clientKeyColorDictAsListTxt = function () {
@@ -8803,7 +9106,7 @@ var author$project$MyKeyboardNet$Static$Encode$encodeOutgoingTransition = functi
 								var _n2 = keyValuePairs;
 								var fst6 = _n2.a;
 								var snd6 = _n2.b;
-								var fst6Txt = A3(author$project$Utils$Utils$encodeInt, 0, 20, fst6);
+								var fst6Txt = A3(author$project$Utils$Utils$encodeInt, 0, 62, fst6);
 								var snd6Txt = A3(author$project$Utils$Utils$encodeInt, 0, 24, snd6);
 								return author$project$Utils$Utils$tConcat(
 									_List_fromArray(
@@ -8845,20 +9148,77 @@ var author$project$MyKeyboardNet$Static$Encode$encodeOutgoingTransition = functi
 					['TBoardKeyPressed\u0000', clientKeyColorDictAsListTxt, '\u0000', myColorTxt, '\u0000', myKeyIntTxt]));
 		case 'TMakeDark':
 			var myKeyInt = outgoingtransition.a;
-			var myKeyIntTxt = A3(author$project$Utils$Utils$encodeInt, 0, 20, myKeyInt);
+			var myKeyIntTxt = A3(author$project$Utils$Utils$encodeInt, 0, 62, myKeyInt);
 			return author$project$Utils$Utils$tConcat(
 				_List_fromArray(
 					['TMakeDark\u0000', myKeyIntTxt]));
 		case 'TMakeLight':
 			var myKeyInt = outgoingtransition.a;
-			var myKeyIntTxt = A3(author$project$Utils$Utils$encodeInt, 0, 20, myKeyInt);
+			var myKeyIntTxt = A3(author$project$Utils$Utils$encodeInt, 0, 62, myKeyInt);
 			return author$project$Utils$Utils$tConcat(
 				_List_fromArray(
 					['TMakeLight\u0000', myKeyIntTxt]));
-		default:
+		case 'TRollRandomNum':
 			return author$project$Utils$Utils$tConcat(
 				_List_fromArray(
 					['TRollRandomNum']));
+		default:
+			var clientKeyColorDict = outgoingtransition.a;
+			var playerCounter = outgoingtransition.b;
+			var playerCounterTxt = A3(author$project$Utils$Utils$encodeInt, 0, 100, playerCounter);
+			var clientKeyColorDictAsList = elm$core$Dict$toList(clientKeyColorDict);
+			var clientKeyColorDictAsListTxt = function () {
+				var encodeclientKeyColorDictAsList_ = F2(
+					function (_n7, _n8) {
+						var str0 = _n8.a;
+						var clientKeyColorDictAsListList = _n8.b;
+						if (clientKeyColorDictAsListList.b) {
+							var keyValuePairs = clientKeyColorDictAsListList.a;
+							var rest = clientKeyColorDictAsListList.b;
+							var keyValuePairsTxt = function () {
+								var _n6 = keyValuePairs;
+								var fst6 = _n6.a;
+								var snd6 = _n6.b;
+								var fst6Txt = A3(author$project$Utils$Utils$encodeInt, 0, 62, fst6);
+								var snd6Txt = A3(author$project$Utils$Utils$encodeInt, 0, 24, snd6);
+								return author$project$Utils$Utils$tConcat(
+									_List_fromArray(
+										[fst6Txt, '\u0000', snd6Txt]));
+							}();
+							return _Utils_Tuple2(
+								author$project$Utils$Utils$tConcat(
+									_List_fromArray(
+										[str0, '\u0000', keyValuePairsTxt])),
+								rest);
+						} else {
+							return _Utils_Tuple2(str0, clientKeyColorDictAsListList);
+						}
+					});
+				var encodeclientKeyColorDictAsList = function (ls) {
+					return A3(
+						author$project$Utils$Utils$lFoldl,
+						encodeclientKeyColorDictAsList_,
+						_Utils_Tuple2('', ls),
+						A2(
+							author$project$Utils$Utils$lRange,
+							0,
+							author$project$Utils$Utils$lLength(clientKeyColorDictAsList)));
+				};
+				return author$project$Utils$Utils$tConcat(
+					_List_fromArray(
+						[
+							A3(
+							author$project$Utils$Utils$encodeInt,
+							0,
+							16777216,
+							author$project$Utils$Utils$lLength(clientKeyColorDictAsList)),
+							author$project$Utils$Utils$pFst(
+							encodeclientKeyColorDictAsList(clientKeyColorDictAsList))
+						]));
+			}();
+			return author$project$Utils$Utils$tConcat(
+				_List_fromArray(
+					['TInfoUpdating\u0000', clientKeyColorDictAsListTxt, '\u0000', playerCounterTxt]));
 	}
 };
 var author$project$MyKeyboardNet$Static$Encode$encodeTransition = function (trans) {
@@ -8924,6 +9284,10 @@ var author$project$MyKeyboardNet$Static$Types$BoardKeyUnpressed = F3(
 	function (a, b, c) {
 		return {$: 'BoardKeyUnpressed', a: a, b: b, c: c};
 	});
+var author$project$MyKeyboardNet$Static$Types$InfoUpdated = F2(
+	function (a, b) {
+		return {$: 'InfoUpdated', a: a, b: b};
+	});
 var author$project$MyKeyboardNet$Static$Types$MadeKeyDark = function (a) {
 	return {$: 'MadeKeyDark', a: a};
 };
@@ -8955,92 +9319,276 @@ var author$project$MyKeyboardNet$Update$updateKeyboardBoardKeyUnpressedKeyboard 
 		var cKSD = _n1.a;
 		var mC = _n1.b;
 		var cKCD = _n1.c;
-		var keyboard = A3(author$project$MyKeyboardNet$Static$Types$Keyboard, cKSD, mC, clientKeyColorDict);
+		var playerCounter = _n1.d;
+		var keyboard = A4(author$project$MyKeyboardNet$Static$Types$Keyboard, cKSD, mC, clientKeyColorDict, playerCounter);
+		var checkState = function () {
+			var _n3 = A2(elm$core$Dict$get, myKeyInt, cKSD);
+			if (_n3.$ === 'Just') {
+				var myBool = _n3.a;
+				return !myBool;
+			} else {
+				return !true;
+			}
+		}();
 		switch (myKeyInt) {
 			case 0:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/q.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a49.mp3'));
 			case 1:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/w.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a50.mp3'));
 			case 2:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/e.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a51.mp3'));
 			case 3:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/r.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a52.mp3'));
 			case 4:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/t.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a53.mp3'));
 			case 5:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/y.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a54.mp3'));
 			case 6:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/u.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a55.mp3'));
 			case 7:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/i.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a56.mp3'));
 			case 8:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/o.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a57.mp3'));
 			case 9:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/p.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a48.mp3'));
 			case 10:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/a.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a81.mp3'));
 			case 11:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/s.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a87.mp3'));
 			case 12:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/qup2.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a69.mp3'));
 			case 13:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/wup3.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a82.mp3'));
 			case 14:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/eup4.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a84.mp3'));
 			case 15:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/tup6.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a89.mp3'));
 			case 16:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/yup7.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a85.mp3'));
 			case 17:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/iup9.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a73.mp3'));
 			case 18:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/oup0.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a79.mp3'));
 			case 19:
 				return _Utils_Tuple2(
 					keyboard,
-					author$project$MyKeyboardNet$Sounds$playSound('./notes/pup-.mp3'));
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a80.mp3'));
+			case 20:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a65.mp3'));
+			case 21:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a83.mp3'));
+			case 22:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a68.mp3'));
+			case 23:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a70.mp3'));
+			case 24:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a71.mp3'));
+			case 25:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a72.mp3'));
+			case 26:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a74.mp3'));
+			case 27:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a75.mp3'));
+			case 28:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a76.mp3'));
+			case 29:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a90.mp3'));
+			case 30:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a88.mp3'));
+			case 31:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a67.mp3'));
+			case 32:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a86.mp3'));
+			case 33:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a66.mp3'));
+			case 34:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a78.mp3'));
+			case 35:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/a77.mp3'));
+			case 36:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b49.mp3'));
+			case 37:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b50.mp3'));
+			case 38:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b52.mp3'));
+			case 39:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b53.mp3'));
+			case 40:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b54.mp3'));
+			case 41:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b56.mp3'));
+			case 42:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b57.mp3'));
+			case 43:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b81.mp3'));
+			case 44:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b87.mp3'));
+			case 45:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b69.mp3'));
+			case 46:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b84.mp3'));
+			case 47:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b89.mp3'));
+			case 48:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b73.mp3'));
+			case 49:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b79.mp3'));
+			case 50:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b80.mp3'));
+			case 51:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b83.mp3'));
+			case 52:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b68.mp3'));
+			case 53:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b71.mp3'));
+			case 54:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b72.mp3'));
+			case 55:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b74.mp3'));
+			case 56:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b76.mp3'));
+			case 57:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b90.mp3'));
+			case 58:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b67.mp3'));
+			case 59:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b86.mp3'));
+			case 60:
+				return _Utils_Tuple2(
+					keyboard,
+					checkState ? elm$core$Platform$Cmd$none : author$project$MyKeyboardNet$Sounds$playSound('./piano/b66.mp3'));
 			default:
 				var otherwise = myKeyInt;
 				return _Utils_Tuple2(keyboard, elm$core$Platform$Cmd$none);
 		}
+	});
+var author$project$MyKeyboardNet$Update$updateKeyboardInfoUpdatedKeyboard = F3(
+	function (fsp, _n0, _n1) {
+		var cKCD = _n0.a;
+		var pC = _n0.b;
+		var clientKeyStateDict = _n1.a;
+		var someCol = _n1.b;
+		var a = _n1.c;
+		var b = _n1.d;
+		return A4(author$project$MyKeyboardNet$Static$Types$Keyboard, clientKeyStateDict, someCol, cKCD, pC);
 	});
 var elm$core$Dict$update = F3(
 	function (targetKey, alter, dictionary) {
@@ -9059,6 +9607,7 @@ var author$project$MyKeyboardNet$Update$updateKeyboardMadeKeyDarkKeyboard = F3(
 		var clientKeyStateDict = _n1.a;
 		var myColor = _n1.b;
 		var clientKeyColorDict = _n1.c;
+		var playerCounter = _n1.d;
 		var myDarkFunc = function (someBool) {
 			if ((someBool.$ === 'Just') && (!someBool.a)) {
 				return elm$core$Maybe$Just(true);
@@ -9068,7 +9617,7 @@ var author$project$MyKeyboardNet$Update$updateKeyboardMadeKeyDarkKeyboard = F3(
 			}
 		};
 		var myDict = A3(elm$core$Dict$update, myKeyInt, myDarkFunc, clientKeyStateDict);
-		return A3(author$project$MyKeyboardNet$Static$Types$Keyboard, myDict, myColor, clientKeyColorDict);
+		return A4(author$project$MyKeyboardNet$Static$Types$Keyboard, myDict, myColor, clientKeyColorDict, playerCounter);
 	});
 var author$project$MyKeyboardNet$Update$updateKeyboardMadeKeyLightKeyboard = F3(
 	function (fsp, _n0, _n1) {
@@ -9076,6 +9625,7 @@ var author$project$MyKeyboardNet$Update$updateKeyboardMadeKeyLightKeyboard = F3(
 		var clientKeyStateDict = _n1.a;
 		var myColor = _n1.b;
 		var cKCD = _n1.c;
+		var playerCounter = _n1.d;
 		var myLightFunc = function (someBool) {
 			if ((someBool.$ === 'Just') && someBool.a) {
 				return elm$core$Maybe$Just(false);
@@ -9085,7 +9635,7 @@ var author$project$MyKeyboardNet$Update$updateKeyboardMadeKeyLightKeyboard = F3(
 			}
 		};
 		var myDict = A3(elm$core$Dict$update, myKeyInt, myLightFunc, clientKeyStateDict);
-		return A3(author$project$MyKeyboardNet$Static$Types$Keyboard, myDict, myColor, cKCD);
+		return A4(author$project$MyKeyboardNet$Static$Types$Keyboard, myDict, myColor, cKCD, playerCounter);
 	});
 var elm$random$Random$Generate = function (a) {
 	return {$: 'Generate', a: a};
@@ -9239,7 +9789,8 @@ var author$project$MyKeyboardNet$Update$updateRandomColorNumberKeyboard = F3(
 		var clientKeyStateDict = _n1.a;
 		var someCol = _n1.b;
 		var cKCD = _n1.c;
-		return A3(author$project$MyKeyboardNet$Static$Types$Keyboard, clientKeyStateDict, myColor, cKCD);
+		var playerCounter = _n1.d;
+		return A4(author$project$MyKeyboardNet$Static$Types$Keyboard, clientKeyStateDict, myColor, cKCD, playerCounter);
 	});
 var author$project$MyKeyboardNet$Static$Update$update = F3(
 	function (fsp, trans, state) {
@@ -9304,7 +9855,7 @@ var author$project$MyKeyboardNet$Static$Update$update = F3(
 							author$project$MyKeyboardNet$Static$Types$RandomColorNumber(myColor),
 							st)),
 					elm$core$Platform$Cmd$none);
-			default:
+			case 'MRandomNumRolled':
 				var _n4 = _n0.a;
 				var st = _n0.b.a;
 				var _n5 = A3(author$project$MyKeyboardNet$Update$updateKeyboardRandomNumRolledKeyboard, fsp, author$project$MyKeyboardNet$Static$Types$RandomNumRolled, st);
@@ -9316,6 +9867,19 @@ var author$project$MyKeyboardNet$Static$Update$update = F3(
 						elm$core$Platform$Cmd$map,
 						A2(elm$core$Basics$composeL, author$project$MyKeyboardNet$Static$Types$Internal, author$project$MyKeyboardNet$Static$Wrappers$unwrapRandomColorNumber),
 						cmd));
+			default:
+				var _n6 = _n0.a;
+				var clientKeyColorDict = _n6.a;
+				var playerCounter = _n6.b;
+				var st = _n0.b.a;
+				return _Utils_Tuple2(
+					author$project$MyKeyboardNet$Static$Types$SKeyboard(
+						A3(
+							author$project$MyKeyboardNet$Update$updateKeyboardInfoUpdatedKeyboard,
+							fsp,
+							A2(author$project$MyKeyboardNet$Static$Types$InfoUpdated, clientKeyColorDict, playerCounter),
+							st)),
+					elm$core$Platform$Cmd$none);
 		}
 	});
 var author$project$Static$Update$update = F3(
@@ -9998,7 +10562,7 @@ var author$project$Main$alert = function (model) {
 	}
 };
 var author$project$MyKeyboardNet$View$Keyboard$title = function (keyboard) {
-	return 'Realtime Keyboard';
+	return 'Piano RT';
 };
 var author$project$MyKeyboardNet$Static$View$title = function (ns) {
 	var m = ns.a;
@@ -10651,6 +11215,48 @@ var MacCASOutreach$graphicsvg$GraphicSVG$addOutline = F3(
 			}
 		}
 	});
+var MacCASOutreach$graphicsvg$GraphicSVG$Custom = function (a) {
+	return {$: 'Custom', a: a};
+};
+var MacCASOutreach$graphicsvg$GraphicSVG$Face = F8(
+	function (a, b, c, d, e, f, g, h) {
+		return {$: 'Face', a: a, b: b, c: c, d: d, e: e, f: f, g: g, h: h};
+	});
+var MacCASOutreach$graphicsvg$GraphicSVG$Text = F2(
+	function (a, b) {
+		return {$: 'Text', a: a, b: b};
+	});
+var MacCASOutreach$graphicsvg$GraphicSVG$customFont = F2(
+	function (fStr, stencil) {
+		if (stencil.$ === 'Text') {
+			var _n1 = stencil.a;
+			var si = _n1.a;
+			var bo = _n1.b;
+			var i = _n1.c;
+			var u = _n1.d;
+			var s = _n1.e;
+			var sel = _n1.f;
+			var f = _n1.g;
+			var c = _n1.h;
+			var str = stencil.b;
+			return A2(
+				MacCASOutreach$graphicsvg$GraphicSVG$Text,
+				A8(
+					MacCASOutreach$graphicsvg$GraphicSVG$Face,
+					si,
+					bo,
+					i,
+					u,
+					s,
+					sel,
+					MacCASOutreach$graphicsvg$GraphicSVG$Custom(fStr),
+					c),
+				str);
+		} else {
+			var a = stencil;
+			return a;
+		}
+	});
 var MacCASOutreach$graphicsvg$GraphicSVG$filled = F2(
 	function (color, stencil) {
 		return A3(
@@ -10659,9 +11265,26 @@ var MacCASOutreach$graphicsvg$GraphicSVG$filled = F2(
 			elm$core$Maybe$Nothing,
 			stencil);
 	});
+var MacCASOutreach$graphicsvg$GraphicSVG$group = function (shapes) {
+	return MacCASOutreach$graphicsvg$GraphicSVG$Group(shapes);
+};
+var MacCASOutreach$graphicsvg$GraphicSVG$hotPink = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 255, 0, 66, 1);
+var MacCASOutreach$graphicsvg$GraphicSVG$lightGreen = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 138, 226, 52, 1);
 var MacCASOutreach$graphicsvg$GraphicSVG$move = F2(
 	function (disp, shape) {
 		return A2(MacCASOutreach$graphicsvg$GraphicSVG$Move, disp, shape);
+	});
+var MacCASOutreach$graphicsvg$GraphicSVG$outlined = F3(
+	function (style, outlineClr, stencil) {
+		var lineStyle = function () {
+			if (style.$ === 'NoLine') {
+				return elm$core$Maybe$Nothing;
+			} else {
+				return elm$core$Maybe$Just(
+					_Utils_Tuple2(style, outlineClr));
+			}
+		}();
+		return A3(MacCASOutreach$graphicsvg$GraphicSVG$Inked, elm$core$Maybe$Nothing, lineStyle, stencil);
 	});
 var MacCASOutreach$graphicsvg$GraphicSVG$ssc = function (n) {
 	return A3(elm$core$Basics$clamp, 0, 255, n);
@@ -10683,11 +11306,48 @@ var MacCASOutreach$graphicsvg$GraphicSVG$roundedRect = F3(
 	function (w, h, r) {
 		return A3(MacCASOutreach$graphicsvg$GraphicSVG$RoundRect, w, h, r);
 	});
+var MacCASOutreach$graphicsvg$GraphicSVG$size = F2(
+	function (sze, stencil) {
+		if (stencil.$ === 'Text') {
+			var _n1 = stencil.a;
+			var si = _n1.a;
+			var bo = _n1.b;
+			var i = _n1.c;
+			var u = _n1.d;
+			var s = _n1.e;
+			var sel = _n1.f;
+			var f = _n1.g;
+			var c = _n1.h;
+			var str = stencil.b;
+			return A2(
+				MacCASOutreach$graphicsvg$GraphicSVG$Text,
+				A8(MacCASOutreach$graphicsvg$GraphicSVG$Face, sze, bo, i, u, s, sel, f, c),
+				str);
+		} else {
+			var a = stencil;
+			return a;
+		}
+	});
 var MacCASOutreach$graphicsvg$GraphicSVG$Solid = function (a) {
 	return {$: 'Solid', a: a};
 };
 var MacCASOutreach$graphicsvg$GraphicSVG$solid = function (th) {
 	return MacCASOutreach$graphicsvg$GraphicSVG$Solid(th);
+};
+var MacCASOutreach$graphicsvg$GraphicSVG$Rect = F2(
+	function (a, b) {
+		return {$: 'Rect', a: a, b: b};
+	});
+var MacCASOutreach$graphicsvg$GraphicSVG$square = function (r) {
+	return A2(MacCASOutreach$graphicsvg$GraphicSVG$Rect, r, r);
+};
+var MacCASOutreach$graphicsvg$GraphicSVG$AlignLeft = {$: 'AlignLeft'};
+var MacCASOutreach$graphicsvg$GraphicSVG$Serif = {$: 'Serif'};
+var MacCASOutreach$graphicsvg$GraphicSVG$text = function (str) {
+	return A2(
+		MacCASOutreach$graphicsvg$GraphicSVG$Text,
+		A8(MacCASOutreach$graphicsvg$GraphicSVG$Face, 12, false, false, false, false, false, MacCASOutreach$graphicsvg$GraphicSVG$Serif, MacCASOutreach$graphicsvg$GraphicSVG$AlignLeft),
+		str);
 };
 var elm$core$String$fromFloat = _String_fromNumber;
 var MacCASOutreach$graphicsvg$GraphicSVG$pairToString = function (_n0) {
@@ -10710,10 +11370,6 @@ var MacCASOutreach$graphicsvg$GraphicSVG$createBezierString = F2(
 	function (first, list) {
 		return 'M ' + (MacCASOutreach$graphicsvg$GraphicSVG$pairToString(first) + elm$core$String$concat(
 			A2(elm$core$List$map, MacCASOutreach$graphicsvg$GraphicSVG$bezierStringHelper, list)));
-	});
-var MacCASOutreach$graphicsvg$GraphicSVG$Rect = F2(
-	function (a, b) {
-		return {$: 'Rect', a: a, b: b};
 	});
 var MacCASOutreach$graphicsvg$GraphicSVG$rect = F2(
 	function (w, h) {
@@ -10739,9 +11395,6 @@ var MacCASOutreach$graphicsvg$GraphicSVG$createGraphY = F5(
 				c,
 				A2(MacCASOutreach$graphicsvg$GraphicSVG$rect, w, th)));
 	});
-var MacCASOutreach$graphicsvg$GraphicSVG$group = function (shapes) {
-	return MacCASOutreach$graphicsvg$GraphicSVG$Group(shapes);
-};
 var MacCASOutreach$graphicsvg$GraphicSVG$createGraph = F4(
 	function (_n0, s, th, c) {
 		var w = _n0.a;
@@ -12125,6 +12778,135 @@ var MacCASOutreach$graphicsvg$GraphicSVG$Widget$icon = F4(
 							shapes))
 					])));
 	});
+var author$project$MyKeyboardNet$Keys$fromInt = function (num) {
+	switch (num) {
+		case 0:
+			return '1';
+		case 1:
+			return '2';
+		case 2:
+			return '3';
+		case 3:
+			return '4';
+		case 4:
+			return '5';
+		case 5:
+			return '6';
+		case 6:
+			return '7';
+		case 7:
+			return '8';
+		case 8:
+			return '9';
+		case 9:
+			return '0';
+		case 10:
+			return 'q';
+		case 11:
+			return 'w';
+		case 12:
+			return 'e';
+		case 13:
+			return 'r';
+		case 14:
+			return 't';
+		case 15:
+			return 'y';
+		case 16:
+			return 'u';
+		case 17:
+			return 'i';
+		case 18:
+			return 'o';
+		case 19:
+			return 'p';
+		case 20:
+			return 'a';
+		case 21:
+			return 's';
+		case 22:
+			return 'd';
+		case 23:
+			return 'f';
+		case 24:
+			return 'g';
+		case 25:
+			return 'h';
+		case 26:
+			return 'j';
+		case 27:
+			return 'k';
+		case 28:
+			return 'l';
+		case 29:
+			return 'z';
+		case 30:
+			return 'x';
+		case 31:
+			return 'c';
+		case 32:
+			return 'v';
+		case 33:
+			return 'b';
+		case 34:
+			return 'n';
+		case 35:
+			return 'm';
+		case 36:
+			return '!';
+		case 37:
+			return '@';
+		case 38:
+			return '$';
+		case 39:
+			return '%';
+		case 40:
+			return '^';
+		case 41:
+			return '&';
+		case 42:
+			return '*';
+		case 43:
+			return 'Q';
+		case 44:
+			return 'W';
+		case 45:
+			return 'E';
+		case 46:
+			return 'T';
+		case 47:
+			return 'Y';
+		case 48:
+			return 'I';
+		case 49:
+			return 'O';
+		case 50:
+			return 'P';
+		case 51:
+			return 'S';
+		case 52:
+			return 'D';
+		case 53:
+			return 'G';
+		case 54:
+			return 'H';
+		case 55:
+			return 'J';
+		case 56:
+			return 'L';
+		case 57:
+			return 'Z';
+		case 58:
+			return 'C';
+		case 59:
+			return 'V';
+		case 60:
+			return 'B';
+		default:
+			var otherwise = num;
+			return 'this shouldn\'t be here';
+	}
+};
 var author$project$MyKeyboardNet$Static$Types$Keyboard$RollRandomNum = {$: 'RollRandomNum'};
 var MacCASOutreach$graphicsvg$GraphicSVG$blue = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 52, 101, 164, 1);
 var MacCASOutreach$graphicsvg$GraphicSVG$brown = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 193, 125, 17, 1);
@@ -12142,12 +12924,10 @@ var MacCASOutreach$graphicsvg$GraphicSVG$darkYellow = A4(MacCASOutreach$graphics
 var MacCASOutreach$graphicsvg$GraphicSVG$gray = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 211, 215, 207, 1);
 var MacCASOutreach$graphicsvg$GraphicSVG$green = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 115, 210, 22, 1);
 var MacCASOutreach$graphicsvg$GraphicSVG$grey = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 211, 215, 207, 1);
-var MacCASOutreach$graphicsvg$GraphicSVG$hotPink = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 255, 0, 66, 1);
 var MacCASOutreach$graphicsvg$GraphicSVG$lightBlue = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 114, 159, 207, 1);
 var MacCASOutreach$graphicsvg$GraphicSVG$lightBrown = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 233, 185, 110, 1);
 var MacCASOutreach$graphicsvg$GraphicSVG$lightCharcoal = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 136, 138, 133, 1);
 var MacCASOutreach$graphicsvg$GraphicSVG$lightGray = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 238, 238, 236, 1);
-var MacCASOutreach$graphicsvg$GraphicSVG$lightGreen = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 138, 226, 52, 1);
 var MacCASOutreach$graphicsvg$GraphicSVG$lightGrey = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 238, 238, 236, 1);
 var MacCASOutreach$graphicsvg$GraphicSVG$lightOrange = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 252, 175, 62, 1);
 var MacCASOutreach$graphicsvg$GraphicSVG$lightPurple = A4(MacCASOutreach$graphicsvg$GraphicSVG$RGBA, 173, 127, 168, 1);
@@ -12234,6 +13014,7 @@ var elm$core$Array$get = F2(
 			A2(elm$core$Elm$JsArray$unsafeGet, elm$core$Array$bitMask & index, tail)) : elm$core$Maybe$Just(
 			A3(elm$core$Array$getHelp, startShift, index, tree)));
 	});
+var elm$core$Debug$toString = _Debug_toString;
 var elm$core$Dict$map = F2(
 	function (func, dict) {
 		if (dict.$ === 'RBEmpty_elm_builtin') {
@@ -12263,6 +13044,10 @@ var elm$core$Dict$values = function (dict) {
 		_List_Nil,
 		dict);
 };
+var elm$core$Tuple$pair = F2(
+	function (a, b) {
+		return _Utils_Tuple2(a, b);
+	});
 var rundis$elm_bootstrap$Bootstrap$Internal$Button$Attrs = function (a) {
 	return {$: 'Attrs', a: a};
 };
@@ -12409,165 +13194,385 @@ var author$project$MyKeyboardNet$View$Keyboard$view = function (_n0) {
 	var myDict = _n0.a;
 	var myColor = _n0.b;
 	var clientKeyColorDict = _n0.c;
+	var pC = _n0.d;
 	var someCol = 'moccasin';
-	var myColPicker = function (idx) {
-		var _n3 = A2(elm$core$Dict$get, idx, clientKeyColorDict);
-		if (_n3.$ === 'Just') {
-			var a = _n3.a;
+	var personalCol = function (idx) {
+		var _n7 = A2(
+			elm$core$Array$get,
+			idx,
+			elm$core$Array$fromList(author$project$MyKeyboardNet$View$Keyboard$myColList));
+		if (_n7.$ === 'Just') {
+			var a = _n7.a;
 			return a;
 		} else {
-			var otherwise = _n3;
+			var otherwise = _n7;
+			return MacCASOutreach$graphicsvg$GraphicSVG$black;
+		}
+	};
+	var myColTupList = A2(elm$core$List$indexedMap, elm$core$Tuple$pair, author$project$MyKeyboardNet$View$Keyboard$myColList);
+	var myColPicker = function (idx) {
+		var _n6 = A2(elm$core$Dict$get, idx, clientKeyColorDict);
+		if (_n6.$ === 'Just') {
+			var a = _n6.a;
+			return a;
+		} else {
+			var otherwise = _n6;
 			return 0;
 		}
 	};
 	var myCol = function (idx) {
-		var _n2 = A2(
+		var _n5 = A2(
 			elm$core$Array$get,
 			myColPicker(idx),
 			elm$core$Array$fromList(author$project$MyKeyboardNet$View$Keyboard$myColList));
-		if (_n2.$ === 'Just') {
-			var a = _n2.a;
+		if (_n5.$ === 'Just') {
+			var a = _n5.a;
 			return a;
 		} else {
-			var otherwise = _n2;
+			var otherwise = _n5;
 			return MacCASOutreach$graphicsvg$GraphicSVG$black;
 		}
 	};
+	var divModFive = function (intNum) {
+		return _Utils_Tuple2((intNum / 5) | 0, intNum - (5 * ((intNum / 5) | 0)));
+	};
+	var drawBlackKeys = F2(
+		function (idx, state) {
+			var _n3 = divModFive(idx);
+			var quotient = _n3.a;
+			var remainder = _n3.b;
+			switch (remainder) {
+				case 1:
+					return MacCASOutreach$graphicsvg$GraphicSVG$group(
+						_List_fromArray(
+							[
+								A2(
+								MacCASOutreach$graphicsvg$GraphicSVG$move,
+								_Utils_Tuple2(((-170) + 5) + (70 * (quotient - 7)), 10),
+								A2(
+									MacCASOutreach$graphicsvg$GraphicSVG$filled,
+									state ? myCol(idx) : MacCASOutreach$graphicsvg$GraphicSVG$black,
+									A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 5, 40, 0.3))),
+								A2(
+								MacCASOutreach$graphicsvg$GraphicSVG$move,
+								_Utils_Tuple2(((-171) + 5) + (70 * (quotient - 7)), -5),
+								A2(
+									MacCASOutreach$graphicsvg$GraphicSVG$filled,
+									A3(MacCASOutreach$graphicsvg$GraphicSVG$rgb, 255, 255, 255),
+									A2(
+										MacCASOutreach$graphicsvg$GraphicSVG$size,
+										4,
+										MacCASOutreach$graphicsvg$GraphicSVG$text(
+											author$project$MyKeyboardNet$Keys$fromInt(idx)))))
+							]));
+				case 2:
+					return MacCASOutreach$graphicsvg$GraphicSVG$group(
+						_List_fromArray(
+							[
+								A2(
+								MacCASOutreach$graphicsvg$GraphicSVG$move,
+								_Utils_Tuple2(((-170) + 15) + (70 * (quotient - 7)), 10),
+								A2(
+									MacCASOutreach$graphicsvg$GraphicSVG$filled,
+									state ? myCol(idx) : MacCASOutreach$graphicsvg$GraphicSVG$black,
+									A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 5, 40, 0.3))),
+								A2(
+								MacCASOutreach$graphicsvg$GraphicSVG$move,
+								_Utils_Tuple2(((-171) + 15) + (70 * (quotient - 7)), -5),
+								A2(
+									MacCASOutreach$graphicsvg$GraphicSVG$filled,
+									A3(MacCASOutreach$graphicsvg$GraphicSVG$rgb, 255, 255, 255),
+									A2(
+										MacCASOutreach$graphicsvg$GraphicSVG$size,
+										4,
+										MacCASOutreach$graphicsvg$GraphicSVG$text(
+											author$project$MyKeyboardNet$Keys$fromInt(idx)))))
+							]));
+				case 3:
+					return MacCASOutreach$graphicsvg$GraphicSVG$group(
+						_List_fromArray(
+							[
+								A2(
+								MacCASOutreach$graphicsvg$GraphicSVG$move,
+								_Utils_Tuple2(((-170) + 35) + (70 * (quotient - 7)), 10),
+								A2(
+									MacCASOutreach$graphicsvg$GraphicSVG$filled,
+									state ? myCol(idx) : MacCASOutreach$graphicsvg$GraphicSVG$black,
+									A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 5, 40, 0.3))),
+								A2(
+								MacCASOutreach$graphicsvg$GraphicSVG$move,
+								_Utils_Tuple2(((-171) + 35) + (70 * (quotient - 7)), -5),
+								A2(
+									MacCASOutreach$graphicsvg$GraphicSVG$filled,
+									A3(MacCASOutreach$graphicsvg$GraphicSVG$rgb, 255, 255, 255),
+									A2(
+										MacCASOutreach$graphicsvg$GraphicSVG$size,
+										4,
+										MacCASOutreach$graphicsvg$GraphicSVG$text(
+											author$project$MyKeyboardNet$Keys$fromInt(idx)))))
+							]));
+				case 4:
+					return MacCASOutreach$graphicsvg$GraphicSVG$group(
+						_List_fromArray(
+							[
+								A2(
+								MacCASOutreach$graphicsvg$GraphicSVG$move,
+								_Utils_Tuple2(((-170) + 45) + (70 * (quotient - 7)), 10),
+								A2(
+									MacCASOutreach$graphicsvg$GraphicSVG$filled,
+									state ? myCol(idx) : MacCASOutreach$graphicsvg$GraphicSVG$black,
+									A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 5, 40, 0.3))),
+								A2(
+								MacCASOutreach$graphicsvg$GraphicSVG$move,
+								_Utils_Tuple2(((-171) + 45) + (70 * (quotient - 7)), -5),
+								A2(
+									MacCASOutreach$graphicsvg$GraphicSVG$filled,
+									A3(MacCASOutreach$graphicsvg$GraphicSVG$rgb, 255, 255, 255),
+									A2(
+										MacCASOutreach$graphicsvg$GraphicSVG$size,
+										4,
+										MacCASOutreach$graphicsvg$GraphicSVG$text(
+											author$project$MyKeyboardNet$Keys$fromInt(idx)))))
+							]));
+				case 0:
+					return MacCASOutreach$graphicsvg$GraphicSVG$group(
+						_List_fromArray(
+							[
+								A2(
+								MacCASOutreach$graphicsvg$GraphicSVG$move,
+								_Utils_Tuple2(((-170) + 55) + (70 * (quotient - 7)), 10),
+								A2(
+									MacCASOutreach$graphicsvg$GraphicSVG$filled,
+									state ? myCol(idx) : MacCASOutreach$graphicsvg$GraphicSVG$black,
+									A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 5, 40, 0.3))),
+								A2(
+								MacCASOutreach$graphicsvg$GraphicSVG$move,
+								_Utils_Tuple2(((-171) + 55) + (70 * (quotient - 7)), -5),
+								A2(
+									MacCASOutreach$graphicsvg$GraphicSVG$filled,
+									A3(MacCASOutreach$graphicsvg$GraphicSVG$rgb, 255, 255, 255),
+									A2(
+										MacCASOutreach$graphicsvg$GraphicSVG$size,
+										4,
+										MacCASOutreach$graphicsvg$GraphicSVG$text(
+											author$project$MyKeyboardNet$Keys$fromInt(idx)))))
+							]));
+				default:
+					var otherwise = remainder;
+					return A2(
+						MacCASOutreach$graphicsvg$GraphicSVG$move,
+						_Utils_Tuple2(0, 0),
+						A2(
+							MacCASOutreach$graphicsvg$GraphicSVG$filled,
+							state ? MacCASOutreach$graphicsvg$GraphicSVG$hotPink : MacCASOutreach$graphicsvg$GraphicSVG$hotPink,
+							A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 25, 25, 0.3)));
+			}
+		});
 	var drawFunc = F2(
 		function (idx, state) {
 			switch (idx) {
-				case 12:
-					return A2(
-						MacCASOutreach$graphicsvg$GraphicSVG$move,
-						_Utils_Tuple2((-120) + 10, 12.5),
-						A2(
-							MacCASOutreach$graphicsvg$GraphicSVG$filled,
-							state ? myCol(idx) : MacCASOutreach$graphicsvg$GraphicSVG$black,
-							A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 10, 45, 1)));
-				case 13:
-					return A2(
-						MacCASOutreach$graphicsvg$GraphicSVG$move,
-						_Utils_Tuple2((-120) + 30, 12.5),
-						A2(
-							MacCASOutreach$graphicsvg$GraphicSVG$filled,
-							state ? myCol(idx) : MacCASOutreach$graphicsvg$GraphicSVG$black,
-							A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 10, 45, 1)));
-				case 14:
-					return A2(
-						MacCASOutreach$graphicsvg$GraphicSVG$move,
-						_Utils_Tuple2((-120) + 50, 12.5),
-						A2(
-							MacCASOutreach$graphicsvg$GraphicSVG$filled,
-							state ? myCol(idx) : MacCASOutreach$graphicsvg$GraphicSVG$black,
-							A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 10, 45, 1)));
-				case 15:
-					return A2(
-						MacCASOutreach$graphicsvg$GraphicSVG$move,
-						_Utils_Tuple2((-120) + 90, 12.5),
-						A2(
-							MacCASOutreach$graphicsvg$GraphicSVG$filled,
-							state ? myCol(idx) : MacCASOutreach$graphicsvg$GraphicSVG$black,
-							A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 10, 45, 1)));
-				case 16:
-					return A2(
-						MacCASOutreach$graphicsvg$GraphicSVG$move,
-						_Utils_Tuple2((-120) + 110, 12.5),
-						A2(
-							MacCASOutreach$graphicsvg$GraphicSVG$filled,
-							state ? myCol(idx) : MacCASOutreach$graphicsvg$GraphicSVG$black,
-							A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 10, 45, 1)));
-				case 17:
-					return A2(
-						MacCASOutreach$graphicsvg$GraphicSVG$move,
-						_Utils_Tuple2((-120) + 150, 12.5),
-						A2(
-							MacCASOutreach$graphicsvg$GraphicSVG$filled,
-							state ? myCol(idx) : MacCASOutreach$graphicsvg$GraphicSVG$black,
-							A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 10, 45, 1)));
-				case 18:
-					return A2(
-						MacCASOutreach$graphicsvg$GraphicSVG$move,
-						_Utils_Tuple2((-120) + 170, 12.5),
-						A2(
-							MacCASOutreach$graphicsvg$GraphicSVG$filled,
-							state ? myCol(idx) : MacCASOutreach$graphicsvg$GraphicSVG$black,
-							A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 10, 45, 1)));
-				case 19:
-					return A2(
-						MacCASOutreach$graphicsvg$GraphicSVG$move,
-						_Utils_Tuple2((-120) + 190, 12.5),
-						A2(
-							MacCASOutreach$graphicsvg$GraphicSVG$filled,
-							state ? myCol(idx) : MacCASOutreach$graphicsvg$GraphicSVG$black,
-							A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 10, 45, 1)));
+				case 36:
+					return A2(drawBlackKeys, idx, state);
+				case 37:
+					return A2(drawBlackKeys, idx, state);
+				case 38:
+					return A2(drawBlackKeys, idx, state);
+				case 39:
+					return A2(drawBlackKeys, idx, state);
+				case 40:
+					return A2(drawBlackKeys, idx, state);
+				case 41:
+					return A2(drawBlackKeys, idx, state);
+				case 42:
+					return A2(drawBlackKeys, idx, state);
+				case 43:
+					return A2(drawBlackKeys, idx, state);
+				case 44:
+					return A2(drawBlackKeys, idx, state);
+				case 45:
+					return A2(drawBlackKeys, idx, state);
+				case 46:
+					return A2(drawBlackKeys, idx, state);
+				case 47:
+					return A2(drawBlackKeys, idx, state);
+				case 48:
+					return A2(drawBlackKeys, idx, state);
+				case 49:
+					return A2(drawBlackKeys, idx, state);
+				case 50:
+					return A2(drawBlackKeys, idx, state);
+				case 51:
+					return A2(drawBlackKeys, idx, state);
+				case 52:
+					return A2(drawBlackKeys, idx, state);
+				case 53:
+					return A2(drawBlackKeys, idx, state);
+				case 54:
+					return A2(drawBlackKeys, idx, state);
+				case 55:
+					return A2(drawBlackKeys, idx, state);
+				case 56:
+					return A2(drawBlackKeys, idx, state);
+				case 57:
+					return A2(drawBlackKeys, idx, state);
+				case 58:
+					return A2(drawBlackKeys, idx, state);
+				case 59:
+					return A2(drawBlackKeys, idx, state);
+				case 60:
+					return A2(drawBlackKeys, idx, state);
 				default:
 					var otherwise = idx;
-					return A3(
-						MacCASOutreach$graphicsvg$GraphicSVG$addOutline,
-						MacCASOutreach$graphicsvg$GraphicSVG$solid(0.42),
-						MacCASOutreach$graphicsvg$GraphicSVG$black,
-						A2(
-							MacCASOutreach$graphicsvg$GraphicSVG$move,
-							_Utils_Tuple2((-120) + (20 * idx), 0.0),
-							A2(
-								MacCASOutreach$graphicsvg$GraphicSVG$filled,
-								state ? myCol(idx) : A3(MacCASOutreach$graphicsvg$GraphicSVG$rgb, 237, 237, 237),
-								A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 20, 70, 3))));
+					return MacCASOutreach$graphicsvg$GraphicSVG$group(
+						_List_fromArray(
+							[
+								A3(
+								MacCASOutreach$graphicsvg$GraphicSVG$addOutline,
+								MacCASOutreach$graphicsvg$GraphicSVG$solid(0.42),
+								MacCASOutreach$graphicsvg$GraphicSVG$black,
+								A2(
+									MacCASOutreach$graphicsvg$GraphicSVG$move,
+									_Utils_Tuple2((-170) + (10 * idx), 0.0),
+									A2(
+										MacCASOutreach$graphicsvg$GraphicSVG$filled,
+										state ? myCol(idx) : A3(MacCASOutreach$graphicsvg$GraphicSVG$rgb, 237, 237, 237),
+										A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 10, 60, 0.7)))),
+								A2(
+								MacCASOutreach$graphicsvg$GraphicSVG$move,
+								_Utils_Tuple2((-171) + (9.99 * idx), -25),
+								A2(
+									MacCASOutreach$graphicsvg$GraphicSVG$filled,
+									MacCASOutreach$graphicsvg$GraphicSVG$black,
+									A2(
+										MacCASOutreach$graphicsvg$GraphicSVG$size,
+										4,
+										MacCASOutreach$graphicsvg$GraphicSVG$text(
+											author$project$MyKeyboardNet$Keys$fromInt(idx)))))
+							]));
 			}
 		});
-	var myViewFn = A2(
-		elm$html$Html$div,
-		_List_fromArray(
-			[
-				A2(elm$html$Html$Attributes$style, 'background-color', someCol)
-			]),
-		_List_fromArray(
+	var myViewFn = function () {
+		var myList = MacCASOutreach$graphicsvg$GraphicSVG$group(
+			elm$core$Dict$values(
+				A2(elm$core$Dict$map, drawFunc, myDict)));
+		var myView = _List_fromArray(
 			[
 				A2(
-				elm$html$Html$div,
-				_List_fromArray(
-					[
-						A2(elm$html$Html$Attributes$style, 'margin-left', 'auto'),
-						A2(elm$html$Html$Attributes$style, 'margin-right', 'auto'),
-						A2(elm$html$Html$Attributes$style, 'background-color', someCol)
-					]),
-				_List_fromArray(
-					[
-						A4(
-						MacCASOutreach$graphicsvg$GraphicSVG$Widget$icon,
-						'myKeyboard',
-						400,
-						100,
-						elm$core$Dict$values(
-							A2(elm$core$Dict$map, drawFunc, myDict)))
-					])),
-				A2(
-				elm$html$Html$div,
-				_List_fromArray(
-					[
-						A2(elm$html$Html$Attributes$style, 'margin-left', 'auto'),
-						A2(elm$html$Html$Attributes$style, 'margin-right', 'auto'),
-						A2(elm$html$Html$Attributes$style, 'background-color', someCol)
-					]),
-				_List_fromArray(
-					[
+				MacCASOutreach$graphicsvg$GraphicSVG$move,
+				_Utils_Tuple2(-65, 30),
+				A3(
+					MacCASOutreach$graphicsvg$GraphicSVG$addOutline,
+					MacCASOutreach$graphicsvg$GraphicSVG$solid(0.5),
+					MacCASOutreach$graphicsvg$GraphicSVG$black,
+					A2(
+						MacCASOutreach$graphicsvg$GraphicSVG$filled,
+						personalCol(myColor),
 						A2(
-						rundis$elm_bootstrap$Bootstrap$Button$button,
-						_List_fromArray(
-							[
-								rundis$elm_bootstrap$Bootstrap$Button$dark,
-								rundis$elm_bootstrap$Bootstrap$Button$attrs(
-								_List_fromArray(
-									[
-										elm$html$Html$Events$onClick(author$project$MyKeyboardNet$Static$Types$Keyboard$RollRandomNum)
-									]))
-							]),
-						_List_fromArray(
-							[
-								elm$html$Html$text('Randomise Color!!')
-							]))
-					]))
-			]));
+							MacCASOutreach$graphicsvg$GraphicSVG$customFont,
+							'Arial',
+							A2(
+								MacCASOutreach$graphicsvg$GraphicSVG$size,
+								36,
+								MacCASOutreach$graphicsvg$GraphicSVG$text('Piano RT')))))),
+				A2(
+				MacCASOutreach$graphicsvg$GraphicSVG$move,
+				_Utils_Tuple2(-5, -25),
+				myList),
+				A2(
+				MacCASOutreach$graphicsvg$GraphicSVG$move,
+				_Utils_Tuple2(90, 15),
+				A2(
+					MacCASOutreach$graphicsvg$GraphicSVG$filled,
+					MacCASOutreach$graphicsvg$GraphicSVG$black,
+					A2(
+						MacCASOutreach$graphicsvg$GraphicSVG$size,
+						8,
+						MacCASOutreach$graphicsvg$GraphicSVG$text(
+							'Player Counter: ' + elm$core$Debug$toString(pC)))))
+			]);
+		var myHtmlMsg = elm$html$Html$text('Randomise Color!!');
+		var myButton = MacCASOutreach$graphicsvg$GraphicSVG$group(
+			_List_fromArray(
+				[
+					A2(
+					MacCASOutreach$graphicsvg$GraphicSVG$move,
+					_Utils_Tuple2(-15, 0),
+					A2(
+						MacCASOutreach$graphicsvg$GraphicSVG$filled,
+						MacCASOutreach$graphicsvg$GraphicSVG$lightGreen,
+						A2(
+							MacCASOutreach$graphicsvg$GraphicSVG$customFont,
+							'Arial',
+							A2(
+								MacCASOutreach$graphicsvg$GraphicSVG$size,
+								4,
+								MacCASOutreach$graphicsvg$GraphicSVG$text('Randomise Colors!!'))))),
+					A2(
+					MacCASOutreach$graphicsvg$GraphicSVG$move,
+					_Utils_Tuple2(1.42, 1),
+					A3(
+						MacCASOutreach$graphicsvg$GraphicSVG$outlined,
+						MacCASOutreach$graphicsvg$GraphicSVG$solid(0.5),
+						MacCASOutreach$graphicsvg$GraphicSVG$lightGreen,
+						A3(MacCASOutreach$graphicsvg$GraphicSVG$roundedRect, 42, 8, 1)))
+				]));
+		return A2(
+			elm$html$Html$div,
+			_List_fromArray(
+				[
+					A2(elm$html$Html$Attributes$style, 'margin-left', 'auto'),
+					A2(elm$html$Html$Attributes$style, 'margin-right', 'auto'),
+					A2(elm$html$Html$Attributes$style, 'background-color', someCol)
+				]),
+			_List_fromArray(
+				[
+					A4(MacCASOutreach$graphicsvg$GraphicSVG$Widget$icon, 'myKeyboard', 400, 140, myView),
+					A2(
+					elm$html$Html$div,
+					_List_fromArray(
+						[
+							A2(elm$html$Html$Attributes$style, 'width', '8%'),
+							A2(elm$html$Html$Attributes$style, 'margin-left', 'auto'),
+							A2(elm$html$Html$Attributes$style, 'margin-right', 'auto'),
+							A2(elm$html$Html$Attributes$style, 'background-color', someCol)
+						]),
+					_List_fromArray(
+						[
+							A2(
+							rundis$elm_bootstrap$Bootstrap$Button$button,
+							_List_fromArray(
+								[
+									rundis$elm_bootstrap$Bootstrap$Button$dark,
+									rundis$elm_bootstrap$Bootstrap$Button$attrs(
+									_List_fromArray(
+										[
+											elm$html$Html$Events$onClick(author$project$MyKeyboardNet$Static$Types$Keyboard$RollRandomNum)
+										]))
+								]),
+							_List_fromArray(
+								[myHtmlMsg]))
+						])),
+					A2(
+					elm$html$Html$div,
+					_List_fromArray(
+						[
+							A2(elm$html$Html$Attributes$style, 'height', '18%'),
+							A2(elm$html$Html$Attributes$style, 'background-color', someCol)
+						]),
+					_List_Nil)
+				]));
+	}();
+	var colorPicker = function (_n1) {
+		var idx = _n1.a;
+		var col = _n1.b;
+		return A2(
+			MacCASOutreach$graphicsvg$GraphicSVG$move,
+			_Utils_Tuple2(8 * idx, 0),
+			A2(
+				MacCASOutreach$graphicsvg$GraphicSVG$filled,
+				col,
+				MacCASOutreach$graphicsvg$GraphicSVG$square(8)));
+	};
 	return myViewFn;
 };
 var author$project$MyKeyboardNet$Static$View$view = function (ns) {
